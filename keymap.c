@@ -323,18 +323,19 @@ void print_oled_left(void) {
     // oled_write_P(kyria_logo, false);
 }
 
-char alphas_preview = "f('q q w f p b    \ne a r s t g    \nl z x c d v l m\n      t m l m m', '    j l u y q m\n    m n e i o e\nm m k h c d s l\nm b s m t      ')";
-char sym_preview = "f('r e a h d p    \n_ l l l l p    \n_ c c b s q x x\n      x x _ x _', '    c a a u e _\n    g l l l p _\nx x l r r r m _\nx _ _ x t      ')";
-char num_preview = "f('r l 7 8 9 r    \n_ p 4 5 6 p    \n_ _ 1 2 3 p p p\n      x 0 p p x', '    c d p h l _\n    p r r r r _\nx x p p p l g _\n_ _ _ x t      ')";
-char fn_preview = "f('r f f f f f    \n_ f f f f f    \n_ f f f f f x x\n      x x _ x x', '    x x x x x _\n    x r r r r _\n_ x x x x x x _\nx _ _ x t      ')";
-char cosm_preview = "f('r c c c c c    \n_ c c c c c    \n_ c c c c c x _\n      x x _ x x', '    c c c c c _\n    c c c c c _\nx x c c c c c _\nx _ _ x t      ')";
-char nav_preview = "f('q s e f c s    \n_ l l l l p    \n_ m m m l a x x\n      x x _ _ x', '    x h e d i _\n    c l d u r _\nx x x p p t c _\nx _ _ x t      ')";
-char mouse_preview = "f('_ b b b b b    \n_ m m m m l    \n_ w w w w l x x\n      x x x x x', '    a x x x x _\n    a r r r r _\nx x a x x x x _\nx _ _ _ t      ')";
-char lm_preview = "f('_ _ _ _ _ _    \n_ l l l l _    \n_ _ _ _ _ _ _ _\n      _ _ _ l _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ t      ')";
-char rm_preview = "f('_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ l _', '    _ _ _ _ _ _\n    _ r r r r _\n_ _ _ _ _ _ _ _\n_ _ _ _ t      ')";
-char gi_preview = "f('_ 1 2 5 3 4    \nt l q w e f    \ne v a s d t l e\n      t z m s m', '    b w w w w _\n    f b b b t _\nx x x m m m m _\nx x x x t      ')";
-char gi2_preview = "f('l j m u c b    \no l _ _ _ c    \ny p r x l g b b\n      l _ _ _ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\nx x r r r r r _\nx x x x t      ')";
-char kb_preview = "f('_ x x x x x    \n_ x r q x t    \n_ x x x x x x x\n      _ x x x x', '    x x x x x _\n    x x x x x _\nx x x x x x x _\nx x x x t      ')";
+char alphas_preview = "f('🔒 Q W F P B    \n⎋ A R S T G    \n^ Z X C D V ⌘ M\n      T M L M M', '    J L U Y " 🔇\n    M N E I O ↩\nM M K H , . / ⌥\nM ⌫ ␣ M T      ')";
+char sym_preview = "f('R E @ # $ %    \n_ ⌘ ^ ⇧ ⌥ |    \n_ C C \\ / ? X X\n      X X _ X _', '    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ')";
+char num_preview = "f('R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ _ 1 2 3 - * /\n      X 0 . P X', '    ^ $ * # L _\n    + ⌥ ⇧ ^ ⌘ _\nX X - * / < > _\n_ _ _ X T      ')";
+char fn_preview = "f('R ¹ ⁷ ⁸ ⁹ ¹    \n_ ¹ ⁴ ⁵ ⁶ ¹    \n_ ¹ ¹ ² ³ ¹ X X\n      X X _ X X', '    X X X X X _\n    X ⌥ ⇧ ^ ⌘ _\n_ X X X X X X _\nX _ _ X T      ')";
+char cosm_preview = "f('R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X', '    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ')";
+char nav_preview = "f('Q 💤 ⏏ 🔍 C S    \n_ ⌘ ^ ⇧ ⌥ P    \n_ M M M Ð A X X\n      X X _ _ X', '    X ⌂ ≡ D ⇱ _\n    ↻ ← ↓ ↑ R _\nX X X ⇟ ⇞ ⇥ ⇪ _\nX _ _ X T      ')";
+char mouse_preview = "f('_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X', '    A X X X X _\n    A ⌥ ⇧ ^ ⌘ _\nX X A X X X X _\nX _ _ _ T      ')";
+char lm_preview = "f('_ _ _ _ _ _    \n_ ⌘ ^ ⇧ ⌥ _    \n_ _ _ _ _ _ _ _\n      _ _ _ ⇧ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ')";
+char rm_preview = "f('_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ ⇧ _', '    _ _ _ _ _ _\n    _ ⌥ ⇧ ^ ⌘ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ')";
+char gi_preview = "f('_ 1 2 5 3 4    \n⇥ ⇧ Q W E F    \n⎋ V A S D T ⌥ ↩\n      T Z M ␣ M', '    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ')";
+char gi2_preview = "f('⌘ J M U C B    \nO ^ _ _ _ C    \nY P R X L G \\ B\n      Ð _ _ _ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ')";
+char kb_preview = "f('_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X', '    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ')";
+
 
 
 void print_oled_right(void) {
