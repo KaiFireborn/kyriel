@@ -142,10 +142,10 @@ SYMBOL_LOOKUP = {
 }
 
 def translate_symbol(symbol):
-    symbol = symbol.replace("KC_", "").replace("CKC_", "").lower()
+    symbol = symbol.replace("KC_", "").replace("CKC_", "")
     symbol = SYMBOL_LOOKUP.get(symbol, symbol)
     
-    return symbol
+    return symbol[0]
 
 def translate_all_symbols_in_layer(layer):
     for i, row in enumerate(layer):
