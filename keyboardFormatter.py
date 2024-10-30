@@ -1,6 +1,7 @@
 import re
 import pprint
 import pyperclip
+import json
 
 TABULATOR = "\t"
 PADDING_SIZE = 1
@@ -127,11 +128,15 @@ def build_code_again(formatted_layers, layer_names):
     return code
 
 
-def print_layout_previews(layers, layer_names):
-    for i, layer_name in enumerate(layer_names):
-        # print("  Preview for", layer_name)
-        # pprint.pprint(layers[i])
-        pass  # TODO:implement
+def save_layer_data_for_previews(layers, layer_names):
+    data_to_save = {}
+    for i, layer in enumerate(layers):
+        data_to_save[layer_names[i]] = layer
+    
+    with open("layers_data.json", "w+") as outfile:
+        outfile.write(json.dumps(data_to_save))
+    
+
 
 
 def format(code):
@@ -140,7 +145,7 @@ def format(code):
     parsed_layers = [
         parse_layer(layer, layer_names[i]) for i, layer in enumerate(layers)
     ]
-    print_layout_previews(parsed_layers, layer_names)
+    save_layer_data_for_previews(parsed_layers, layer_names)
     formatted_layers = [format_layer(layer) for layer in parsed_layers]
     formatted_code = build_code_again(formatted_layers, layer_names)
 
@@ -201,6 +206,5 @@ if __name__ == "__main__":
         pyperclip.copy(out)
     except Exception as e:
         print(
-            "Failed - are you sure your clipboard contains valid keymap code? (including {})\n"
-            + e
+            "Failed - are you sure your clipboard contains valid keymap code? (including {})\n", str(e)
         )
