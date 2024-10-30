@@ -323,6 +323,20 @@ void print_oled_left(void) {
     // oled_write_P(kyria_logo, false);
 }
 
+char alphas_preview = "f('q q w f p b    \ne a r s t g    \nl z x c d v l m\n      t m l m m', '    j l u y q m\n    m n e i o e\nm m k h c d s l\nm b s m t      ')";
+char sym_preview = "f('r e a h d p    \n_ l l l l p    \n_ c c b s q x x\n      x x _ x _', '    c a a u e _\n    g l l l p _\nx x l r r r m _\nx _ _ x t      ')";
+char num_preview = "f('r l 7 8 9 r    \n_ p 4 5 6 p    \n_ _ 1 2 3 p p p\n      x 0 p p x', '    c d p h l _\n    p r r r r _\nx x p p p l g _\n_ _ _ x t      ')";
+char fn_preview = "f('r f f f f f    \n_ f f f f f    \n_ f f f f f x x\n      x x _ x x', '    x x x x x _\n    x r r r r _\n_ x x x x x x _\nx _ _ x t      ')";
+char cosm_preview = "f('r c c c c c    \n_ c c c c c    \n_ c c c c c x _\n      x x _ x x', '    c c c c c _\n    c c c c c _\nx x c c c c c _\nx _ _ x t      ')";
+char nav_preview = "f('q s e f c s    \n_ l l l l p    \n_ m m m l a x x\n      x x _ _ x', '    x h e d i _\n    c l d u r _\nx x x p p t c _\nx _ _ x t      ')";
+char mouse_preview = "f('_ b b b b b    \n_ m m m m l    \n_ w w w w l x x\n      x x x x x', '    a x x x x _\n    a r r r r _\nx x a x x x x _\nx _ _ _ t      ')";
+char lm_preview = "f('_ _ _ _ _ _    \n_ l l l l _    \n_ _ _ _ _ _ _ _\n      _ _ _ l _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ t      ')";
+char rm_preview = "f('_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ l _', '    _ _ _ _ _ _\n    _ r r r r _\n_ _ _ _ _ _ _ _\n_ _ _ _ t      ')";
+char gi_preview = "f('_ 1 2 5 3 4    \nt l q w e f    \ne v a s d t l e\n      t z m s m', '    b w w w w _\n    f b b b t _\nx x x m m m m _\nx x x x t      ')";
+char gi2_preview = "f('l j m u c b    \no l _ _ _ c    \ny p r x l g b b\n      l _ _ _ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\nx x r r r r r _\nx x x x t      ')";
+char kb_preview = "f('_ x x x x x    \n_ x r q x t    \n_ x x x x x x x\n      _ x x x x', '    x x x x x _\n    x x x x x _\nx x x x x x x _\nx x x x t      ')";
+
+
 void print_oled_right(void) {
     oled_write_P(PSTR("Hello, World! ~Kyriel"), false);
 }
