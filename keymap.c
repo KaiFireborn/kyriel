@@ -107,136 +107,134 @@ enum layers {
 // MO(MOUSE) removed for now
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ALPHAS] = LAYOUT_split_3x6_5(
-		QK_LOCK,       KC_Q,          KC_W,          KC_F,          KC_P,          KC_B,                                                                                     KC_J,          KC_L,          KC_U,          KC_Y,          KC_QUOT,       KC_MUTE,       
+		QK_LOCK,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                                                                                           KC_J,           KC_L,           KC_U,           KC_Y,           KC_QUOT,        KC_MUTE,        
 
-		KC_ESC,        KC_A,          KC_R,          KC_S,          KC_T,          KC_G,                                                                                     KC_M,          KC_N,          KC_E,          KC_I,          KC_O,          KC_ENT,        
+		KC_ESC,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_ENT,         
 
-		KC_LCTL,       KC_Z,          KC_X,          KC_C,          KC_D,          KC_V,          KC_LGUI,       MO(COSM),                     MO(FN),        MO(MOUSE),     KC_K,          KC_H,          KC_COMM,       KC_DOT,        KC_SLSH,       KC_LALT,       
+		KC_LCTL,        KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LGUI,        MO(COSM),                       MO(FN),         MO(MOUSE),      KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_LALT,        
 
-		                                             TG(GI),        MO(LM),        LSFT_T(KC_SPC),MO(NAV),       MO(SYM),                      MO(NUM),       KC_BSPC,       KC_SPC,        MO(RM),        TO(ALPHAS)                                                  
+		                                                TG(GI),         MO(LM),         MO(NAV),        LSFT_T(KC_SPC), MO(SYM),                        MO(NUM),        KC_SPC,         KC_BSPC,        MO(RM),         TO(ALPHAS)                                                      
 
 	),
 
-    [SYM] = LAYOUT_split_3x6_5(
-		RGB_VAI,       KC_EXLM,       KC_AT,         KC_HASH,       KC_DLR,        KC_PERC,                                                                                  KC_CIRC,       KC_AMPR,       KC_ASTR,       KC_UNDS,       KC_EQL,        _______,       
+	[SYM] = LAYOUT_split_3x6_5(
+		RGB_VAI,        KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,                                                                                        KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_UNDS,        KC_EQL,         _______,        
 
-		_______,       KC_LGUI,       KC_LCTL,       KC_LSFT,       KC_LALT,       KC_PIPE,                                                                                  KC_GT,         KC_LCBR,       KC_LPRN,       KC_LBRC,       KC_PLUS,       _______,       
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PIPE,                                                                                        KC_GT,          KC_LCBR,        KC_LPRN,        KC_LBRC,        KC_PLUS,        _______,        
 
-		_______,       CKC_TILD,      CKC_GRV,       KC_BSLS,       KC_SLSH,       KC_QUES,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       XXXXXXX,       KC_LT,         KC_RCBR,       KC_RPRN,       KC_RBRC,       KC_MINS,       _______,       
+		_______,        CKC_TILD,       CKC_GRV,        KC_BSLS,        KC_SLSH,        KC_QUES,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_LT,          KC_RCBR,        KC_RPRN,        KC_RBRC,        KC_MINS,        _______,        
 
-		                                             XXXXXXX,       XXXXXXX,       _______,       XXXXXXX,       _______,                      XXXXXXX,       _______,       _______,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        _______,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[NUM] = LAYOUT_split_3x6_5(
-		RGB_TOG,       KC_LPRN,       KC_7,          KC_8,          KC_9,          KC_RPRN,                                                                                  KC_CIRC,       KC_DLR,        KC_PAST,       KC_HASH,       KC_LNUM,       _______,       
+		RGB_TOG,        KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_RPRN,                                                                                        KC_CIRC,        KC_DLR,         KC_PAST,        KC_HASH,        KC_LNUM,        _______,        
 
-		_______,       KC_PERC,       KC_4,          KC_5,          KC_6,          KC_PPLS,                                                                                  KC_PPLS,       KC_RALT,       KC_RSFT,       KC_RCTL,       KC_RGUI,       _______,       
+		_______,        KC_PERC,        KC_4,           KC_5,           KC_6,           KC_PPLS,                                                                                        KC_PPLS,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-		_______,       _______,       KC_1,          KC_2,          KC_3,          KC_PMNS,       KC_PAST,       KC_PSLS,                      XXXXXXX,       XXXXXXX,       KC_PMNS,       KC_PAST,       KC_PSLS,       KC_LT,         KC_GT,         _______,       
+		_______,        KC_0,           KC_1,           KC_2,           KC_3,           KC_PMNS,        KC_PAST,        KC_PSLS,                        XXXXXXX,        XXXXXXX,        KC_PMNS,        KC_PAST,        KC_PSLS,        KC_LT,          KC_GT,          _______,        
 
-		                                             XXXXXXX,       KC_0,          KC_PDOT,       KC_PEQL,       XXXXXXX,                      _______,       _______,       _______,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        _______,        KC_PDOT,        KC_PEQL,        XXXXXXX,                        _______,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[FN] = LAYOUT_split_3x6_5(
-		RGB_MOD,       KC_F12,        KC_F7,         KC_F8,         KC_F9,         KC_F15,                                                                                   XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		RGB_MOD,        KC_F12,         KC_F7,          KC_F8,          KC_F9,          KC_F15,                                                                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		_______,       KC_F11,        KC_F4,         KC_F5,         KC_F6,         KC_F14,                                                                                   XXXXXXX,       KC_RALT,       KC_RSFT,       KC_RCTL,       KC_RGUI,       _______,       
+		_______,        KC_F11,         KC_F4,          KC_F5,          KC_F6,          KC_F14,                                                                                         XXXXXXX,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-		_______,       KC_F10,        KC_F1,         KC_F2,         KC_F3,         KC_F13,        XXXXXXX,       XXXXXXX,                      _______,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        KC_F10,         KC_F1,          KC_F2,          KC_F3,          KC_F13,         XXXXXXX,        XXXXXXX,                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		                                             XXXXXXX,       XXXXXXX,       _______,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       _______,       _______,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
-	
-
 	[COSM] = LAYOUT_split_3x6_5(
-        RGB_VAD,       CKC_ENT,       CKC_EUR,       CKC_DEG,       CKC_DELT,      CKC_INF,                                                                                  CKC_MDOT,      CKC_MU,        CKC_UUML,      CKC_NOT,       CKC_NEQL,      _______,       
+		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_NEQL,       _______,        
 
-		_______,       CKC_AUML,      CKC_MATH_AND,  CKC_SUML,      CKC_MATH_OR,   CKC_YES,                                                                                  CKC_GTOET,     CKC_LEFTA,     CKC_LEFTDA,    CKC_UPA,       CKC_OUML,      _______,       
+		_______,        CKC_AUML,       CKC_MATH_AND,   CKC_SUML,       CKC_MATH_OR,    CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_LEFTDA,     CKC_UPA,        CKC_OUML,       _______,        
 
-		_______,       CKC_ALMEQ,     CKC_PLSMNS,    CKC_SECT,      CKC_ERR,       CKC_NO,        XXXXXXX,       _______,                      XXXXXXX,       XXXXXXX,       CKC_LTOET,     CKC_RIGHTA,    CKC_RIGHTDA,   CKC_DOWNA,     CKC_EQUIV,     _______,       
+		_______,        CKC_ALMEQ,      CKC_PLSMNS,     CKC_SECT,       CKC_ERR,        CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_RIGHTDA,    CKC_DOWNA,      CKC_EQUIV,      _______,        
 
-		                                             XXXXXXX,       XXXXXXX,       _______,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       _______,       _______,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[NAV] = LAYOUT_split_3x6_5(
-		QK_CLEAR_EEPROM,       KC_SLEP,       KC_EJCT,       KC_FIND,       CKC_SCRSV,     S(KC_PSCR),                                                                               XXXXXXX,       KC_HOME,       KC_END,        KC_DEL,        KC_INS,        _______,       
+		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
 
-		_______,       KC_LGUI,       KC_LCTL,       KC_LSFT,       KC_LALT,       KC_PSCR,                                                                                  CW_TOGG,       KC_LEFT,       KC_DOWN,       KC_UP,         KC_RGHT,       _______,       
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        _______,        
 
-		_______,       KC_MNXT,       KC_MPLY,       KC_MPRV,       LGUI(KC_D),    A(KC_PSCR),    XXXXXXX,       XXXXXXX,                      XXXXXXX,       XXXXXXX,       XXXXXXX,       KC_PGDN,       KC_PGUP,       KC_TAB,        KC_CAPS,       _______,       
+		_______,        KC_MNXT,        KC_MPLY,        KC_MPRV,        LGUI(KC_D),     A(KC_PSCR),     XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_PGDN,        KC_PGUP,        KC_TAB,         KC_CAPS,        _______,        
 
-		                                             XXXXXXX,       XXXXXXX,       _______,       _______,       XXXXXXX,                      XXXXXXX,       _______,       _______,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        XXXXXXX,        _______,        _______,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[MOUSE] = LAYOUT_split_3x6_5(
-		_______,       KC_BTN4,       KC_BTN5,       KC_BTN2,       KC_BTN1,       KC_BTN3,                                                                                  KC_ACL0,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        KC_BTN4,        KC_BTN5,        KC_BTN2,        KC_BTN1,        KC_BTN3,                                                                                        KC_ACL0,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		_______,       KC_MS_L,       KC_MS_U,       KC_MS_D,       KC_MS_R,       LSA(KC_PSCR),                                                                             KC_ACL1,       KC_RALT,       KC_RSFT,       KC_RCTL,       KC_RGUI,       _______,       
+		_______,        KC_MS_L,        KC_MS_U,        KC_MS_D,        KC_MS_R,        LSA(KC_PSCR),                                                                                   KC_ACL1,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-		_______,       KC_WH_L,       KC_WH_U,       KC_WH_D,       KC_WH_R,       KC_LSCR,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       XXXXXXX,       KC_ACL2,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        KC_WH_L,        KC_WH_U,        KC_WH_D,        KC_WH_R,        KC_LSCR,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_ACL2,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		                                             XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       _______,       _______,       _______,       TO(ALPHAS)                                                  
+		                                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
 	),
 
 	[LM] = LAYOUT_split_3x6_5(
-		_______,       _______,       _______,       _______,       _______,       _______,                                                                                  _______,       _______,       _______,       _______,       _______,       _______,       
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		_______,       KC_LGUI,       KC_LCTL,       KC_LSFT,       KC_LALT,       _______,                                                                                  _______,       _______,       _______,       _______,       _______,       _______,       
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		_______,       _______,       _______,       _______,       _______,       _______,       _______,       _______,                      _______,       _______,       _______,       _______,       _______,       _______,       _______,       _______,       
+		_______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		                                             _______,       _______,       _______,       KC_LSFT,       _______,                      _______,       _______,       _______,       _______,       TO(ALPHAS)                                                  
+		                                                _______,        _______,        _______,        KC_LSFT,        _______,                        _______,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
 	),
 
 	[RM] = LAYOUT_split_3x6_5(
-		_______,       _______,       _______,       _______,       _______,       _______,                                                                                  _______,       _______,       _______,       _______,       _______,       _______,       
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		_______,       _______,       _______,       _______,       _______,       _______,                                                                                  _______,       KC_RALT,       KC_RSFT,       KC_RCTL,       KC_RGUI,       _______,       
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-		_______,       _______,       _______,       _______,       _______,       _______,       _______,       _______,                      _______,       _______,       _______,       _______,       _______,       _______,       _______,       _______,       
+		_______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		                                             _______,       _______,       _______,       KC_LSFT,       _______,                      _______,       _______,       _______,       _______,       TO(ALPHAS)                                                  
+		                                                _______,        _______,        _______,        KC_LSFT,        _______,                        _______,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
 	),
 
 	[GI] = LAYOUT_split_3x6_5(
-		_______,       KC_1,          KC_2,          KC_5,          KC_3,          KC_4,                                                                                     KC_BTN3,       KC_WH_L,       KC_WH_D,       KC_WH_U,       KC_WH_R,       _______,       
+		_______,        KC_1,           KC_2,           KC_5,           KC_3,           KC_4,                                                                                           KC_BTN3,        KC_WH_L,        KC_WH_D,        KC_WH_U,        KC_WH_R,        _______,        
 
-		KC_TAB,        KC_LSFT,       KC_Q,          KC_W,          KC_E,          KC_F,                                                                                     KC_F,          KC_BTN1,       KC_BTN1,       KC_BTN2,       KC_T,          _______,       
+		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           KC_F,           KC_BTN1,        KC_BTN1,        KC_BTN2,        KC_T,           _______,        
 
-		KC_ESC,        KC_V,          KC_A,          KC_S,          KC_D,          KC_T,          KC_LALT,       KC_ENT,                       XXXXXXX,       XXXXXXX,       XXXXXXX,       KC_MS_L,       KC_MS_D,       KC_MS_U,       KC_MS_R,       _______,       
+		KC_ESC,         KC_V,           KC_A,           KC_S,           KC_D,           KC_T,           KC_LALT,        KC_ENT,                         XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_MS_L,        KC_MS_D,        KC_MS_U,        KC_MS_R,        _______,        
 
-		                                             TO(ALPHAS),    KC_Z,          MO(FN),        KC_SPC,        MO(GI2),                      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                TO(ALPHAS),     KC_Z,           MO(FN),         KC_SPC,         MO(GI2),                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[GI2] = LAYOUT_split_3x6_5(
-		KC_LGUI,       KC_J,          KC_M,          KC_U,          KC_C,          KC_B,                                                                                     _______,       _______,       _______,       _______,       _______,       _______,       
+		KC_LGUI,        KC_J,           KC_M,           KC_U,           KC_C,           KC_B,                                                                                           _______,        _______,        _______,        _______,        _______,        _______,        
 
-		KC_O,          KC_LCTL,       _______,       _______,       _______,       C(KC_G),                                                                                  _______,       _______,       _______,       _______,       _______,       _______,       
+		KC_O,           KC_LCTL,        _______,        _______,        _______,        C(KC_G),                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-		KC_Y,          KC_P,          KC_R,          KC_X,          KC_L,          KC_G,          KC_BSLS,       KC_BTN3,                      XXXXXXX,       XXXXXXX,       RGB_TOG,       RGB_TOG,       RGB_TOG,       RGB_TOG,       RGB_TOG,       _______,       
+		KC_Y,           KC_P,           KC_R,           KC_X,           KC_L,           KC_G,           KC_BSLS,        KC_BTN3,                        XXXXXXX,        XXXXXXX,        RGB_TOG,        RGB_TOG,        RGB_TOG,        RGB_TOG,        RGB_TOG,        _______,        
 
-		                                             LGUI(KC_D),    _______,       _______,       _______,       _______,                      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                LGUI(KC_D),     _______,        _______,        _______,        _______,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
 
 	[KB] = LAYOUT_split_3x6_5(
-		_______,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,                                                                                  XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                                                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		_______,       XXXXXXX,       RGB_TOG,       QK_BOOT,       XXXXXXX,       TO(KB),                                                                                   XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        XXXXXXX,        RGB_TOG,        QK_BOOT,        XXXXXXX,        TO(KB),                                                                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		_______,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       _______,       
+		_______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-		                                             _______,       XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,                      XXXXXXX,       XXXXXXX,       XXXXXXX,       XXXXXXX,       TO(ALPHAS)                                                  
+		                                                _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	)
 };
@@ -306,8 +304,40 @@ void keyboard_pre_init_user(void) {
 
 //
 
-void print_oled_left(void) {
-    oled_write_P(PSTR("kfls21"), false);
+char alphas_preview_l[] = "l Q W F P B    \ne A R S T G    \nc Z X C D V g M\n      T M L M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O e\nM M K H , . / a\nM b   M T      ";
+char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
+char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
+char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ _ 1 2 3 - * /\n      X 0 . P X";
+char num_preview_r[] = "    ^ $ * # L _\n    + a s c g _\nX X - * / < > _\n_ _ _ X T      ";
+char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
+char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
+char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
+char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
+char nav_preview_l[] = "Q s e f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
+char nav_preview_r[] = "    X h e D i _\n    c l d u R _\nX X X p p t c _\nX _ _ X T      ";
+char mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
+char mouse_preview_r[] = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
+char lm_preview_l[] = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
+char lm_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
+char rm_preview_l[] = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
+char rm_preview_r[] = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
+char gi_preview_l[] = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a e\n      T Z M   M";
+char gi_preview_r[] = "    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ";
+char gi2_preview_l[] = "g J M U C B    \nO c _ _ _ C    \nY P R X L G \\ B\n      d _ _ _ _";
+char gi2_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
+char kb_preview_l[] = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
+char kb_preview_r[] = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ";
+
+
+
+
+void print_oled_right(char s[]) {
+    if (!is_keyboard_master()) {
+        oled_write_P("kfls21\n", false);
+        oled_write_P(PSTR(s), false);
+    }
+}
 
     // static const char PROGMEM kyria_logo[] = {
     //     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,192,224,240,112,120, 56, 60, 28, 30, 14, 14, 14,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 14, 14, 14, 30, 28, 60, 56,120,112,240,224,192,128,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -321,25 +351,15 @@ void print_oled_left(void) {
     // };
 
     // oled_write_P(kyria_logo, false);
-}
-
-char alphas_preview = "f('🔒 Q W F P B    \n⎋ A R S T G    \n^ Z X C D V ⌘ M\n      T M L M M', '    J L U Y " 🔇\n    M N E I O ↩\nM M K H , . / ⌥\nM ⌫ ␣ M T      ')";
-char sym_preview = "f('R E @ # $ %    \n_ ⌘ ^ ⇧ ⌥ |    \n_ C C \\ / ? X X\n      X X _ X _', '    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ')";
-char num_preview = "f('R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ _ 1 2 3 - * /\n      X 0 . P X', '    ^ $ * # L _\n    + ⌥ ⇧ ^ ⌘ _\nX X - * / < > _\n_ _ _ X T      ')";
-char fn_preview = "f('R ¹ ⁷ ⁸ ⁹ ¹    \n_ ¹ ⁴ ⁵ ⁶ ¹    \n_ ¹ ¹ ² ³ ¹ X X\n      X X _ X X', '    X X X X X _\n    X ⌥ ⇧ ^ ⌘ _\n_ X X X X X X _\nX _ _ X T      ')";
-char cosm_preview = "f('R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X', '    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ')";
-char nav_preview = "f('Q 💤 ⏏ 🔍 C S    \n_ ⌘ ^ ⇧ ⌥ P    \n_ M M M Ð A X X\n      X X _ _ X', '    X ⌂ ≡ D ⇱ _\n    ↻ ← ↓ ↑ R _\nX X X ⇟ ⇞ ⇥ ⇪ _\nX _ _ X T      ')";
-char mouse_preview = "f('_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X', '    A X X X X _\n    A ⌥ ⇧ ^ ⌘ _\nX X A X X X X _\nX _ _ _ T      ')";
-char lm_preview = "f('_ _ _ _ _ _    \n_ ⌘ ^ ⇧ ⌥ _    \n_ _ _ _ _ _ _ _\n      _ _ _ ⇧ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ')";
-char rm_preview = "f('_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ ⇧ _', '    _ _ _ _ _ _\n    _ ⌥ ⇧ ^ ⌘ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ')";
-char gi_preview = "f('_ 1 2 5 3 4    \n⇥ ⇧ Q W E F    \n⎋ V A S D T ⌥ ↩\n      T Z M ␣ M', '    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ')";
-char gi2_preview = "f('⌘ J M U C B    \nO ^ _ _ _ C    \nY P R X L G \\ B\n      Ð _ _ _ _', '    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ')";
-char kb_preview = "f('_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X', '    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ')";
+// }
 
 
-
-void print_oled_right(void) {
-    oled_write_P(PSTR("Hello, World! ~Kyriel"), false);
+void print_oled_left(char s[]) {
+    if (is_keyboard_master()) {
+        oled_write_P("Hello, World! ~Kyriel\n", false);
+        oled_write_P(PSTR(s), false);
+        
+    }
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -351,11 +371,65 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
-    if (is_keyboard_master()) {
-        print_oled_right();
-    } else {
-        print_oled_left();
-    }
+    // if (is_keyboard_master()) {
+    //     print_oled_left(alphas_preview_l);
+    // } else {
+    //     print_oled_right(alphas_preview_r);
+    // }
+    switch (get_highest_layer(layer_state)) {
+            case ALPHAS:
+                print_oled_left(alphas_preview_l);
+                print_oled_right(alphas_preview_r);
+                break;
+            case SYM:
+                print_oled_left(sym_preview_l);
+                print_oled_right(sym_preview_r);
+                break;
+            case NUM:
+                print_oled_left(num_preview_l);
+                print_oled_right(num_preview_r);
+                break;
+            case FN:
+                print_oled_left(fn_preview_l);
+                print_oled_right(fn_preview_r);
+                break;
+            case COSM:
+                print_oled_left(cosm_preview_l);
+                print_oled_right(cosm_preview_r);
+                break;
+            case NAV:
+                print_oled_left(nav_preview_l);
+                print_oled_right(nav_preview_r);
+                break;
+            case MOUSE:
+                print_oled_left(mouse_preview_l);
+                print_oled_right(mouse_preview_r);
+                break;
+            // case LM:
+            //     print_oled_left(lm_preview_l);
+            //     print_oled_right(lm_preview_r);
+            //     break;
+            // case RM:
+            //     print_oled_left(rm_preview_l);
+            //     print_oled_right(rm_preview_r);
+            //     break;
+            case GI:
+                print_oled_left(gi_preview_l);
+                print_oled_right(gi_preview_r);
+                break;
+            case GI2:
+                print_oled_left(gi2_preview_l);
+                print_oled_right(gi2_preview_r);
+                break;
+            case KB:
+                print_oled_left(kb_preview_l);
+                print_oled_right(kb_preview_r);
+                break;
+            default:
+                print_oled_left(alphas_preview_l);
+                print_oled_right(alphas_preview_r);
+                break;
+        }
     return false;
 }
 
