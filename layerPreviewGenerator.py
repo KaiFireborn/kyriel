@@ -7,36 +7,35 @@ def read_data():
         return json.loads(infile.read())
 
 SYMBOL_LOOKUP = {
-    "QK_LOCK": "🔒",
-    "LCTL": "^",
-    "LSFT": "⇧",
-    "LALT": "⌥",
-    "LGUI": "⌘",
-    "RCTL": "^",
-    "RSFT": "⇧",
-    "RALT": "⌥",
-    "RGUI": "⌘",
+    "QK_LOCK": "l",
+    "LCTL": "c",
+    "LSFT": "s",
+    "LALT": "a",
+    "LGUI": "g",
+    "RCTL": "c",
+    "RSFT": "s",
+    "RALT": "a",
+    "RGUI": "g",
     "NO": " ",
     "TRNS": "_",
-    "ENT": "↩",
-    "BSPC": "⌫",
-    "SPC": "␣",
-    "ESC": "⎋",
-    "TAB": "⇥",
-    "CAPS": "⇪",
+    "ENT": "e",
+    "BSPC": "b",
+    "SPC": " ",
+    "ESC": "e",
+    "TAB": "t",
+    "CAPS": "c",
     "COMM": ",",
     "DOT": ".",
     "SLSH": "/",
-    "QUOT": "\"",
-    "MUTE": "🔇",
-    "VOLD": "🔉",
-    "VOLU": "🔊",
+    "QUOT": "'",
+    "MUTE": "m",
+    "VOLD": "v",
+    "VOLU": "v",
     "EXCLM": "!",
     "AT": "@",
     "HASH": "#",
     "DLR": "$",
     "PERC": "%",
-    "CIRC": "^",
     "CIRC": "^",
     "ASTR": "*",
     "AMPR": "&",
@@ -48,104 +47,98 @@ SYMBOL_LOOKUP = {
     "RCBR": "}",
     "PIPE": "|",
     "COLN": ":",
-    "DQUO": "\"",
+    "DQUO": '"',
     "TILD": "~",
     "GRV": "`",
     "EQL": "=",
-    "BSLS": "\\",
+    "BSLS": "\\\\",
     "QUES": "?",
-    "GRV": "`",
-    "TILD": "~",
     "MINS": "-",
     "LBRC": "[",
     "RBRC": "]",
     "GT": ">",
     "LT": "<",
-    "PLUS": "+",
-    "PERC": "%",
     "PAST": "*",
     "PSLS": "/",
     "PMNS": "-",
     "PDOT": ".",
     "PPLS": "+",
-    "F1": "¹",
-    "F2": "²",
-    "F3": "³",
-    "F4": "⁴",
-    "F5": "⁵",
-    "F6": "⁶",
-    "F7": "⁷",
-    "F8": "⁸",
-    "F9": "⁹",
-    "F10": "¹⁰",
-    "F11": "¹¹",
-    "F12": "¹²",
-    "F13": "¹³",
-    "F14": "¹⁴",
-    "F15": "¹⁵",
-    "F16": "¹⁶",
-    "F17": "¹⁷",
-    "F18": "¹⁸",
-    "F19": "¹⁹",
-    "F20": "²⁰",
-    "F21": "²¹",
-    "F22": "²²",
-    "F23": "²³",
-    "F24": "²⁴",
-    "ENT": "↩",
-    "EUR": "€",
-    "DEG": "°",
-    "DELT": "Δ",
-    "INF": "∞",
-    "AUML": "ä",
-    "MATH_AND": "∧",
-    "MATH_OR": "∨",
-    "SUML": "ß",
-    "YES": "✔",
-    "NO": "✘",
-    "ALMEQ": "≈",
-    "ALMNE": "≠",
-    "PLSMNS": "±",
-    "SECT": "§",
-    "ERR": "↯",
-    "MDOT": "·",
-    "MU": "μ",
-    "UUML": "ü",
-    "NOT": "¬",
-    "GTOET": "≥",
-    "LTOET": "≤",
-    "LEFTA": "←",
-    "RIGHTA": "→",
-    "UPA": "↑",
-    "DOWNA": "↓",
-    "OUML": "ö",
-    "EQUIV": "⇔",
-    "HOME": "⌂",
-    "PGUP": "⇞",
-    "PGDN": "⇟",
-    "INS": "⇱",
-    "END": "≡",
-    "UP": "↑",
-    "DOWN": "↓",
-    "LEFT": "←",
-    "RIGHT": "→",
-    "CW_TOGG": "↻",
-    "SLEP": "💤",
-    "EJCT": "⏏",
-    "FIND": "🔍",
-    "SCRSV": "💾",
-    "S(KC_PSCR)": "📷",
-    "KC_PSCR": "📷",
-    "LSA(KC_PSCR)": "📷",
-    "LGUI(D)": "Ð",
- 
+    "F1": "f",
+    "F2": "f",
+    "F3": "f",
+    "F4": "f",
+    "F5": "f",
+    "F6": "f",
+    "F7": "f",
+    "F8": "f",
+    "F9": "f",
+    "F10": "f",
+    "F11": "f",
+    "F12": "f",
+    "F13": "f",
+    "F14": "f",
+    "F15": "f",
+    "F16": "f",
+    "F17": "f",
+    "F18": "f",
+    "F19": "f",
+    "F20": "f",
+    "F21": "f",
+    "F22": "f",
+    "F23": "f",
+    "F24": "f",
+    "EUR": "e",
+    "DEG": "d",
+    "DELT": "d",
+    "INF": "i",
+    "AUML": "a",
+    "MATH_AND": "a",
+    "MATH_OR": "o",
+    "SUML": "s",
+    "YES": "y",
+    "NO": "n",
+    "ALMEQ": "a",
+    "ALMNE": "n",
+    "PLSMNS": "p",
+    "SECT": "s",
+    "ERR": "e",
+    "MDOT": "m",
+    "MU": "u",
+    "UUML": "u",
+    "NOT": "n",
+    "GTOET": "g",
+    "LTOET": "l",
+    "LEFTA": "l",
+    "RIGHTA": "r",
+    "UPA": "u",
+    "DOWNA": "d",
+    "OUML": "o",
+    "EQUIV": "e",
+    "HOME": "h",
+    "PGUP": "p",
+    "PGDN": "p",
+    "INS": "i",
+    "END": "e",
+    "UP": "u",
+    "DOWN": "d",
+    "LEFT": "l",
+    "RIGHT": "r",
+    "CW_TOGG": "c",
+    "SLEP": "s",
+    "EJCT": "e",
+    "FIND": "f",
+    "SCRSV": "s",
+    "S(KC_PSCR)": "s",
+    "KC_PSCR": "s",
+    "LSA(KC_PSCR)": "s",
+    "LGUI(D)": "d",
 }
 
 def translate_symbol(symbol):
     symbol = symbol.replace("KC_", "").replace("CKC_", "")
-    symbol = SYMBOL_LOOKUP.get(symbol, symbol)
+    symbol = SYMBOL_LOOKUP.get(symbol, symbol[0])
     
-    return symbol[0]
+    return symbol
 
 def translate_all_symbols_in_layer(layer):
     for i, row in enumerate(layer):
@@ -160,16 +153,6 @@ def get_row_halves(row):
     right_half = row[half_index:]
     return left_half, right_half
 
-
-def format_row(row):
-    result = ""
-    if len(row) == 12:
-        result = format_top_row(row)
-    elif len(row) == 16:
-        result = format_middle_row(row)
-    elif len(row) == 10:
-        result = format_bottom_row(row)
-    return "\t" * 2 + result + "\n"
 
 def get_preview_halves(layer):
     layer_preview = {
@@ -211,7 +194,7 @@ def render_half(half, side):
             rendered_half_rows.append(render_bottom_row(row, side=side))
         else:
             raise Exception("Too many rows", half)
-    return "\n".join(rendered_half_rows)
+    return "\\n".join(rendered_half_rows)
             
     
 
@@ -225,8 +208,12 @@ def generate_preview_per_half(layer):
     
     return (rendered_left_half, rendered_right_half)
 
-def convert_to_code(preview_str, layer_name):
-    return f"char {layer_name.casefold()}_preview = \"f{preview_str}\";\n"
+def convert_to_code(preview, layer_name):
+    r = ""
+    half_names = ["l", "r"]
+    for i, preview_half in enumerate(preview):
+        r += f"char {layer_name.casefold()}_preview_{half_names[i]}[] = \"{preview_half}\";\n"
+    return r
 
 def output_preview(preview):
     pyperclip.copy(preview)
