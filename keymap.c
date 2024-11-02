@@ -104,16 +104,16 @@ enum layers {
     KB
 };
 
-// MO(MOUSE) removed for now
+// MO(MOUSE) removed for now, so is KC_LGUI
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ALPHAS] = LAYOUT_split_3x6_5(
 		QK_LOCK,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                                                                                           KC_J,           KC_L,           KC_U,           KC_Y,           KC_QUOT,        KC_MUTE,        
 
-		KC_ESC,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_ENT,         
+		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_DEL,         
 
-		KC_LCTL,        KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LGUI,        MO(COSM),                       MO(FN),         MO(MOUSE),      KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_LALT,        
+    KC_ESC,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,            MO(NAV),        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
-		                                                TG(GI),         MO(LM),         MO(NAV),        LSFT_T(KC_SPC), MO(SYM),                        MO(NUM),        KC_SPC,         KC_BSPC,        MO(RM),         TO(ALPHAS)                                                      
+		                                                TG(GI),         MO(LM),         KC_SPC,       KC_LSFT, MO(SYM),                        MO(NUM),        KC_BSPC,         KC_SPC,        MO(RM),         TO(ALPHAS)                                                      
 
 	),
 
@@ -306,59 +306,54 @@ void keyboard_pre_init_user(void) {
 
 char alphas_preview_l[] = "l Q W F P B    \ne A R S T G    \nc Z X C D V g M\n      T M L M M";
 char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O e\nM M K H , . / a\nM b   M T      ";
-char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
-char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
-char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ _ 1 2 3 - * /\n      X 0 . P X";
-char num_preview_r[] = "    ^ $ * # L _\n    + a s c g _\nX X - * / < > _\n_ _ _ X T      ";
-char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
-char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
-char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
-char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
-char nav_preview_l[] = "Q s e f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
-char nav_preview_r[] = "    X h e D i _\n    c l d u R _\nX X X p p t c _\nX _ _ X T      ";
-char mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
-char mouse_preview_r[] = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
-char lm_preview_l[] = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
-char lm_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
-char rm_preview_l[] = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
-char rm_preview_r[] = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
-char gi_preview_l[] = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a e\n      T Z M   M";
-char gi_preview_r[] = "    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ";
-char gi2_preview_l[] = "g J M U C B    \nO c _ _ _ C    \nY P R X L G \\ B\n      d _ _ _ _";
-char gi2_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
-char kb_preview_l[] = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
-char kb_preview_r[] = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ";
-
-
-
+char sym_preview_l[]    = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
+char sym_preview_r[]    = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
+char num_preview_l[]    = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ _ 1 2 3 - * /\n      X 0 . P X";
+char num_preview_r[]    = "    ^ $ * # L _\n    + a s c g _\nX X - * / < > _\n_ _ _ X T      ";
+char fn_preview_l[]     = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
+char fn_preview_r[]     = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
+char cosm_preview_l[]   = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
+char cosm_preview_r[]   = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
+char nav_preview_l[]    = "Q s e f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
+char nav_preview_r[]    = "    X h e D i _\n    c l d u R _\nX X X p p t c _\nX _ _ X T      ";
+char mouse_preview_l[]  = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
+char mouse_preview_r[]  = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
+char lm_preview_l[]     = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
+char lm_preview_r[]     = "    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
+char rm_preview_l[]     = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
+char rm_preview_r[]     = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
+char gi_preview_l[]     = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a e\n      T Z M   M";
+char gi_preview_r[]     = "    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ";
+char gi2_preview_l[]    = "g J M U C B    \nO c _ _ _ C    \nY P R X L G \\ B\n      d _ _ _ _";
+char gi2_preview_r[]    = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
+char kb_preview_l[]     = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
+char kb_preview_r[]     = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ";
 
 void print_oled_right(char s[]) {
     if (!is_keyboard_master()) {
-        oled_write_P("kfls21\n", false);
+        oled_write_P("kfls21\n\n", false);
         oled_write_P(PSTR(s), false);
     }
 }
 
-    // static const char PROGMEM kyria_logo[] = {
-    //     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,192,224,240,112,120, 56, 60, 28, 30, 14, 14, 14,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 14, 14, 14, 30, 28, 60, 56,120,112,240,224,192,128,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    //     0,  0,  0,  0,  0,  0,  0,192,224,240,124, 62, 31, 15,  7,  3,  1,128,192,224,240,120, 56, 60, 28, 30, 14, 14,  7,  7,135,231,127, 31,255,255, 31,127,231,135,  7,  7, 14, 14, 30, 28, 60, 56,120,240,224,192,128,  1,  3,  7, 15, 31, 62,124,240,224,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    //     0,  0,  0,  0,240,252,255, 31,  7,  1,  0,  0,192,240,252,254,255,247,243,177,176, 48, 48, 48, 48, 48, 48, 48,120,254,135,  1,  0,  0,255,255,  0,  0,  1,135,254,120, 48, 48, 48, 48, 48, 48, 48,176,177,243,247,255,254,252,240,192,  0,  0,  1,  7, 31,255,252,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    //     0,  0,  0,255,255,255,  0,  0,  0,  0,  0,254,255,255,  1,  1,  7, 30,120,225,129,131,131,134,134,140,140,152,152,177,183,254,248,224,255,255,224,248,254,183,177,152,152,140,140,134,134,131,131,129,225,120, 30,  7,  1,  1,255,255,254,  0,  0,  0,  0,  0,255,255,255,  0,  0,  0,  0,255,255,  0,  0,192,192, 48, 48,  0,  0,240,240,  0,  0,  0,  0,  0,  0,240,240,  0,  0,240,240,192,192, 48, 48, 48, 48,192,192,  0,  0, 48, 48,243,243,  0,  0,  0,  0,  0,  0, 48, 48, 48, 48, 48, 48,192,192,  0,  0,  0,  0,  0,
-    //     0,  0,  0,255,255,255,  0,  0,  0,  0,  0,127,255,255,128,128,224,120, 30,135,129,193,193, 97, 97, 49, 49, 25, 25,141,237,127, 31,  7,255,255,  7, 31,127,237,141, 25, 25, 49, 49, 97, 97,193,193,129,135, 30,120,224,128,128,255,255,127,  0,  0,  0,  0,  0,255,255,255,  0,  0,  0,  0, 63, 63,  3,  3, 12, 12, 48, 48,  0,  0,  0,  0, 51, 51, 51, 51, 51, 51, 15, 15,  0,  0, 63, 63,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 48, 48, 63, 63, 48, 48,  0,  0, 12, 12, 51, 51, 51, 51, 51, 51, 63, 63,  0,  0,  0,  0,  0,
-    //     0,  0,  0,  0, 15, 63,255,248,224,128,  0,  0,  3, 15, 63,127,255,239,207,141, 13, 12, 12, 12, 12, 12, 12, 12, 30,127,225,128,  0,  0,255,255,  0,  0,128,225,127, 30, 12, 12, 12, 12, 12, 12, 12, 13,141,207,239,255,127, 63, 15,  3,  0,  0,128,224,248,255, 63, 15,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    //     0,  0,  0,  0,  0,  0,  0,  3,  7, 15, 62,124,248,240,224,192,128,  1,  3,  7, 15, 30, 28, 60, 56,120,112,112,224,224,225,231,254,248,255,255,248,254,231,225,224,224,112,112,120, 56, 60, 28, 30, 15,  7,  3,  1,128,192,224,240,248,124, 62, 15,  7,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-    //     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  3,  7, 15, 14, 30, 28, 60, 56,120,112,112,112,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,112,112,112,120, 56, 60, 28, 30, 14, 15,  7,  3,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
-    // };
+// static const char PROGMEM kyria_logo[] = {
+//     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,192,224,240,112,120, 56, 60, 28, 30, 14, 14, 14,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 14, 14, 14, 30, 28, 60, 56,120,112,240,224,192,128,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+//     0,  0,  0,  0,  0,  0,  0,192,224,240,124, 62, 31, 15,  7,  3,  1,128,192,224,240,120, 56, 60, 28, 30, 14, 14,  7,  7,135,231,127, 31,255,255, 31,127,231,135,  7,  7, 14, 14, 30, 28, 60, 56,120,240,224,192,128,  1,  3,  7, 15, 31, 62,124,240,224,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+//     0,  0,  0,  0,240,252,255, 31,  7,  1,  0,  0,192,240,252,254,255,247,243,177,176, 48, 48, 48, 48, 48, 48, 48,120,254,135,  1,  0,  0,255,255,  0,  0,  1,135,254,120, 48, 48, 48, 48, 48, 48, 48,176,177,243,247,255,254,252,240,192,  0,  0,  1,  7, 31,255,252,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+//     0,  0,  0,255,255,255,  0,  0,  0,  0,  0,254,255,255,  1,  1,  7, 30,120,225,129,131,131,134,134,140,140,152,152,177,183,254,248,224,255,255,224,248,254,183,177,152,152,140,140,134,134,131,131,129,225,120, 30,  7,  1,  1,255,255,254,  0,  0,  0,  0,  0,255,255,255,  0,  0,  0,  0,255,255,  0,  0,192,192, 48, 48,  0,  0,240,240,  0,  0,  0,  0,  0,  0,240,240,  0,  0,240,240,192,192, 48, 48, 48, 48,192,192,  0,  0, 48, 48,243,243,  0,  0,  0,  0,  0,  0, 48, 48, 48, 48, 48, 48,192,192,  0,  0,  0,  0,  0,
+//     0,  0,  0,255,255,255,  0,  0,  0,  0,  0,127,255,255,128,128,224,120, 30,135,129,193,193, 97, 97, 49, 49, 25, 25,141,237,127, 31,  7,255,255,  7, 31,127,237,141, 25, 25, 49, 49, 97, 97,193,193,129,135, 30,120,224,128,128,255,255,127,  0,  0,  0,  0,  0,255,255,255,  0,  0,  0,  0, 63, 63,  3,  3, 12, 12, 48, 48,  0,  0,  0,  0, 51, 51, 51, 51, 51, 51, 15, 15,  0,  0, 63, 63,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 48, 48, 63, 63, 48, 48,  0,  0, 12, 12, 51, 51, 51, 51, 51, 51, 63, 63,  0,  0,  0,  0,  0,
+//     0,  0,  0,  0, 15, 63,255,248,224,128,  0,  0,  3, 15, 63,127,255,239,207,141, 13, 12, 12, 12, 12, 12, 12, 12, 30,127,225,128,  0,  0,255,255,  0,  0,128,225,127, 30, 12, 12, 12, 12, 12, 12, 12, 13,141,207,239,255,127, 63, 15,  3,  0,  0,128,224,248,255, 63, 15,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+//     0,  0,  0,  0,  0,  0,  0,  3,  7, 15, 62,124,248,240,224,192,128,  1,  3,  7, 15, 30, 28, 60, 56,120,112,112,224,224,225,231,254,248,255,255,248,254,231,225,224,224,112,112,120, 56, 60, 28, 30, 15,  7,  3,  1,128,192,224,240,248,124, 62, 15,  7,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+//     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  3,  7, 15, 14, 30, 28, 60, 56,120,112,112,112,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,224,112,112,112,120, 56, 60, 28, 30, 14, 15,  7,  3,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+// };
 
-    // oled_write_P(kyria_logo, false);
+// oled_write_P(kyria_logo, false);
 // }
-
 
 void print_oled_left(char s[]) {
     if (is_keyboard_master()) {
-        oled_write_P("Hello, World! ~Kyriel\n", false);
+        oled_write_P("Hello, World! ~Kyriel\n\n", false);
         oled_write_P(PSTR(s), false);
-        
     }
 }
 
@@ -370,84 +365,112 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     return rotation;
 }
 
+// static void render_fov(void) {
+//     static const char PROGMEM fov_logo[] = {// 'Fenghuang_of_Vicissitude - profile', 128x64px
+//                                             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80, 0xe0, 0xe0, 0xe0, 0xe0, 0xe0, 0xe0, 0xe0, 0xe0, 0xe0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0,
+//                                             0xc0, 0xe0, 0xff, 0xff, 0xff, 0xfe, 0xfe, 0xfc, 0xfc, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xf0, 0xf8, 0xf8, 0xf8, 0xc1, 0xf0, 0xdc, 0xff, 0xff, 0xff, 0xbf, 0xff, 0xff, 0xff, 0xff, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xfc, 0xf0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x0f, 0x1f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x3f, 0x7f, 0x7f, 0xfe, 0xfc, 0xf0, 0xe0,
+//                                             0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0xc0, 0xc0, 0xe0, 0xd8, 0xbe, 0x3f, 0x3f, 0x0f, 0x01, 0x0f, 0x03, 0x03, 0x87, 0x93, 0xc1, 0x00, 0xc0, 0xb0, 0xf8, 0xfc, 0x3e, 0x00, 0xc1, 0x62, 0x7d, 0x7f, 0x7b, 0x76, 0xff, 0x03, 0x03, 0x1f, 0xff, 0xf0, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x07, 0x0f, 0x1f, 0x3e, 0xf8, 0xf0, 0xe0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+//                                             0x00, 0x00, 0x00, 0x80, 0xf0, 0x78, 0x3e, 0x9f, 0xff, 0xff, 0xff, 0xc3, 0x01, 0x00, 0x00, 0x00, 0x00, 0x41, 0xca, 0xde, 0xdf, 0xfe, 0xff, 0xfd, 0xfd, 0xfe, 0xfe, 0xff, 0xff, 0xff, 0xff, 0xfa, 0xcf, 0xe4, 0xc1, 0xf0, 0xf8, 0xf8, 0x70, 0xe0, 0xc3, 0x06, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x63, 0xe7, 0xff, 0xff, 0xfc, 0xf8, 0xf0, 0xf0, 0xe4, 0xe8, 0xe8, 0xf0, 0xe0, 0xe0, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0xc1, 0xe1, 0xfc, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0xf0, 0xc0, 0xae, 0xf8, 0xf0, 0x63,
+//                                             0x0c, 0x17, 0x17, 0x3b, 0x2f, 0x77, 0xf7, 0x0f, 0xfb, 0xff, 0xfd, 0xff, 0xff, 0xfb, 0xff, 0xff, 0xff, 0x3f, 0x3f, 0x60, 0xf1, 0xdf, 0xc1, 0xd2, 0xb0, 0xa0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x03, 0x03, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x83, 0x83, 0xc3, 0xe3, 0xe3, 0xf1, 0xf3, 0xff, 0xdf, 0xbf, 0xff, 0xff, 0xfb, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xfe, 0xfc, 0xfe, 0xfc, 0xfc, 0xfe, 0xfd, 0xfd, 0x7e, 0x0f, 0x1f, 0x39, 0x75, 0x73, 0xf7, 0x23, 0x2f, 0x1f, 0xff, 0x53, 0x88,
+//                                             0x47, 0xbc, 0xfc, 0x99, 0x11, 0x0d, 0x03, 0x03, 0x07, 0x07, 0x0f, 0x0e, 0x1e, 0x3e, 0x3c, 0x7c, 0xf8, 0xf8, 0xf0, 0xc0, 0x20, 0x40, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x83, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x87, 0x87, 0x87, 0x87, 0x8f, 0x8e, 0x8e, 0x9e, 0x9c, 0x9c, 0xbc, 0x38, 0x38, 0x78, 0x70, 0x70, 0xe0, 0xe0, 0xc0, 0xc0, 0x80, 0xc0, 0xe0, 0xf0, 0xf0, 0xf8, 0xfc, 0xfe, 0xfe, 0x3f, 0x3f, 0x3f, 0x1f, 0x67, 0xb6, 0x91, 0xc3, 0x1f, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f, 0x3f, 0x1f, 0x1f, 0x37, 0xff, 0xbf, 0x3f, 0x3f, 0x3f, 0x3f, 0x79, 0x03, 0x03, 0x00, 0x00, 0x09, 0xfc, 0xc0, 0xc0, 0xe1, 0x70, 0x78, 0x40, 0x21, 0x08, 0x3f, 0xef, 0xfd, 0x3f, 0xfe, 0xbc, 0xe2, 0xe0, 0xe8, 0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x47,
+//                                             0xbf, 0x7f, 0x00, 0x38, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x60, 0x7b, 0x7f, 0xff, 0xff, 0xfe, 0xfe, 0xfe, 0xfe, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f, 0xbf, 0x4b, 0x01, 0x00, 0x18, 0x0e, 0x06, 0x00, 0x03, 0x03, 0x07, 0x03, 0x1f, 0x0f, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x04, 0x05, 0x03, 0x27, 0xef, 0xa8, 0xe0, 0x30, 0x20, 0x60, 0x40, 0xbf, 0xff, 0xff, 0xff, 0xff, 0xff, 0x3f, 0xff, 0xff, 0xff, 0xfe, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+//     oled_write_raw_P(fov_logo, sizeof(fov_logo));
+// }
+
 bool oled_task_user(void) {
+    oled_clear();
+
     // if (is_keyboard_master()) {
     //     print_oled_left(alphas_preview_l);
     // } else {
     //     print_oled_right(alphas_preview_r);
     // }
     switch (get_highest_layer(layer_state)) {
-            case ALPHAS:
-                print_oled_left(alphas_preview_l);
-                print_oled_right(alphas_preview_r);
-                break;
-            case SYM:
-                print_oled_left(sym_preview_l);
-                print_oled_right(sym_preview_r);
-                break;
-            case NUM:
-                print_oled_left(num_preview_l);
-                print_oled_right(num_preview_r);
-                break;
-            case FN:
-                print_oled_left(fn_preview_l);
-                print_oled_right(fn_preview_r);
-                break;
-            case COSM:
-                print_oled_left(cosm_preview_l);
-                print_oled_right(cosm_preview_r);
-                break;
-            case NAV:
-                print_oled_left(nav_preview_l);
-                print_oled_right(nav_preview_r);
-                break;
-            case MOUSE:
-                print_oled_left(mouse_preview_l);
-                print_oled_right(mouse_preview_r);
-                break;
-            // case LM:
-            //     print_oled_left(lm_preview_l);
-            //     print_oled_right(lm_preview_r);
-            //     break;
-            // case RM:
-            //     print_oled_left(rm_preview_l);
-            //     print_oled_right(rm_preview_r);
-            //     break;
-            case GI:
-                print_oled_left(gi_preview_l);
-                print_oled_right(gi_preview_r);
-                break;
-            case GI2:
-                print_oled_left(gi2_preview_l);
-                print_oled_right(gi2_preview_r);
-                break;
-            case KB:
-                print_oled_left(kb_preview_l);
-                print_oled_right(kb_preview_r);
-                break;
-            default:
-                print_oled_left(alphas_preview_l);
-                print_oled_right(alphas_preview_r);
-                break;
-        }
+        case ALPHAS:
+            // if (is_keyboard_master()) {
+            //     render_fov();
+            // } else {
+            // }
+            // break;
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+
+        case LM:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+        case RM:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+        case SYM:
+            print_oled_left(sym_preview_l);
+            print_oled_right(sym_preview_r);
+            break;
+        case NUM:
+            print_oled_left(num_preview_l);
+            print_oled_right(num_preview_r);
+            break;
+        case FN:
+            print_oled_left(fn_preview_l);
+            print_oled_right(fn_preview_r);
+            break;
+        case COSM:
+            print_oled_left(cosm_preview_l);
+            print_oled_right(cosm_preview_r);
+            break;
+        case NAV:
+            print_oled_left(nav_preview_l);
+            print_oled_right(nav_preview_r);
+            break;
+        case MOUSE:
+            print_oled_left(mouse_preview_l);
+            print_oled_right(mouse_preview_r);
+            break;
+        // case LM:
+        //     print_oled_left(lm_preview_l);
+        //     print_oled_right(lm_preview_r);
+        //     break;
+        // case RM:
+        //     print_oled_left(rm_preview_l);
+        //     print_oled_right(rm_preview_r);
+        //     break;
+        case GI:
+            print_oled_left(gi_preview_l);
+            print_oled_right(gi_preview_r);
+            break;
+        case GI2:
+            print_oled_left(gi2_preview_l);
+            print_oled_right(gi2_preview_r);
+            break;
+        case KB:
+            print_oled_left(kb_preview_l);
+            print_oled_right(kb_preview_r);
+            break;
+        default:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+    }
     return false;
 }
 
 // LED MATRIX
 int default_rgb_brightness = 50;
-int default_ug_brightness = 50;
+int default_ug_brightness  = 50;
 #define C_RGB_GOLD 254, 210, 32              // ##FED222
 #define C_RGB_CORNELL_RED 167, 34, 26        // ##A7221A
 #define C_RGB_VERMILLION 225, 66, 50         // ##E74D42
 #define C_RGB_GHOST_WHITE 243, 240, 244      // ##F3F0F4
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
-HSV c_hsv_gold =  {.h = 48, .s = 221, .v = 254}; 
+HSV c_hsv_gold = {.h = 48, .s = 221, .v = 254};
 
-RGB rgb_gold = {C_RGB_GOLD};
-RGB rgb_cornell_red = {C_RGB_CORNELL_RED};
-RGB rgb_vermillion = {C_RGB_VERMILLION};
-RGB rgb_ghost_white = {C_RGB_GHOST_WHITE};
+RGB rgb_gold             = {C_RGB_GOLD};
+RGB rgb_cornell_red      = {C_RGB_CORNELL_RED};
+RGB rgb_vermillion       = {C_RGB_VERMILLION};
+RGB rgb_ghost_white      = {C_RGB_GHOST_WHITE};
 RGB rgb_atomic_tangerine = {C_RGB_ATOMIC_TANGERINE};
 
 // uint8_t c_rgb_gold[3]             = {C_RGB_GOLD};
@@ -503,8 +526,6 @@ RGB color_to_dimmer_rgb(HSV hsv, int brightness) {
     hsv.v = brightness;
     return hsv_to_rgb(hsv);
 }
-
-
 
 void copy_array(uint8_t dest[], uint8_t src[], size_t size) {
     for (size_t i = 0; i < size; i++) {
@@ -630,8 +651,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
                         if (keycode == KC_1) {
                             rgb_matrix_set_color(0, RGB_WHITE);
-                        }
-                        else if(keycode == KC_2) {
+                        } else if (keycode == KC_2) {
                             rgb_matrix_set_color(1, RGB_WHITE);
                         }
                         if (keycode == KC_3) {
@@ -688,7 +708,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         break;
                     case GI2:
                         set_underglow_color((RGB){C_RGB_GHOST_WHITE});
-                          
+
                         // if (keycode == KC_J) {
                         //     rgb_matrix_set_color(0, RGB_TURQUOISE);
                         // }
@@ -759,7 +779,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         if (keycode_is_number(keycode)) {
                             rgb_matrix_set_color(index, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).r, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).g, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).b);
                         } else if (keycode_is_function(keycode)) {
-                            rgb_matrix_set_color(index, RGB_ORANGE);
+                            rgb_matrix_set_color(index, HSV_GREEN);
                         } else if (keycode_is_symbol(keycode)) {
                             rgb_matrix_set_color(index, RGB_CYAN);
                         } else if (keycode_is_navigation(keycode)) {
