@@ -52,7 +52,7 @@
 
 
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 170
+#define TAPPING_TERM 165
 
 // #undef WS2812_DI_PIN
 // #define WS2812_DI_PIN 25

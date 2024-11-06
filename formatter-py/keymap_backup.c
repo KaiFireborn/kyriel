@@ -67,6 +67,7 @@
 #define CKC_EQUIV ALGR(KC_SLSH)    // ⇔
 #define CKC_MATH_AND ALGR(KC_QUOT) // ∧
 #define CKC_MATH_OR ALGR(KC_NUHS)  // ∨
+#define SHIFT_SPACE LSFT_T(KC_SPC) // mod-tap
 
 const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t comm_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
@@ -126,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_ESC, KC_Z, KC_X, KC_C, KC_D, KC_V, KC_LSFT, MO(COSM), MO(FN), KC_DEL, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
 
-        TG(GI), MO(LM), LSFT_T(KC_SPC), MO(NAV), MO(SYM), MO(NUM), KC_BSPC, LSFT_T(KC_SPC), MO(RM), TO(ALPHAS)
+        TG(GI), MO(LM), SHIFT_SPACE, MO(NAV), MO(SYM), MO(NUM), KC_BSPC, SHIFT_SPACE, MO(RM), TO(ALPHAS)
 
             ),
 
@@ -392,10 +393,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     {
         return false;
     }
-    // Your macros ...
 
     return true;
 }
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t *tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t *other_record)
+{
+
+    switch (tap_hold_keycode)
+    {
+    case SHIFT_SPACE:
+        return true;
+        break;
+    }
+
+    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
+    {
+        return true;
+    }
+    return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  return 1000;
+}
+
 
 void matrix_scan_user(void)
 {
