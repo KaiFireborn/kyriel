@@ -46,9 +46,9 @@
 #define CKC_GTOET ALGR(KC_DOT)    // ≥
 #define CKC_UPA ALGR(KC_L)        // ↑
 #define CKC_DOWNA ALGR(KC_K)      // ↓
-#define CKC_LEFTA ALGR(KC_J)      // � (leftarrow)
+#define CKC_LEFTA ALGR(KC_J)      // � (leftarrow)
 #define CKC_RIGHTA ALGR(KC_SCLN)  // →
-#define CKC_LEFTDA ALGR(KC_LBRC)  // � (Leftdoublearrow)
+#define CKC_LEFTDA ALGR(KC_LBRC)  // � (Leftdoublearrow)
 #define CKC_RIGHTDA ALGR(KC_RBRC) // ⇒
 #define CKC_YES ALGR(KC_7)        // ✓
 #define CKC_NO ALGR(KC_8)         // ✕
@@ -67,6 +67,7 @@
 #define CKC_EQUIV ALGR(KC_SLSH)    // ⇔
 #define CKC_MATH_AND ALGR(KC_QUOT) // ∧
 #define CKC_MATH_OR ALGR(KC_NUHS)  // ∨
+#define SHIFT_SPACE LSFT_T(KC_SPC) // mod-tap
 
 const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t comm_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
@@ -126,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_ESC,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LSFT,        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
-		                                                TG(GI),         MO(LM),         LSFT_T(KC_SPC), MO(NAV),        MO(SYM),                        MO(NUM),        KC_BSPC,        LSFT_T(KC_SPC), MO(RM),         TO(ALPHAS)                                                      
+		                                                TG(GI),         MO(LM),         SHIFT_SPACE,    MO(NAV),        MO(SYM),                        MO(NUM),        KC_BSPC,        SHIFT_SPACE,    MO(RM),         TO(ALPHAS)                                                      
 
 	),
 
@@ -252,8 +253,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M L M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b L M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M S M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b S M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -393,10 +394,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     {
         return false;
     }
-    // Your macros ...
 
     return true;
 }
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t *tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t *other_record)
+{
+
+    switch (tap_hold_keycode)
+    {
+    case SHIFT_SPACE:
+        return true;
+        break;
+    }
+
+    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
+    {
+        return true;
+    }
+    return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
+
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+  return 1000;
+}
+
 
 void matrix_scan_user(void)
 {
