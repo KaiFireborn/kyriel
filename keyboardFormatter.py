@@ -170,6 +170,10 @@ def extract_layers(code):
         layers.append(layer)
     return layers
 
+def process(inp):
+    inp = remove_whitespace(inp)
+    out = format(inp)
+    return out
 
 if __name__ == "__main__":
     print("Getting from clipboard.")
@@ -200,8 +204,7 @@ if __name__ == "__main__":
     # [KB] = LAYOUT_split_3x6_5(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(ALPHAS), KC_NO, KC_NO, RGB_TOG, QK_BOOT, KC_NO, TO(KB), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
     # }"""
     try:
-        inp = remove_whitespace(inp)
-        out = format(inp)
+        out = process(inp)
         print("Processed, copying to clipboard")
         pyperclip.copy(out)
     except Exception as e:
