@@ -565,6 +565,10 @@ int default_ug_brightness = 50;
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
 HSV c_hsv_gold = {.h = 48, .s = 221, .v = 254};
+HSV c_hsv_cornell_red = {.h = 3, .s = 184, .v = 167};
+HSV c_hsv_vermillion = {.h = 4, .s = 200, .v = 225};
+HSV c_hsv_ghost_white = {.h = 300, .s = 4, .v = 243};
+HSV c_hsv_atomic_tangerine = {.h = 15, .s = 56, .v = 247};
 
 RGB rgb_gold = {C_RGB_GOLD};
 RGB rgb_cornell_red = {C_RGB_CORNELL_RED};
