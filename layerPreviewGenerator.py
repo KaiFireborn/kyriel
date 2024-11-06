@@ -228,19 +228,20 @@ def generate_preview_per_half(layer):
 def convert_to_code(preview_str, layer_name):
     return f"char {layer_name.casefold()}_preview = \"f{preview_str}\";\n"
 
-def generate_and_output_previews(data):
-    def output_preview(preview):
-        print(preview)
-    
+def output_preview(preview):
+    pyperclip.copy(preview)
+    print("Completed and copied to clipboard.")
+        
+def generate_previews(data):
     preview_code_total = ""
     for layer_name in data:
         preview = generate_preview_per_half(data[layer_name])
         print("Rendering", layer_name)
         preview_code_total += convert_to_code(preview, layer_name)
-        
-    pyperclip.copy(preview_code_total)
-    print("Completed and copied to clipboard.")
+    
+    return preview_code_total
 
 if __name__ == "__main__":
     data = read_data()
-    generate_and_output_previews(data)
+    preview = generate_previews(data)
+    output_preview(preview)
