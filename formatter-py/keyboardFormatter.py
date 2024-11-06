@@ -142,7 +142,7 @@ def save_layer_data_for_previews(layers, layer_names):
     for i, layer in enumerate(layers):
         data_to_save[layer_names[i]] = layer
 
-    with open(get_file_from_parent_dir("layers_data.json"), "w+") as outfile:
+    with open("formatter-py/layers_data.json", "w+") as outfile:
         outfile.write(json.dumps(data_to_save))
     return data_to_save
 

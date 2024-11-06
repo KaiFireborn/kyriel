@@ -5,7 +5,7 @@ from keyboardFormatter import get_file_from_parent_dir
 
 
 def read_data():
-    with open(get_file_from_parent_dir("layers_data.json"), "r") as infile:
+    with open("formatter-py/layers_data.json", "r") as infile:
         return json.loads(infile.read())
 
 SYMBOL_LOOKUP = {
