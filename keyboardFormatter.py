@@ -108,6 +108,9 @@ def format_layer(layer):
     formatted_rows = [format_row(row) for row in layer]
     return "".join(formatted_rows)
 
+def rreplace(str, old, new, occurence):
+    li = str.rsplit(old, occurence)
+    return new.join(li)
 
 def build_code_again(formatted_layers, layer_names):
     code = "{\n"
@@ -124,6 +127,8 @@ def build_code_again(formatted_layers, layer_names):
             + ("" if i == len(layer_names) - 1 else ",\n")
             + "\n"
         )
+    
+    rreplace(code, "\n", "", 2) 
     code += "}"
     return code
 
@@ -132,24 +137,23 @@ def save_layer_data_for_previews(layers, layer_names):
     data_to_save = {}
     for i, layer in enumerate(layers):
         data_to_save[layer_names[i]] = layer
-    
+
     with open("layers_data.json", "w+") as outfile:
         outfile.write(json.dumps(data_to_save))
-    
+    return data_to_save
 
 
-
-def format(code):
+def format_and_save_data(code):
     layer_names = extract_layer_names(code)
     layers = extract_layers(code)
     parsed_layers = [
         parse_layer(layer, layer_names[i]) for i, layer in enumerate(layers)
     ]
-    save_layer_data_for_previews(parsed_layers, layer_names)
+    saved_data = save_layer_data_for_previews(parsed_layers, layer_names)
     formatted_layers = [format_layer(layer) for layer in parsed_layers]
     formatted_code = build_code_again(formatted_layers, layer_names)
 
-    return formatted_code
+    return formatted_code, saved_data
 
 
 def remove_whitespace(code):
@@ -170,10 +174,18 @@ def extract_layers(code):
         layers.append(layer)
     return layers
 
+
 def process(inp):
-    inp = remove_whitespace(inp)
-    out = format(inp)
-    return out
+    try:
+        inp = remove_whitespace(inp)
+        out, data = format_and_save_data(inp)
+        return out, data
+    except Exception as e:
+        print(
+            "Failed - are you sure your input (clipboard?) contains valid keymap code? (including {})\n",
+            str(e),
+        )
+
 
 if __name__ == "__main__":
     print("Getting from clipboard.")
@@ -203,11 +215,7 @@ if __name__ == "__main__":
 
     # [KB] = LAYOUT_split_3x6_5(KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, TO(ALPHAS), KC_NO, KC_NO, RGB_TOG, QK_BOOT, KC_NO, TO(KB), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
     # }"""
-    try:
-        out = process(inp)
-        print("Processed, copying to clipboard")
-        pyperclip.copy(out)
-    except Exception as e:
-        print(
-            "Failed - are you sure your clipboard contains valid keymap code? (including {})\n", str(e)
-        )
+
+    out = process(inp)
+    print("Processed, copying to clipboard")
+    pyperclip.copy(out)
