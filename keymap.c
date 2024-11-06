@@ -15,6 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "features/achordion.h"
 #if __has_include("keymap.h")
 #    include "keymap.h"
 #endif
@@ -111,9 +112,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_DEL,         
 
-    KC_ESC,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,            MO(NAV),        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
+    KC_ESC,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,            KC_LSFT,        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
-		                                                TG(GI),         MO(LM),         KC_SPC,       KC_LSFT, MO(SYM),                        MO(NUM),        KC_BSPC,         KC_SPC,        MO(RM),         TO(ALPHAS)                                                      
+		                                                TG(GI),         MO(LM),         LSFT_T(KC_SPC),       MO(NAV), MO(SYM),                        MO(NUM),        KC_BSPC,         LSFT_T(KC_SPC),        MO(RM),         TO(ALPHAS)                                                      
 
 	),
 
@@ -217,7 +218,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[GI2] = LAYOUT_split_3x6_5(
-		KC_LGUI,        KC_J,           KC_M,           KC_U,           KC_C,           KC_B,                                                                                           _______,        _______,        _______,        _______,        _______,        _______,        
+		KC_LGUI,        KC_J,           KC_M,           KC_U,           KC_B,           KC_C,                                                                                           _______,        _______,        _______,        _______,        _______,        _______,        
 
 		KC_O,           KC_LCTL,        _______,        _______,        _______,        C(KC_G),                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
@@ -334,6 +335,17 @@ void print_oled_right(char s[]) {
         oled_write_P("kfls21\n\n", false);
         oled_write_P(PSTR(s), false);
     }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+  if (!process_achordion(keycode, record)) { return false; }
+  // Your macros ...
+
+  return true;
+}
+
+void matrix_scan_user(void) {
+  achordion_task();
 }
 
 // static const char PROGMEM kyria_logo[] = {
