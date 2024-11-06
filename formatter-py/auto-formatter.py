@@ -8,7 +8,7 @@ KEYMAP_FILE = "../keymap.c"
 
 def create_keymap_backup(head, body, tail):
     content = head + body + tail
-    keymap_backup_filename = "_backup.".join(KEYMAP_FILE.rsplit(".", 1))
+    keymap_backup_filename = "./formatter-py/" + ("_backup.".join(KEYMAP_FILE.rsplit(".", 1)))
     with open(get_file_from_parent_dir(keymap_backup_filename), "w+") as outfile:
         outfile.write(content)
     
