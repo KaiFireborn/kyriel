@@ -410,12 +410,13 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         return true;
         break;
     }
+    return true;
 
-    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
-    {
-        return true;
-    }
-    return achordion_opposite_hands(tap_hold_record, other_record);
+    // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
+    // {
+    //     return true;
+    // }
+    // return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 
@@ -564,23 +565,12 @@ int default_ug_brightness = 50;
 #define C_RGB_GHOST_WHITE 243, 240, 244      // ##F3F0F4
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
-HSV c_hsv_gold = {.h = 48, .s = 221, .v = 254};
-HSV c_hsv_cornell_red = {.h = 3, .s = 184, .v = 167};
-HSV c_hsv_vermillion = {.h = 4, .s = 200, .v = 225};
-HSV c_hsv_ghost_white = {.h = 300, .s = 4, .v = 243};
-HSV c_hsv_atomic_tangerine = {.h = 15, .s = 56, .v = 247};
+HSV c_hsv_gold = {.h = 34, .s = 221, .v = 254};
+HSV c_hsv_cornell_red = {.h = 2, .s = 215, .v = 167};
+HSV c_hsv_vermillion = {.h = 3, .s = 182, .v = 231};
+HSV c_hsv_ghost_white = {.h = 202, .s = 4, .v = 244};
+HSV c_hsv_atomic_tangerine = {.h = 15, .s = 144, .v = 247};
 
-RGB rgb_gold = {C_RGB_GOLD};
-RGB rgb_cornell_red = {C_RGB_CORNELL_RED};
-RGB rgb_vermillion = {C_RGB_VERMILLION};
-RGB rgb_ghost_white = {C_RGB_GHOST_WHITE};
-RGB rgb_atomic_tangerine = {C_RGB_ATOMIC_TANGERINE};
-
-// uint8_t c_rgb_gold[3]             = {C_RGB_GOLD};
-// uint8_t c_rgb_cornell_red[3]      = {C_RGB_CORNELL_RED};
-// uint8_t c_rgb_vermillion[3]       = {C_RGB_VERMILLION};
-// uint8_t c_rgb_ghost_white[3]      = {C_RGB_GHOST_WHITE};
-// uint8_t c_rgb_atomic_tangerine[3] = {C_RGB_ATOMIC_TANGERINE};
 
 void unpack_rgb_to_array(RGB rgb, uint8_t array[3])
 {
@@ -589,42 +579,6 @@ void unpack_rgb_to_array(RGB rgb, uint8_t array[3])
     array[2] = rgb.b;
 }
 
-// HSV rgb_to_hsv(RGB rgb) {
-//     HSV hsv;
-//     uint8_t rgb_min, rgb_max;
-
-//     rgb_min = rgb.r < rgb.g ? (rgb.r < rgb.b ? rgb.r : rgb.b) : (rgb.g < rgb.b ? rgb.g : rgb.b);
-//     rgb_max = rgb.r > rgb.g ? (rgb.r > rgb.b ? rgb.r : rgb.b) : (rgb.g > rgb.b ? rgb.g : rgb.b);
-
-//     hsv.v = rgb_max;
-//     if (hsv.v == 0) {
-//         hsv.h = 0;
-//         hsv.s = 0;
-//         return hsv;
-//     }
-
-//     hsv.s = 255 * (rgb_max - rgb_min) / hsv.v;
-//     if (hsv.s == 0) {
-//         hsv.h = 0;
-//         return hsv;
-//     }
-
-//     if (rgb_max == rgb.r) {
-//         hsv.h = 0 + 43 * (rgb.g - rgb.b) / (rgb_max - rgb_min);
-//     } else if (rgb_max == rgb.g) {
-//         hsv.h = 85 + 43 * (rgb.b - rgb.r) / (rgb_max - rgb_min);
-//     } else {
-//         hsv.h = 171 + 43 * (rgb.r - rgb.g) / (rgb_max - rgb_min);
-//     }
-
-//     return hsv;
-// }
-
-// RGB change_color_brightness(rgb_led_t rgb, int brightness) {
-//     HSV hsv = rgb_to_hsv(rgb);
-//     hsv.v = brightness;
-//     return hsv_to_rgb(hsv);
-// }
 
 RGB color_to_dimmer_rgb(HSV hsv, int brightness)
 {
@@ -639,22 +593,15 @@ void copy_array(uint8_t dest[], uint8_t src[], size_t size)
         dest[i] = src[i];
     }
 }
-// #define C_RGB_
 
 void keyboard_post_init_user(void)
 {
-    //     // Initialize RGB to static black
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv_noeeprom(HSV_RED);
-    //     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-    // rgb_matrix_set_color_all(C_RGB_GOLD);
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CUSTOM_REACTIVE);
 }
 
 uint8_t ug_color[3] = {C_RGB_GOLD};
 void set_underglow_color(rgb_led_t color)
 {
-    // copy_array(ug_color, color, 3);
     unpack_rgb_to_array(color, ug_color);
 }
 
