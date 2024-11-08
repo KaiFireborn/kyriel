@@ -577,7 +577,7 @@ RGB rgb_atomic_tangerine = {C_RGB_ATOMIC_TANGERINE};
 // uint8_t c_rgb_ghost_white[3]      = {C_RGB_GHOST_WHITE};
 // uint8_t c_rgb_atomic_tangerine[3] = {C_RGB_ATOMIC_TANGERINE};
 
-void unpack_rgb_to_array(RGB rgb, uint8_t array[3])
+void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
 {
     array[0] = rgb.r;
     array[1] = rgb.g;
@@ -647,10 +647,10 @@ void keyboard_post_init_user(void)
 }
 
 uint8_t ug_color[3] = {C_RGB_GOLD};
-void set_underglow_color(rgb_led_t color)
+void set_underglow_color_rgb(rgb_led_t color)
 {
     // copy_array(ug_color, color, 3);
-    unpack_rgb_to_array(color, ug_color);
+    unpack_rgb_to_rgb_array(color, ug_color);
 }
 
 bool keycode_is_number(uint8_t keycode)
@@ -735,7 +735,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 switch (get_highest_layer(layer_state | default_layer_state))
                 {
                 case ALPHAS:
-                    set_underglow_color((RGB){C_RGB_GOLD});
+                    set_underglow_color_rgb((RGB){C_RGB_GOLD});
                     break;
 
                     // case NUM:
@@ -774,7 +774,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 // case RM:
                 //     break;
                 case GI:
-                    set_underglow_color((RGB){C_RGB_ATOMIC_TANGERINE});
+                    set_underglow_color_rgb((RGB){C_RGB_ATOMIC_TANGERINE});
 
                     if (keycode == KC_1)
                     {
@@ -840,7 +840,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 
                     break;
                 case GI2:
-                    set_underglow_color((RGB){C_RGB_GHOST_WHITE});
+                    set_underglow_color_rgb((RGB){C_RGB_GHOST_WHITE});
 
                     // if (keycode == KC_J) {
                     //     rgb_matrix_set_color(0, RGB_TURQUOISE);
@@ -907,7 +907,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 // case KB:
                 //     break;
                 default:
-                    set_underglow_color((RGB){C_RGB_GOLD});
+                    set_underglow_color_rgb((RGB){C_RGB_GOLD});
 
                     if (keycode_is_number(keycode))
                     {
