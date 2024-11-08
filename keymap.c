@@ -586,6 +586,11 @@ RGB color_to_dimmer_rgb(HSV hsv, int brightness)
     return hsv_to_rgb(hsv);
 }
 
+void set_matrix_color_to_dimmed_hsv(uint8_t index, HSV hsv, int brightness) {
+    RGB dimmer_rgb = color_to_dimmer_rgb(hsv, brightness);
+    rgb_matrix_set_color(index, dimmer_rgb.r, dimmer_rgb.g, dimmer_rgb.b);
+}
+
 void copy_array(uint8_t dest[], uint8_t src[], size_t size)
 {
     for (size_t i = 0; i < size; i++)
@@ -670,7 +675,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     {
         if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW)
         {
-            rgb_matrix_set_color(i, ug_color[0], ug_color[1], ug_color[2]);
+            set_matrix_color_to_dimmed_hsv(i, ug_color, 255);
         }
     }
 
@@ -703,27 +708,21 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 case NAV:
                     if (keycode_is_navigation(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_TEAL);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_TEAL, 255);
                     }
                     else if (keycode_is_media(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_MAGENTA);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 255);
                     }
                     else
                     {
-                        rgb_matrix_set_color(index, C_RGB_VERMILLION);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_vermillion, 255);
                     }
 
                 case COSM:
                     rgb_matrix_set_color(index, RGB_BLUE);
                     break;
 
-                // case MOUSE:
-                //     break;
-
-                // case LM:
-                //     break;
-                // case RM:
                 //     break;
                 case GI:
                     set_underglow_color((RGB){C_RGB_ATOMIC_TANGERINE});
@@ -744,120 +743,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                     {
                         rgb_matrix_set_color(3, RGB_WHITE);
                     }
-                    // else if(keycode == KC_5) {
-                    //     rgb_matrix_set_color(4, RGB_WHITE);
-                    // }
-                    // else if(keycode == KC_Q) {
-                    //     rgb_matrix_set_color(5, RGB_WHITE);
-                    // }
-                    // else if(keycode == KC_W) {
-                    //     rgb_matrix_set_color(6, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_E) {
-                    //     rgb_matrix_set_color(7, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_F) {
-                    //     rgb_matrix_set_color(8, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_V) {
-                    //     rgb_matrix_set_color(9, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_A) {
-                    //     rgb_matrix_set_color(10, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_S) {
-                    //     rgb_matrix_set_color(11, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_D) {
-                    //     rgb_matrix_set_color(12, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_G) {
-                    //     rgb_matrix_set_color(13, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_Z) {
-                    //     rgb_matrix_set_color(14, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_LSFT) {
-                    //     rgb_matrix_set_color(15, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_TAB) {
-                    //     rgb_matrix_set_color(16, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_ESC) {
-                    //     rgb_matrix_set_color(17, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_ENT) {
-                    //     rgb_matrix_set_color(18, RGB_WHITE);
-                    // }
-
+                  
                     break;
                 case GI2:
                     set_underglow_color((RGB){C_RGB_GHOST_WHITE});
 
-                    // if (keycode == KC_J) {
-                    //     rgb_matrix_set_color(0, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_M) {
-                    //     rgb_matrix_set_color(1, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_U) {
-                    //     rgb_matrix_set_color(2, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_C) {
-                    //     rgb_matrix_set_color(3, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_B) {
-                    //     rgb_matrix_set_color(4, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_P) {
-                    //     rgb_matrix_set_color(5, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_R) {
-                    //     rgb_matrix_set_color(6, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_O) {
-                    //     rgb_matrix_set_color(7, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_Y) {
-                    //     rgb_matrix_set_color(8, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_X) {
-                    //     rgb_matrix_set_color(9, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_C) {
-                    //     rgb_matrix_set_color(10, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_L) {
-                    //     rgb_matrix_set_color(11, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_G) {
-                    //     rgb_matrix_set_color(12, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_D) {
-                    //     rgb_matrix_set_color(13, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_E) {
-                    //     rgb_matrix_set_color(14, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_W) {
-                    //     rgb_matrix_set_color(15, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_Q) {
-                    //     rgb_matrix_set_color(16, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_BSLS) {
-                    //     rgb_matrix_set_color(17, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_LGUI) {
-                    //     rgb_matrix_set_color(18, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_BTN3) {
-                    //     rgb_matrix_set_color(19, RGB_TURQUOISE);
-                    // }
-
+                  
                     break;
-                // case KB:
-                //     break;
+               
                 default:
                     set_underglow_color((RGB){C_RGB_GOLD});
 
@@ -905,76 +798,5 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
             }
         }
     }
-    // if (get_highest_layer(layer_state) > 0) {
-    //     uint8_t layer = get_highest_layer(layer_state);
-
-    //     for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-    //         for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-    //             uint8_t index = g_led_config.matrix_co[row][col];
-
-    //             if (index >= led_min && index < led_max && index != NO_LED &&
-    //             keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-
-    //                 copy_array(ug_color, c_rgb_gold, 3);
-
-    //                 switch(get_highest_layer(layer_state|default_layer_state)) {
-    //                     case ALPHAS:
-    //                         set_underglow_color(C_RGB_GOLD);
-    //                         break;
-
-    //                     case NUM:
-    //                         rgb_matrix_set_color(index, RGB_GREEN);
-
-    //                         break;
-
-    //                     case FN:
-    //                         rgb_matrix_set_color(index, RGB_ORANGE);
-    //                         break;
-
-    //                     case SYM:
-    //                         rgb_matrix_set_color(index, RGB_CYAN);
-    //                         break;
-    //                     case NAV:
-    //                         rgb_matrix_set_color(index, RGB_TEAL);
-    //                         break;
-
-    //                     case COSM:
-    //                         rgb_matrix_set_color(index, RGB_MAGENTA);
-    //                         break;
-
-    //                     case MOUSE:
-    //                         rgb_matrix_set_color(index, RGB_WHITE);
-    //                         break;
-
-    //                     case LM:
-    //                         rgb_matrix_set_color(index, RGB_YELLOW);
-    //                         break;
-    //                     case RM:
-    //                         rgb_matrix_set_color(index, RGB_YELLOW);
-    //                         break;
-    //                     case GI:
-    //                         // rgb_matrix_set_color(index, RGB_GOLD);
-    //                         set_underglow_color(C_RGB_ATOMIC_TANGERINE);
-
-    //                         break;
-    //                     case GI2:
-    //                         // rgb_matrix_set_color(index, RGB_GOLDENROD);
-    //                         set_underglow_color(C_RGB_GHOST_WHITE);
-    //                         break;
-    //                     case KB:
-    //                         rgb_matrix_set_color(index, RGB_PURPLE);
-    //                         break;
-    //                     default:
-    //                         set_underglow_color(C_RGB_GOLD);
-    //                         break;
-    //                 }
-
-    //                 // if (g_led_config.flags[index] & LED_FLAG_UNDERGLOW) {
-    //                 //     rgb_matrix_set_color(index, C_RGB_VERMILLION);
-    //                 // }
-    //             }
-    //         }
-    //     }
-    // }
     return false;
 }
