@@ -30,3 +30,4 @@ bool CUSTOM_REACTIVE(effect_params_t* params) {
     return effect_runner_reactive_splash(0, params, &CUSTOM_REACTIVE_math);
 }
 #endif // RGB_MATRIX_CUSTOM_EFFECT_IMPLS
+
