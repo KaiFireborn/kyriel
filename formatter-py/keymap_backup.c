@@ -252,8 +252,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
             )};
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M L M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b L M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M S M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b S M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -409,19 +409,19 @@ bool achordion_chord(uint16_t tap_hold_keycode,
         return true;
         break;
     }
+    return true;
 
-    if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
-    {
-        return true;
-    }
-    return achordion_opposite_hands(tap_hold_record, other_record);
+    // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
+    // {
+    //     return true;
+    // }
+    // return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
-
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-  return 1000;
+uint16_t achordion_timeout(uint16_t tap_hold_keycode)
+{
+    return 1000;
 }
-
 
 void matrix_scan_user(void)
 {
@@ -563,19 +563,21 @@ int default_ug_brightness = 50;
 #define C_RGB_GHOST_WHITE 243, 240, 244      // ##F3F0F4
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
-HSV c_hsv_gold = {.h = 48, .s = 221, .v = 254};
+HSV c_hsv_gold = {.h = 34, .s = 221, .v = 254};
+HSV c_hsv_cornell_red = {.h = 2, .s = 215, .v = 167};
+HSV c_hsv_vermillion = {.h = 3, .s = 182, .v = 231};
+HSV c_hsv_ghost_white = {.h = 202, .s = 4, .v = 244};
+HSV c_hsv_atomic_tangerine = {.h = 15, .s = 144, .v = 247};
 
-RGB rgb_gold = {C_RGB_GOLD};
-RGB rgb_cornell_red = {C_RGB_CORNELL_RED};
-RGB rgb_vermillion = {C_RGB_VERMILLION};
-RGB rgb_ghost_white = {C_RGB_GHOST_WHITE};
-RGB rgb_atomic_tangerine = {C_RGB_ATOMIC_TANGERINE};
+//GI layer colors
+HSV c_hsv_pyro = {.h = 15, .s = 144, .v = 247};
+HSV c_hsv_hydro = {.h = 202, .s = 4, .v = 244};
+HSV c_hsv_anemo = {.h = 180, .s = 100, .v = 254};
+HSV c_hsv_electro = {.h = 282, .s = 144, .v = 247};
+HSV c_hsv_cryo = {.h = 180, .s = 100, .v = 254};
+HSV c_hsv_dendro = {.h = 120, .s = 100, .v = 254};
+HSV c_hsv_geo = {.h = 34, .s = 221, .v = 254};
 
-// uint8_t c_rgb_gold[3]             = {C_RGB_GOLD};
-// uint8_t c_rgb_cornell_red[3]      = {C_RGB_CORNELL_RED};
-// uint8_t c_rgb_vermillion[3]       = {C_RGB_VERMILLION};
-// uint8_t c_rgb_ghost_white[3]      = {C_RGB_GHOST_WHITE};
-// uint8_t c_rgb_atomic_tangerine[3] = {C_RGB_ATOMIC_TANGERINE};
 
 void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
 {
@@ -583,48 +585,21 @@ void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
     array[1] = rgb.g;
     array[2] = rgb.b;
 }
-
-// HSV rgb_to_hsv(RGB rgb) {
-//     HSV hsv;
-//     uint8_t rgb_min, rgb_max;
-
-//     rgb_min = rgb.r < rgb.g ? (rgb.r < rgb.b ? rgb.r : rgb.b) : (rgb.g < rgb.b ? rgb.g : rgb.b);
-//     rgb_max = rgb.r > rgb.g ? (rgb.r > rgb.b ? rgb.r : rgb.b) : (rgb.g > rgb.b ? rgb.g : rgb.b);
-
-//     hsv.v = rgb_max;
-//     if (hsv.v == 0) {
-//         hsv.h = 0;
-//         hsv.s = 0;
-//         return hsv;
-//     }
-
-//     hsv.s = 255 * (rgb_max - rgb_min) / hsv.v;
-//     if (hsv.s == 0) {
-//         hsv.h = 0;
-//         return hsv;
-//     }
-
-//     if (rgb_max == rgb.r) {
-//         hsv.h = 0 + 43 * (rgb.g - rgb.b) / (rgb_max - rgb_min);
-//     } else if (rgb_max == rgb.g) {
-//         hsv.h = 85 + 43 * (rgb.b - rgb.r) / (rgb_max - rgb_min);
-//     } else {
-//         hsv.h = 171 + 43 * (rgb.r - rgb.g) / (rgb_max - rgb_min);
-//     }
-
-//     return hsv;
-// }
-
-// RGB change_color_brightness(rgb_led_t rgb, int brightness) {
-//     HSV hsv = rgb_to_hsv(rgb);
-//     hsv.v = brightness;
-//     return hsv_to_rgb(hsv);
-// }
+void unpack_hsv_to_rgb_array(HSV hsv, uint8_t, array[3]) {
+    RGB rgb = hsv_to_rgb(hsv);
+    unpack_rgb_to_rgb_array(rgb, array);
+}
 
 RGB color_to_dimmer_rgb(HSV hsv, int brightness)
 {
     hsv.v = brightness;
     return hsv_to_rgb(hsv);
+}
+
+void set_matrix_color_to_dimmed_hsv(uint8_t index, HSV hsv, int brightness)
+{
+    RGB dimmer_rgb = color_to_dimmer_rgb(hsv, brightness);
+    rgb_matrix_set_color(index, dimmer_rgb.r, dimmer_rgb.g, dimmer_rgb.b);
 }
 
 void copy_array(uint8_t dest[], uint8_t src[], size_t size)
@@ -634,23 +609,18 @@ void copy_array(uint8_t dest[], uint8_t src[], size_t size)
         dest[i] = src[i];
     }
 }
-// #define C_RGB_
 
 void keyboard_post_init_user(void)
 {
-    //     // Initialize RGB to static black
-    //     rgblight_enable_noeeprom();
-    //     rgblight_sethsv_noeeprom(HSV_RED);
-    //     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-    // rgb_matrix_set_color_all(C_RGB_GOLD);
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CUSTOM_REACTIVE);
 }
 
 uint8_t ug_color[3] = {C_RGB_GOLD};
-void set_underglow_color_rgb(rgb_led_t color)
+
+void set_underglow_color_hsv(HSV hsv)
 {
-    // copy_array(ug_color, color, 3);
-    unpack_rgb_to_rgb_array(color, ug_color);
+    RGB rgb = hsv_to_rgb(hsv);
+    unpack_rgb_to_rgb_array(rgb, ug_color);
 }
 
 bool keycode_is_number(uint8_t keycode)
@@ -718,7 +688,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     {
         if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW)
         {
-            rgb_matrix_set_color(i, ug_color[0], ug_color[1], ug_color[2]);
+            set_matrix_color_to_dimmed_hsv(i, ug_color, 255);
         }
     }
 
@@ -731,298 +701,119 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
             uint8_t keycode = keymap_key_to_keycode(layer, (keypos_t){col, row});
             if (index >= led_min && index < led_max && index != NO_LED && keycode > KC_TRNS)
             {
-                // underglow
                 switch (get_highest_layer(layer_state | default_layer_state))
                 {
                 case ALPHAS:
-                    set_underglow_color_rgb((RGB){C_RGB_GOLD});
+                    set_underglow_color_hsv(c_hsv_gold);
                     break;
-
-                    // case NUM:
-                    //     break;
-
-                    // case FN:
-                    //     break;
-
                 case SYM:
-                    rgb_matrix_set_color(index, C_RGB_CORNELL_RED);
+                    set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, 100);
+
                     break;
 
-                case NAV:
+                case NAV: //highlight keys on NAV depending on grouping
                     if (keycode_is_navigation(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_TEAL);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_TEAL, 255);
                     }
                     else if (keycode_is_media(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_MAGENTA);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 255);
                     }
+                    //TODO: also add arrow key highlighting ig
                     else
                     {
-                        rgb_matrix_set_color(index, C_RGB_VERMILLION);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_vermillion, 255);
                     }
 
-                case COSM:
-                    rgb_matrix_set_color(index, RGB_BLUE);
-                    break;
+                case COSM: //highlight all keys on COSM
+                    set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 255);
+                    break;  
 
-                // case MOUSE:
-                //     break;
-
-                // case LM:
-                //     break;
-                // case RM:
-                //     break;
-                case GI:
-                    set_underglow_color_rgb((RGB){C_RGB_ATOMIC_TANGERINE});
+                case GI: //highlight keys on GI depending on element + wasd + eq
+                    set_underglow_color_hsv(c_hsv_atomic_tangerine);
 
                     if (keycode == KC_1)
                     {
-                        rgb_matrix_set_color(0, RGB_WHITE);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, 255);
                     }
-                    else if (keycode == KC_2)
+                    if (keycode == KC_2)
                     {
-                        rgb_matrix_set_color(1, RGB_WHITE);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, 255);
                     }
                     if (keycode == KC_3)
                     {
-                        rgb_matrix_set_color(2, RGB_WHITE);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, 255);
                     }
-                    else if (keycode == KC_4)
+                    if (keycode == KC_4)
                     {
-                        rgb_matrix_set_color(3, RGB_WHITE);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, 255);
                     }
-                    // else if(keycode == KC_5) {
-                    //     rgb_matrix_set_color(4, RGB_WHITE);
-                    // }
-                    // else if(keycode == KC_Q) {
-                    //     rgb_matrix_set_color(5, RGB_WHITE);
-                    // }
-                    // else if(keycode == KC_W) {
-                    //     rgb_matrix_set_color(6, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_E) {
-                    //     rgb_matrix_set_color(7, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_F) {
-                    //     rgb_matrix_set_color(8, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_V) {
-                    //     rgb_matrix_set_color(9, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_A) {
-                    //     rgb_matrix_set_color(10, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_S) {
-                    //     rgb_matrix_set_color(11, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_D) {
-                    //     rgb_matrix_set_color(12, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_G) {
-                    //     rgb_matrix_set_color(13, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_Z) {
-                    //     rgb_matrix_set_color(14, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_LSFT) {
-                    //     rgb_matrix_set_color(15, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_TAB) {
-                    //     rgb_matrix_set_color(16, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_ESC) {
-                    //     rgb_matrix_set_color(17, RGB_WHITE);
-                    // }
-                    // else if (keycode == KC_ENT) {
-                    //     rgb_matrix_set_color(18, RGB_WHITE);
-                    // }
+                    if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, HSV_YELLOW, 255);
+                    }
+                    if (keycode == KC_Q || keycode == KC_E)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, HSV_WHITE, 255);
+                    }
 
                     break;
-                case GI2:
-                    set_underglow_color_rgb((RGB){C_RGB_GHOST_WHITE});
-
-                    // if (keycode == KC_J) {
-                    //     rgb_matrix_set_color(0, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_M) {
-                    //     rgb_matrix_set_color(1, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_U) {
-                    //     rgb_matrix_set_color(2, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_C) {
-                    //     rgb_matrix_set_color(3, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_B) {
-                    //     rgb_matrix_set_color(4, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_P) {
-                    //     rgb_matrix_set_color(5, RGB_TURQUOISE);
-                    // }
-                    // else if(keycode == KC_R) {
-                    //     rgb_matrix_set_color(6, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_O) {
-                    //     rgb_matrix_set_color(7, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_Y) {
-                    //     rgb_matrix_set_color(8, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_X) {
-                    //     rgb_matrix_set_color(9, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_C) {
-                    //     rgb_matrix_set_color(10, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_L) {
-                    //     rgb_matrix_set_color(11, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_G) {
-                    //     rgb_matrix_set_color(12, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_D) {
-                    //     rgb_matrix_set_color(13, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_E) {
-                    //     rgb_matrix_set_color(14, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_W) {
-                    //     rgb_matrix_set_color(15, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_Q) {
-                    //     rgb_matrix_set_color(16, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_BSLS) {
-                    //     rgb_matrix_set_color(17, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_LGUI) {
-                    //     rgb_matrix_set_color(18, RGB_TURQUOISE);
-                    // }
-                    // else if (keycode == KC_BTN3) {
-                    //     rgb_matrix_set_color(19, RGB_TURQUOISE);
-                    // }
+                case GI2: //highlight wasd on GI2
+                    if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, HSV_YELLOW, 255);
+                    }
+                    set_underglow_color_hsv(c_hsv_ghost_white);
 
                     break;
-                // case KB:
-                //     break;
+
                 default:
-                    set_underglow_color_rgb((RGB){C_RGB_GOLD});
+                    set_underglow_color_hsv(c_hsv_gold);
 
                     if (keycode_is_number(keycode))
                     {
-                        rgb_matrix_set_color(index, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).r, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).g, color_to_dimmer_rgb((HSV){HSV_BLUE}, 100).b);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_BLUE, 100);
                     }
                     else if (keycode_is_function(keycode))
                     {
-                        rgb_matrix_set_color(index, HSV_GREEN);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_GREEN, 100);
                     }
                     else if (keycode_is_symbol(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_CYAN);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_CYAN, 100);
                     }
                     else if (keycode_is_navigation(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_TEAL);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_TEAL, 100);
                     }
                     else if (keycode_is_media(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_MAGENTA);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 100);
                     }
                     else if (keycode_is_keypad(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_CYAN);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_CYAN, 100);
                     }
                     else if (keycode_is_mouse(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_WHITE);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_WHITE, 100);
                     }
                     else if (keycode_is_hardware(keycode))
                     {
-                        rgb_matrix_set_color(index, RGB_MAGENTA);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 100);
                     }
                     else
                     {
-                        rgb_matrix_set_color(index, RGB_RED);
+                        set_matrix_color_to_dimmed_hsv(index, HSV_RED, 100);
                     }
                 }
             }
             if (keycode_is_modifier(keycode) && (get_highest_layer(layer_state | default_layer_state) != ALPHAS && get_highest_layer(layer_state | default_layer_state) != GI && get_highest_layer(layer_state | default_layer_state) != GI2))
             {
-                rgb_matrix_set_color(index, C_RGB_GOLD);
+                set_matrix_color_to_dimmed_hsv(index, HSV_GOLD, 100);
             }
         }
     }
-    // if (get_highest_layer(layer_state) > 0) {
-    //     uint8_t layer = get_highest_layer(layer_state);
-
-    //     for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
-    //         for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
-    //             uint8_t index = g_led_config.matrix_co[row][col];
-
-    //             if (index >= led_min && index < led_max && index != NO_LED &&
-    //             keymap_key_to_keycode(layer, (keypos_t){col,row}) > KC_TRNS) {
-
-    //                 copy_array(ug_color, c_rgb_gold, 3);
-
-    //                 switch(get_highest_layer(layer_state|default_layer_state)) {
-    //                     case ALPHAS:
-    //                         set_underglow_color(C_RGB_GOLD);
-    //                         break;
-
-    //                     case NUM:
-    //                         rgb_matrix_set_color(index, RGB_GREEN);
-
-    //                         break;
-
-    //                     case FN:
-    //                         rgb_matrix_set_color(index, RGB_ORANGE);
-    //                         break;
-
-    //                     case SYM:
-    //                         rgb_matrix_set_color(index, RGB_CYAN);
-    //                         break;
-    //                     case NAV:
-    //                         rgb_matrix_set_color(index, RGB_TEAL);
-    //                         break;
-
-    //                     case COSM:
-    //                         rgb_matrix_set_color(index, RGB_MAGENTA);
-    //                         break;
-
-    //                     case MOUSE:
-    //                         rgb_matrix_set_color(index, RGB_WHITE);
-    //                         break;
-
-    //                     case LM:
-    //                         rgb_matrix_set_color(index, RGB_YELLOW);
-    //                         break;
-    //                     case RM:
-    //                         rgb_matrix_set_color(index, RGB_YELLOW);
-    //                         break;
-    //                     case GI:
-    //                         // rgb_matrix_set_color(index, RGB_GOLD);
-    //                         set_underglow_color(C_RGB_ATOMIC_TANGERINE);
-
-    //                         break;
-    //                     case GI2:
-    //                         // rgb_matrix_set_color(index, RGB_GOLDENROD);
-    //                         set_underglow_color(C_RGB_GHOST_WHITE);
-    //                         break;
-    //                     case KB:
-    //                         rgb_matrix_set_color(index, RGB_PURPLE);
-    //                         break;
-    //                     default:
-    //                         set_underglow_color(C_RGB_GOLD);
-    //                         break;
-    //                 }
-
-    //                 // if (g_led_config.flags[index] & LED_FLAG_UNDERGLOW) {
-    //                 //     rgb_matrix_set_color(index, C_RGB_VERMILLION);
-    //                 // }
-    //             }
-    //         }
-    //     }
-    // }
     return false;
 }
