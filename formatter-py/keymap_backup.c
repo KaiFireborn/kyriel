@@ -67,7 +67,7 @@
 #define CKC_EQUIV ALGR(KC_SLSH)    // ⇔
 #define CKC_MATH_AND ALGR(KC_QUOT) // ∧
 #define CKC_MATH_OR ALGR(KC_NUHS)  // ∨
-#define SHIFT_SPACE LSFT_T(KC_SPC) // mod-tap
+#define CKC_SH_SP LSFT_T(KC_SPC) // mod-tap
 
 const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t comm_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
@@ -120,140 +120,141 @@ enum layers
 // START FORMAT
 //  MO(MOUSE) removed for now, so is KC_LGUI
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [ALPHAS] = LAYOUT_split_3x6_5(
-        QK_LOCK, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_MUTE,
+	[ALPHAS] = LAYOUT_split_3x6_5(
+		QK_LOCK,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                                                                                           KC_J,           KC_L,           KC_U,           KC_Y,           KC_QUOT,        KC_MUTE,        
 
-        KC_TAB, KC_A, KC_R, KC_S, KC_T, KC_G, KC_M, KC_N, KC_E, KC_I, KC_O, KC_DEL,
+		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           KC_DEL,         
 
-        KC_ESC, KC_Z, KC_X, KC_C, KC_D, KC_V, KC_LSFT, MO(COSM), MO(FN), KC_DEL, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
+		KC_ESC,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LSFT,        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
-        TG(GI), MO(LM), SHIFT_SPACE, MO(NAV), MO(SYM), MO(NUM), KC_BSPC, SHIFT_SPACE, MO(RM), TO(ALPHAS)
+		                                                TG(GI),         MO(LM),         CKC_SH_SP,      MO(NAV),        MO(SYM),                        MO(NUM),        KC_BSPC,        CKC_SH_SP,      MO(RM),         TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [SYM] = LAYOUT_split_3x6_5(
-        RGB_VAI, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_EQL, _______,
+	[SYM] = LAYOUT_split_3x6_5(
+		RGB_VAI,        KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,                                                                                        KC_CIRC,        KC_AMPR,        KC_ASTR,        KC_UNDS,        KC_EQL,         _______,        
 
-        _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, KC_PIPE, KC_GT, KC_LCBR, KC_LPRN, KC_LBRC, KC_PLUS, _______,
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PIPE,                                                                                        KC_GT,          KC_LCBR,        KC_LPRN,        KC_LBRC,        KC_PLUS,        _______,        
 
-        _______, CKC_TILD, CKC_GRV, KC_BSLS, KC_SLSH, KC_QUES, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LT, KC_RCBR, KC_RPRN, KC_RBRC, KC_MINS, _______,
+		_______,        CKC_TILD,       CKC_GRV,        KC_BSLS,        KC_SLSH,        KC_QUES,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_LT,          KC_RCBR,        KC_RPRN,        KC_RBRC,        KC_MINS,        _______,        
 
-        XXXXXXX, XXXXXXX, _______, XXXXXXX, _______, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        _______,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [NUM] = LAYOUT_split_3x6_5(
-        RGB_TOG, KC_LPRN, KC_7, KC_8, KC_9, KC_RPRN, KC_CIRC, KC_DLR, KC_PAST, KC_HASH, KC_LNUM, _______,
+	[NUM] = LAYOUT_split_3x6_5(
+		RGB_TOG,        KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_RPRN,                                                                                        KC_CIRC,        KC_DLR,         KC_PAST,        KC_HASH,        KC_LNUM,        _______,        
 
-        _______, KC_PERC, KC_4, KC_5, KC_6, KC_PPLS, KC_PPLS, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,        KC_PERC,        KC_4,           KC_5,           KC_6,           KC_PPLS,                                                                                        KC_PPLS,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-        _______, KC_0, KC_1, KC_2, KC_3, KC_PMNS, KC_PAST, KC_PSLS, XXXXXXX, XXXXXXX, KC_PMNS, KC_PAST, KC_PSLS, KC_LT, KC_GT, _______,
+		_______,        KC_0,           KC_1,           KC_2,           KC_3,           KC_PMNS,        KC_PAST,        KC_PSLS,                        XXXXXXX,        XXXXXXX,        KC_PMNS,        KC_PAST,        KC_PSLS,        KC_LT,          KC_GT,          _______,        
 
-        XXXXXXX, _______, KC_PDOT, KC_PEQL, XXXXXXX, _______, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                                XXXXXXX,        _______,        KC_PDOT,        KC_PEQL,        XXXXXXX,                        _______,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [FN] = LAYOUT_split_3x6_5(
-        RGB_MOD, KC_F12, KC_F7, KC_F8, KC_F9, KC_F15, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+	[FN] = LAYOUT_split_3x6_5(
+		RGB_MOD,        KC_F12,         KC_F7,          KC_F8,          KC_F9,          KC_F15,                                                                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        _______, KC_F11, KC_F4, KC_F5, KC_F6, KC_F14, XXXXXXX, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,        KC_F11,         KC_F4,          KC_F5,          KC_F6,          KC_F14,                                                                                         XXXXXXX,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-        _______, KC_F10, KC_F1, KC_F2, KC_F3, KC_F13, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,        KC_F10,         KC_F1,          KC_F2,          KC_F3,          KC_F13,         XXXXXXX,        XXXXXXX,                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [COSM] = LAYOUT_split_3x6_5(
-        RGB_VAD, CKC_ENT, CKC_EUR, CKC_DEG, CKC_DELT, CKC_INF, CKC_MDOT, CKC_MU, CKC_UUML, CKC_NOT, CKC_NEQL, _______,
+	[COSM] = LAYOUT_split_3x6_5(
+		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_NEQL,       _______,        
 
-        _______, CKC_AUML, CKC_MATH_AND, CKC_SUML, CKC_MATH_OR, CKC_YES, CKC_GTOET, CKC_LEFTA, CKC_LEFTDA, CKC_UPA, CKC_OUML, _______,
+		_______,        CKC_AUML,       CKC_MATH_AND,   CKC_SUML,       CKC_MATH_OR,    CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_LEFTDA,     CKC_UPA,        CKC_OUML,       _______,        
 
-        _______, CKC_ALMEQ, CKC_PLSMNS, CKC_SECT, CKC_ERR, CKC_NO, XXXXXXX, _______, XXXXXXX, XXXXXXX, CKC_LTOET, CKC_RIGHTA, CKC_RIGHTDA, CKC_DOWNA, CKC_EQUIV, _______,
+		_______,        CKC_ALMEQ,      CKC_PLSMNS,     CKC_SECT,       CKC_ERR,        CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_RIGHTDA,    CKC_DOWNA,      CKC_EQUIV,      _______,        
 
-        XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [NAV] = LAYOUT_split_3x6_5(
-        QK_CLEAR_EEPROM, KC_SLEP, KC_EJCT, KC_FIND, CKC_SCRSV, S(KC_PSCR), XXXXXXX, KC_HOME, KC_END, KC_DEL, KC_INS, _______,
+	[NAV] = LAYOUT_split_3x6_5(
+		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
 
-        _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, KC_PSCR, CW_TOGG, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, _______,
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        _______,        
 
-        _______, KC_MNXT, KC_MPLY, KC_MPRV, LGUI(KC_D), A(KC_PSCR), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGDN, KC_PGUP, KC_TAB, KC_CAPS, _______,
+		_______,        KC_MNXT,        KC_MPLY,        KC_MPRV,        LGUI(KC_D),     A(KC_PSCR),     XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_PGDN,        KC_PGUP,        KC_TAB,         KC_CAPS,        _______,        
 
-        XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                                XXXXXXX,        XXXXXXX,        _______,        _______,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [MOUSE] = LAYOUT_split_3x6_5(
-        _______, KC_BTN4, KC_BTN5, KC_BTN2, KC_BTN1, KC_BTN3, KC_ACL0, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+	[MOUSE] = LAYOUT_split_3x6_5(
+		_______,        KC_BTN4,        KC_BTN5,        KC_BTN2,        KC_BTN1,        KC_BTN3,                                                                                        KC_ACL0,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        _______, KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, LSA(KC_PSCR), KC_ACL1, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,        KC_MS_L,        KC_MS_U,        KC_MS_D,        KC_MS_R,        LSA(KC_PSCR),                                                                                   KC_ACL1,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-        _______, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, KC_LSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,        KC_WH_L,        KC_WH_U,        KC_WH_D,        KC_WH_R,        KC_LSCR,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_ACL2,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, TO(ALPHAS)
+		                                                XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [LM] = LAYOUT_split_3x6_5(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+	[LM] = LAYOUT_split_3x6_5(
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, _______, _______, _______, _______, _______, _______, _______,
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		_______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        _______, _______, _______, KC_LSFT, _______, _______, _______, _______, _______, TO(ALPHAS)
+		                                                _______,        _______,        _______,        KC_LSFT,        _______,                        _______,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [RM] = LAYOUT_split_3x6_5(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+	[RM] = LAYOUT_split_3x6_5(
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        _______, _______, _______, _______, _______, _______, _______, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,        _______,        _______,        _______,        _______,        _______,                                                                                        _______,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		_______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,                        _______,        _______,        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        _______, _______, _______, KC_LSFT, _______, _______, _______, _______, _______, TO(ALPHAS)
+		                                                _______,        _______,        _______,        KC_LSFT,        _______,                        _______,        _______,        _______,        _______,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [GI] = LAYOUT_split_3x6_5(
-        _______, KC_1, KC_2, KC_5, KC_3, KC_4, KC_BTN3, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______,
+	[GI] = LAYOUT_split_3x6_5(
+		_______,        KC_1,           KC_2,           KC_5,           KC_3,           KC_4,                                                                                           KC_BTN3,        KC_WH_L,        KC_WH_D,        KC_WH_U,        KC_WH_R,        _______,        
 
-        KC_TAB, KC_LSFT, KC_Q, KC_W, KC_E, KC_F, KC_F, KC_BTN1, KC_BTN1, KC_BTN2, KC_T, _______,
+		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           KC_F,           KC_BTN1,        KC_BTN1,        KC_BTN2,        KC_T,           _______,        
 
-        KC_ESC, KC_V, KC_A, KC_S, KC_D, KC_T, KC_LALT, KC_ENT, XXXXXXX, XXXXXXX, XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
+		KC_ESC,         KC_V,           KC_A,           KC_S,           KC_D,           KC_T,           KC_LALT,        KC_ENT,                         XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_MS_L,        KC_MS_D,        KC_MS_U,        KC_MS_R,        _______,        
 
-        TO(ALPHAS), KC_Z, MO(FN), KC_SPC, MO(GI2), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                                TO(ALPHAS),     KC_Z,           MO(FN),         KC_SPC,         MO(GI2),                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [GI2] = LAYOUT_split_3x6_5(
-        KC_LGUI, KC_J, KC_M, KC_U, KC_B, KC_C, _______, _______, _______, _______, _______, _______,
+	[GI2] = LAYOUT_split_3x6_5(
+		KC_LGUI,        KC_J,           KC_M,           KC_U,           KC_B,           KC_C,                                                                                           _______,        _______,        _______,        _______,        _______,        _______,        
 
-        KC_O, KC_LCTL, _______, _______, _______, C(KC_G), _______, _______, _______, _______, _______, _______,
+		KC_O,           KC_LCTL,        KC_Q,           KC_W,           KC_E,           C(KC_G),                                                                                        _______,        _______,        _______,        _______,        _______,        _______,        
 
-        KC_Y, KC_P, KC_R, KC_X, KC_L, KC_G, KC_BSLS, KC_BTN3, XXXXXXX, XXXXXXX, RGB_TOG, RGB_TOG, RGB_TOG, RGB_TOG, RGB_TOG, _______,
+		KC_Y,           KC_P,           KC_R,           KC_X,           KC_L,           KC_G,           KC_BSLS,        KC_BTN3,                        XXXXXXX,        XXXXXXX,        RGB_TOG,        RGB_TOG,        RGB_TOG,        RGB_TOG,        RGB_TOG,        _______,        
 
-        LGUI(KC_D), _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                                LGUI(KC_D),     _______,        _______,        _______,        _______,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            ),
+	),
 
-    [KB] = LAYOUT_split_3x6_5(
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+	[KB] = LAYOUT_split_3x6_5(
+		_______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                                                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        _______, XXXXXXX, RGB_TOG, QK_BOOT, XXXXXXX, TO(KB), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,        XXXXXXX,        RGB_TOG,        QK_BOOT,        XXXXXXX,        TO(KB),                                                                                         XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
 
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                                _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(ALPHAS)                                                      
 
-            )};
+	)
+};
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M S M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b S M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M C M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b C M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -272,7 +273,7 @@ char rm_preview_l[] = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      
 char rm_preview_r[] = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
 char gi_preview_l[] = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a e\n      T Z M   M";
 char gi_preview_r[] = "    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ";
-char gi2_preview_l[] = "g J M U B C    \nO c _ _ _ C    \nY P R X L G \\ B\n      d _ _ _ _";
+char gi2_preview_l[] = "g J M U B C    \nO c Q W E C    \nY P R X L G \\ B\n      d _ _ _ _";
 char gi2_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
 char kb_preview_l[] = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
 char kb_preview_r[] = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ";
@@ -405,7 +406,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
     switch (tap_hold_keycode)
     {
-    case SHIFT_SPACE:
+    case CKC_SH_SP:
         return true;
         break;
     }
@@ -555,41 +556,39 @@ bool oled_task_user(void)
 }
 
 // LED MATRIX
-int default_rgb_brightness = 50;
-int default_ug_brightness = 50;
+int default_rgb_brightness = 160;
+int default_ug_brightness = 210;
+//source: https://coolors.co/fed222-a7221a-e14232-f3f0f4-f79e6c
 #define C_RGB_GOLD 254, 210, 32              // ##FED222
 #define C_RGB_CORNELL_RED 167, 34, 26        // ##A7221A
-#define C_RGB_VERMILLION 225, 66, 50         // ##E74D42
+#define C_RGB_vermilion 225, 66, 50         // ##E74D42
 #define C_RGB_GHOST_WHITE 243, 240, 244      // ##F3F0F4
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
 HSV c_hsv_gold = {.h = 34, .s = 221, .v = 254};
 HSV c_hsv_cornell_red = {.h = 2, .s = 215, .v = 167};
-HSV c_hsv_vermillion = {.h = 3, .s = 182, .v = 231};
+HSV c_hsv_vermilion = {.h = 3, .s = 182, .v = 231};
 HSV c_hsv_ghost_white = {.h = 202, .s = 4, .v = 244};
 HSV c_hsv_atomic_tangerine = {.h = 15, .s = 144, .v = 247};
 
 //GI layer colors
-HSV c_hsv_pyro = {.h = 15, .s = 144, .v = 247};
-HSV c_hsv_hydro = {.h = 202, .s = 4, .v = 244};
-HSV c_hsv_anemo = {.h = 180, .s = 100, .v = 254};
-HSV c_hsv_electro = {.h = 282, .s = 144, .v = 247};
-HSV c_hsv_cryo = {.h = 180, .s = 100, .v = 254};
-HSV c_hsv_dendro = {.h = 120, .s = 100, .v = 254};
-HSV c_hsv_geo = {.h = 34, .s = 221, .v = 254};
+HSV c_hsv_pyro = {.h = 128, .s = 41, .v = 250};
+HSV c_hsv_hydro = {.h = 139, .s = 245, .v = 194};
+HSV c_hsv_anemo = {.h = 106, .s = 82, .v = 245};
+HSV c_hsv_electro = {.h = 196, .s = 163, .v = 209};
+HSV c_hsv_cryo = {.h = 139, .s = 245, .v = 194};
+HSV c_hsv_dendro = {.h = 55, .s = 212, .v = 232};
+HSV c_hsv_geo = {.h = 34, .s = 153, .v = 242};
+
+HSV ug_color = {.h = 34, .s = 221, .v = 254};
 
 
-void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
-{
-    array[0] = rgb.r;
-    array[1] = rgb.g;
-    array[2] = rgb.b;
-}
-void unpack_hsv_to_rgb_array(HSV hsv, uint8_t, array[3]) {
-    RGB rgb = hsv_to_rgb(hsv);
-    unpack_rgb_to_rgb_array(rgb, array);
-}
-
+// void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
+// {
+//     array[0] = rgb.r;
+//     array[1] = rgb.g;
+//     array[2] = rgb.b;
+// }
 RGB color_to_dimmer_rgb(HSV hsv, int brightness)
 {
     hsv.v = brightness;
@@ -615,12 +614,10 @@ void keyboard_post_init_user(void)
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CUSTOM_REACTIVE);
 }
 
-uint8_t ug_color[3] = {C_RGB_GOLD};
 
 void set_underglow_color_hsv(HSV hsv)
 {
-    RGB rgb = hsv_to_rgb(hsv);
-    unpack_rgb_to_rgb_array(rgb, ug_color);
+    ug_color = hsv;
 }
 
 bool keycode_is_number(uint8_t keycode)
@@ -681,6 +678,10 @@ bool keycode_is_hardware(uint8_t keycode)
 {
     return (keycode >= RGB_TOG && keycode <= RGB_SPD) || (keycode >= QK_BOOTLOADER && keycode <= QK_REBOOT);
 }
+bool keycode_is_arrow(uint8_t keycode)
+{
+    return keycode >= KC_INSERT && keycode <= KC_UP;
+}
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 {
@@ -688,7 +689,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
     {
         if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW)
         {
-            set_matrix_color_to_dimmed_hsv(i, ug_color, 255);
+            set_matrix_color_to_dimmed_hsv(i, ug_color, default_ug_brightness);
         }
     }
 
@@ -703,66 +704,81 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
             {
                 switch (get_highest_layer(layer_state | default_layer_state))
                 {
-                case ALPHAS:
-                    set_underglow_color_hsv(c_hsv_gold);
-                    break;
+                // case ALPHAS:
+                //     set_underglow_color_hsv(c_hsv_gold);
+                //     break;
                 case SYM:
-                    set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, 100);
+                    set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
 
                     break;
+                case COSM: //highlight all keys on COSM
+                    set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
+                    break; 
 
                 case NAV: //highlight keys on NAV depending on grouping
                     if (keycode_is_navigation(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_TEAL, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
                     }
                     else if (keycode_is_media(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
                     }
-                    //TODO: also add arrow key highlighting ig
+                    else if(keycode_is_arrow(keycode)) {
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                    }
                     else
                     {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_vermillion, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
                     }
 
-                case COSM: //highlight all keys on COSM
-                    set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 255);
-                    break;  
+                
 
                 case GI: //highlight keys on GI depending on element + wasd + eq
                     set_underglow_color_hsv(c_hsv_atomic_tangerine);
 
                     if (keycode == KC_1)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
                     }
                     if (keycode == KC_2)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
                     }
                     if (keycode == KC_3)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, default_rgb_brightness);
                     }
                     if (keycode == KC_4)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, 255);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, default_rgb_brightness);
                     }
                     if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_YELLOW, 255);
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
                     }
                     if (keycode == KC_Q || keycode == KC_E)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_WHITE, 255);
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                    }
+                    if (keycode == KC_F)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                    }
+                    if (keycode == KC_T)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_BLUE}, default_rgb_brightness);
                     }
 
                     break;
                 case GI2: //highlight wasd on GI2
                     if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_YELLOW, 255);
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
+                    }
+                    if (keycode == KC_Q || keycode == KC_E)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
                     }
                     set_underglow_color_hsv(c_hsv_ghost_white);
 
@@ -773,45 +789,48 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 
                     if (keycode_is_number(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_BLUE, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                    }
+                    else if (keycode_is_arrow(keycode)) {
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
                     }
                     else if (keycode_is_function(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_GREEN, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
                     }
                     else if (keycode_is_symbol(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_CYAN, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
                     }
                     else if (keycode_is_navigation(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_TEAL, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
                     }
                     else if (keycode_is_media(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
                     }
                     else if (keycode_is_keypad(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_CYAN, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
                     }
                     else if (keycode_is_mouse(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_WHITE, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
                     }
                     else if (keycode_is_hardware(keycode))
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_MAGENTA, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
                     }
                     else
                     {
-                        set_matrix_color_to_dimmed_hsv(index, HSV_RED, 100);
+                        set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
                     }
                 }
             }
             if (keycode_is_modifier(keycode) && (get_highest_layer(layer_state | default_layer_state) != ALPHAS && get_highest_layer(layer_state | default_layer_state) != GI && get_highest_layer(layer_state | default_layer_state) != GI2))
             {
-                set_matrix_color_to_dimmed_hsv(index, HSV_GOLD, 100);
+                set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
             }
         }
     }
