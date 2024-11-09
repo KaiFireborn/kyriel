@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[NAV] = LAYOUT_split_3x6_5(
 		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
 
-		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_DOWN,        KC_UP,          KC_RGHT,        _______,        
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_UP,        KC_DOWN,          KC_RGHT,        _______,        
 
 		_______,        KC_MNXT,        KC_MPLY,        KC_MPRV,        LGUI(KC_D),     A(KC_PSCR),     XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_PGDN,        KC_PGUP,        KC_TAB,         KC_CAPS,        _______,        
 
@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[GI] = LAYOUT_split_3x6_5(
 		_______,        KC_1,           KC_2,           KC_5,           KC_3,           KC_4,                                                                                           KC_BTN3,        KC_WH_L,        KC_WH_D,        KC_WH_U,        KC_WH_R,        _______,        
 
-		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           KC_F,           KC_BTN1,        KC_BTN1,        KC_BTN2,        KC_T,           _______,        
+		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           XXXXXXX,        KC_BTN1,        KC_BTN1,        KC_BTN2,        XXXXXXX,        _______,        
 
 		KC_ESC,         KC_V,           KC_A,           KC_S,           KC_D,           KC_T,           KC_LALT,        KC_ENT,                         XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_MS_L,        KC_MS_D,        KC_MS_U,        KC_MS_R,        _______,        
 
@@ -254,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M C M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / e\nM b C M T      ";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / r\nM b C M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -263,16 +263,16 @@ char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      
 char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
 char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
 char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
-char nav_preview_l[] = "Q s e f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
-char nav_preview_r[] = "    X h e D i _\n    c l d u R _\nX X X p p t c _\nX _ _ X T      ";
+char nav_preview_l[] = "Q s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
+char nav_preview_r[] = "    X h e D i _\n    w l d u R _\nX X X p p t p _\nX _ _ X T      ";
 char mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
 char mouse_preview_r[] = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
 char lm_preview_l[] = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
 char lm_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
 char rm_preview_l[] = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
 char rm_preview_r[] = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
-char gi_preview_l[] = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a e\n      T Z M   M";
-char gi_preview_r[] = "    B W W W W _\n    F B B B T _\nX X X M M M M _\nX X X X T      ";
+char gi_preview_l[] = "_ 1 2 5 3 4    \nt s Q W E F    \ne V A S D T a r\n      T Z M   M";
+char gi_preview_r[] = "    B W W W W _\n    X B B B X _\nX X X M M M M _\nX X X X T      ";
 char gi2_preview_l[] = "g J M U B C    \nO c Q W E C    \nY P R X L G \\ B\n      d _ _ _ _";
 char gi2_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
 char kb_preview_l[] = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
@@ -707,7 +707,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 case ALPHAS:
                     set_underglow_color_hsv(c_hsv_gold);
                     break;
-                case SYM:
+                case SYM: //highlight all keys on SYM
                     set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
 
                     break;
@@ -731,11 +731,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                     {
                         set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
                     }
-
+                    break;
                 
 
                 case GI: //highlight keys on GI depending on element + wasd + eq
-                    set_underglow_color_hsv(c_hsv_atomic_tangerine);
+                    set_underglow_color_hsv(c_hsv_vermilion);
 
                     if (keycode == KC_1)
                     {
@@ -772,7 +772,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 
                     break;
                 case GI2: //highlight wasd on GI2
-                    if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
+                    if (keycode == KC_W)
                     {
                         set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
                     }
@@ -780,7 +780,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                     {
                         set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
                     }
-                    set_underglow_color_hsv(c_hsv_ghost_white);
+                    // d white, printscr azure
+                    if (keycode == KC_D)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                    }
+                    if (keycode == KC_G)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, default_rgb_brightness);
+                    }
+                    // set_underglow_color_hsv(c_hsv_ghost_white);
 
                     break;
 
