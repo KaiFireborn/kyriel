@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[GI] = LAYOUT_split_3x6_5(
 		_______,        KC_1,           KC_2,           KC_5,           KC_3,           KC_4,                                                                                           KC_BTN3,        KC_WH_L,        KC_WH_D,        KC_WH_U,        KC_WH_R,        _______,        
 
-		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           KC_F,           KC_BTN1,        KC_BTN1,        KC_BTN2,        KC_T,           _______,        
+		KC_TAB,         KC_LSFT,        KC_Q,           KC_W,           KC_E,           KC_F,                                                                                           XXXXXXX,           KC_BTN1,        KC_BTN1,        KC_BTN2,        XXXXXXX,           _______,        
 
 		KC_ESC,         KC_V,           KC_A,           KC_S,           KC_D,           KC_T,           KC_LALT,        KC_ENT,                         XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_MS_L,        KC_MS_D,        KC_MS_U,        KC_MS_R,        _______,        
 
@@ -704,9 +704,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
             {
                 switch (get_highest_layer(layer_state | default_layer_state))
                 {
-                // case ALPHAS:
-                //     set_underglow_color_hsv(c_hsv_gold);
-                //     break;
+                case ALPHAS:
+                    set_underglow_color_hsv(c_hsv_gold);
+                    break;
                 case SYM:
                     set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
 
@@ -735,7 +735,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
                 
 
                 case GI: //highlight keys on GI depending on element + wasd + eq
-                    set_underglow_color_hsv(c_hsv_atomic_tangerine);
+                    set_underglow_color_hsv(c_hsv_vermilion);
 
                     if (keycode == KC_1)
                     {
@@ -772,13 +772,22 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
 
                     break;
                 case GI2: //highlight wasd on GI2
-                    if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
+                    if (keycode == KC_W)
                     {
                         set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
                     }
                     if (keycode == KC_Q || keycode == KC_E)
                     {
                         set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                    }
+                    // d white, printscr azure
+                    if (keycode == KC_D)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                    }
+                    if (keycode == KC_PSCR)
+                    {
+                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, default_rgb_brightness);
                     }
                     set_underglow_color_hsv(c_hsv_ghost_white);
 
