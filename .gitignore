@@ -1,2 +1,5 @@
 .venv
 .vscode
+formatter-py/layers_data.json
+formatter-py/keymap_backup.c
+__pycache__
