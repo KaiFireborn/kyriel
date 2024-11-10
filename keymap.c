@@ -17,7 +17,7 @@
 #include QMK_KEYBOARD_H
 #include "features/achordion.h"
 #if __has_include("keymap.h")
-#include "keymap.h"
+#    include "keymap.h"
 #endif
 
 // #define ENCODERS_PAD_A { leftEncoderA }
@@ -67,9 +67,11 @@
 #define CKC_EQUIV ALGR(KC_SLSH)    // ⇔
 #define CKC_MATH_AND ALGR(KC_QUOT) // ∧
 #define CKC_MATH_OR ALGR(KC_NUHS)  // ∨
-#define CKC_SH_SP LSFT_T(KC_SPC) // mod-tap
+#define CKC_SH_SP LSFT_T(KC_SPC)   // mod-tap
+#define CKC_C_ESC LCTL_T(KC_TAB)   // mod-tap
+#define CKC_A_DEL LALT_T(KC_DEL)   // mod-tap
 
-const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
+const key_override_t dot_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t comm_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
 
 // numpad
@@ -85,23 +87,12 @@ const key_override_t p9_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_9, KC_P9
 const key_override_t p0_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_P0);
 
 const key_override_t *key_overrides[] = {
-    &dot_key_override,
-    &comm_key_override,
+    &dot_key_override, &comm_key_override,
 
-    &p1_key_override,
-    &p2_key_override,
-    &p3_key_override,
-    &p4_key_override,
-    &p5_key_override,
-    &p6_key_override,
-    &p7_key_override,
-    &p8_key_override,
-    &p9_key_override,
-    &p0_key_override,
+    &p1_key_override,  &p2_key_override,   &p3_key_override, &p4_key_override, &p5_key_override, &p6_key_override, &p7_key_override, &p8_key_override, &p9_key_override, &p0_key_override,
 };
 
-enum layers
-{
+enum layers {
     ALPHAS,
     NUM,
     SYM,
@@ -123,9 +114,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ALPHAS] = LAYOUT_split_3x6_5(
 		QK_LOCK,        KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,                                                                                           KC_J,           KC_L,           KC_U,           KC_Y,           KC_QUOT,        KC_MUTE,        
 
-		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,          KC_RALT,         
+		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           CKC_A_DEL,         
 
-		KC_LCTL,         KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_ESC,        MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
+		CKC_C_ESC,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_ESC,         MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
 		                                                TG(GI),         MO(LM),         CKC_SH_SP,      MO(NAV),        MO(SYM),                        MO(NUM),        KC_BSPC,        CKC_SH_SP,      MO(RM),         TO(ALPHAS)                                                      
 
@@ -178,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[NAV] = LAYOUT_split_3x6_5(
 		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
 
-		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_UP,        KC_DOWN,          KC_RGHT,        _______,        
+		_______,        KC_LGUI,        KC_LCTL,        KC_LSFT,        KC_LALT,        KC_PSCR,                                                                                        CW_TOGG,        KC_LEFT,        KC_UP,          KC_DOWN,        KC_RGHT,        _______,        
 
 		_______,        KC_MNXT,        KC_MPLY,        KC_MPRV,        LGUI(KC_D),     A(KC_PSCR),     XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        KC_PGDN,        KC_PGUP,        KC_TAB,         KC_CAPS,        _______,        
 
@@ -253,8 +244,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M C M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / r\nM b C M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \nC Z X C D V e M\n      T M C M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O L\nM D K H , . / r\nM b C M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -264,7 +255,7 @@ char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ 
 char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
 char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
 char nav_preview_l[] = "Q s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
-char nav_preview_r[] = "    X h e D i _\n    w l d u R _\nX X X p p t p _\nX _ _ X T      ";
+char nav_preview_r[] = "    X h e D i _\n    w l u d R _\nX X X p p t p _\nX _ _ X T      ";
 char mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
 char mouse_preview_r[] = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
 char lm_preview_l[] = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
@@ -281,83 +272,49 @@ char kb_preview_r[] = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X 
 
 // ENCODERS
 
-bool encoder_update_user(uint8_t index, bool clockwise)
-{
+bool encoder_update_user(uint8_t index, bool clockwise) {
     // Encoder R
-    if (index == 0)
-    {
+    if (index == 0) {
         // Clockwise
-        if (clockwise)
-        {
-            if (IS_LAYER_ON(FN))
-            {
+        if (clockwise) {
+            if (IS_LAYER_ON(FN)) {
                 tap_code16(CKC_BR_R_UP);
-            }
-            else if (IS_LAYER_ON(NUM))
-            {
+            } else if (IS_LAYER_ON(NUM)) {
                 tap_code16(RGB_VAI);
-            }
-            else
-            {
+            } else {
                 tap_code16(CKC_BR_C_UP);
             }
             // Anticlockwise
-        }
-        else
-        {
-            if (IS_LAYER_ON(FN))
-            {
+        } else {
+            if (IS_LAYER_ON(FN)) {
                 tap_code16(CKC_BR_R_DOWN);
-            }
-            else if (IS_LAYER_ON(NUM))
-            {
+            } else if (IS_LAYER_ON(NUM)) {
                 tap_code16(RGB_VAD);
-            }
-            else
-            {
+            } else {
                 tap_code16(CKC_BR_C_DOWN);
             }
         }
         // Encoder L
-    }
-    else if (index == 1)
-    {
+    } else if (index == 1) {
         // Clockwise
-        if (clockwise)
-        {
-            if (IS_LAYER_ON(NAV))
-            {
+        if (clockwise) {
+            if (IS_LAYER_ON(NAV)) {
                 tap_code16(C(KC_RGHT));
-            }
-            else if (IS_LAYER_ON(SYM))
-            {
+            } else if (IS_LAYER_ON(SYM)) {
                 tap_code(KC_WH_R);
-            }
-            else if (IS_LAYER_ON(COSM))
-            {
+            } else if (IS_LAYER_ON(COSM)) {
                 tap_code(KC_WH_U);
-            }
-            else
-            {
+            } else {
                 tap_code(KC_VOLU);
             } // AntiClockwise
-        }
-        else
-        {
-            if (IS_LAYER_ON(NAV))
-            {
+        } else {
+            if (IS_LAYER_ON(NAV)) {
                 tap_code16(C(KC_LEFT));
-            }
-            else if (IS_LAYER_ON(SYM))
-            {
+            } else if (IS_LAYER_ON(SYM)) {
                 tap_code(KC_WH_L);
-            }
-            else if (IS_LAYER_ON(COSM))
-            {
+            } else if (IS_LAYER_ON(COSM)) {
                 tap_code(KC_WH_D);
-            }
-            else
-            {
+            } else {
                 tap_code(KC_VOLD);
             }
         }
@@ -371,44 +328,33 @@ bool encoder_update_user(uint8_t index, bool clockwise)
 
 // }
 
-void keyboard_pre_init_user(void)
-{
+void keyboard_pre_init_user(void) {
     setPinOutput(24);
     writePinHigh(24);
 }
 
 //
 
-void print_oled_right(char s[])
-{
-    if (!is_keyboard_master())
-    {
+void print_oled_right(char s[]) {
+    if (!is_keyboard_master()) {
         oled_write_P("kfls21\n\n", false);
         oled_write_P(PSTR(s), false);
     }
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record)
-{
-    if (!process_achordion(keycode, record))
-    {
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_achordion(keycode, record)) {
         return false;
     }
 
     return true;
 }
 
-bool achordion_chord(uint16_t tap_hold_keycode,
-                     keyrecord_t *tap_hold_record,
-                     uint16_t other_keycode,
-                     keyrecord_t *other_record)
-{
-
-    switch (tap_hold_keycode)
-    {
-    case CKC_SH_SP:
-        return true;
-        break;
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+    switch (tap_hold_keycode) {
+        case CKC_SH_SP:
+            return true;
+            break;
     }
     return true;
 
@@ -419,13 +365,11 @@ bool achordion_chord(uint16_t tap_hold_keycode,
     // return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
-uint16_t achordion_timeout(uint16_t tap_hold_keycode)
-{
+uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     return 1000;
 }
 
-void matrix_scan_user(void)
-{
+void matrix_scan_user(void) {
     achordion_task();
 }
 
@@ -443,19 +387,15 @@ void matrix_scan_user(void)
 // oled_write_P(kyria_logo, false);
 // }
 
-void print_oled_left(char s[])
-{
-    if (is_keyboard_master())
-    {
+void print_oled_left(char s[]) {
+    if (is_keyboard_master()) {
         oled_write_P("Hello, World! ~Kyriel\n\n", false);
         oled_write_P(PSTR(s), false);
     }
 }
 
-oled_rotation_t oled_init_user(oled_rotation_t rotation)
-{
-    if (!is_keyboard_master())
-    {
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    if (!is_keyboard_master()) {
         return OLED_ROTATION_180; // flips the display 180 degrees if offhand
     }
 
@@ -474,8 +414,7 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation)
 //     oled_write_raw_P(fov_logo, sizeof(fov_logo));
 // }
 
-bool oled_task_user(void)
-{
+bool oled_task_user(void) {
     oled_clear();
 
     // if (is_keyboard_master()) {
@@ -483,105 +422,105 @@ bool oled_task_user(void)
     // } else {
     //     print_oled_right(alphas_preview_r);
     // }
-    switch (get_highest_layer(layer_state))
-    {
-    case ALPHAS:
-        // if (is_keyboard_master()) {
-        //     render_fov();
-        // } else {
-        // }
-        // break;
-        print_oled_left(alphas_preview_l);
-        print_oled_right(alphas_preview_r);
-        break;
+    switch (get_highest_layer(layer_state)) {
+        case ALPHAS:
+            // if (is_keyboard_master()) {
+            //     render_fov();
+            // } else {
+            // }
+            // break;
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
 
-    case LM:
-        print_oled_left(alphas_preview_l);
-        print_oled_right(alphas_preview_r);
-        break;
-    case RM:
-        print_oled_left(alphas_preview_l);
-        print_oled_right(alphas_preview_r);
-        break;
-    case SYM:
-        print_oled_left(sym_preview_l);
-        print_oled_right(sym_preview_r);
-        break;
-    case NUM:
-        print_oled_left(num_preview_l);
-        print_oled_right(num_preview_r);
-        break;
-    case FN:
-        print_oled_left(fn_preview_l);
-        print_oled_right(fn_preview_r);
-        break;
-    case COSM:
-        print_oled_left(cosm_preview_l);
-        print_oled_right(cosm_preview_r);
-        break;
-    case NAV:
-        print_oled_left(nav_preview_l);
-        print_oled_right(nav_preview_r);
-        break;
-    case MOUSE:
-        print_oled_left(mouse_preview_l);
-        print_oled_right(mouse_preview_r);
-        break;
-    // case LM:
-    //     print_oled_left(lm_preview_l);
-    //     print_oled_right(lm_preview_r);
-    //     break;
-    // case RM:
-    //     print_oled_left(rm_preview_l);
-    //     print_oled_right(rm_preview_r);
-    //     break;
-    case GI:
-        print_oled_left(gi_preview_l);
-        print_oled_right(gi_preview_r);
-        break;
-    case GI2:
-        print_oled_left(gi2_preview_l);
-        print_oled_right(gi2_preview_r);
-        break;
-    case KB:
-        print_oled_left(kb_preview_l);
-        print_oled_right(kb_preview_r);
-        break;
-    default:
-        print_oled_left(alphas_preview_l);
-        print_oled_right(alphas_preview_r);
-        break;
+        case LM:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+        case RM:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
+        case SYM:
+            print_oled_left(sym_preview_l);
+            print_oled_right(sym_preview_r);
+            break;
+        case NUM:
+            print_oled_left(num_preview_l);
+            print_oled_right(num_preview_r);
+            break;
+        case FN:
+            print_oled_left(fn_preview_l);
+            print_oled_right(fn_preview_r);
+            break;
+        case COSM:
+            print_oled_left(cosm_preview_l);
+            print_oled_right(cosm_preview_r);
+            break;
+        case NAV:
+            print_oled_left(nav_preview_l);
+            print_oled_right(nav_preview_r);
+            break;
+        case MOUSE:
+            print_oled_left(mouse_preview_l);
+            print_oled_right(mouse_preview_r);
+            break;
+        // case LM:
+        //     print_oled_left(lm_preview_l);
+        //     print_oled_right(lm_preview_r);
+        //     break;
+        // case RM:
+        //     print_oled_left(rm_preview_l);
+        //     print_oled_right(rm_preview_r);
+        //     break;
+        case GI:
+            print_oled_left(gi_preview_l);
+            print_oled_right(gi_preview_r);
+            break;
+        case GI2:
+            print_oled_left(gi2_preview_l);
+            print_oled_right(gi2_preview_r);
+            break;
+        case KB:
+            print_oled_left(kb_preview_l);
+            print_oled_right(kb_preview_r);
+            break;
+        default:
+            print_oled_left(alphas_preview_l);
+            print_oled_right(alphas_preview_r);
+            break;
     }
     return false;
 }
 
 // LED MATRIX
-int default_rgb_brightness = 160;
-int default_ug_brightness = 210;
-//source: https://coolors.co/fed222-a7221a-e14232-f3f0f4-f79e6c
+int default_rgb_brightness = 145;
+int default_ug_brightness  = 220;
+// source: https://coolors.co/fed222-a7221a-e14232-f3f0f4-f79e6c
 #define C_RGB_GOLD 254, 210, 32              // ##FED222
 #define C_RGB_CORNELL_RED 167, 34, 26        // ##A7221A
-#define C_RGB_vermilion 225, 66, 50         // ##E74D42
+#define C_RGB_vermilion 225, 66, 50          // ##E74D42
 #define C_RGB_GHOST_WHITE 243, 240, 244      // ##F3F0F4
 #define C_RGB_ATOMIC_TANGERINE 247, 158, 108 // ##F79E6C
 
-HSV c_hsv_gold = {.h = 34, .s = 221, .v = 254};
-HSV c_hsv_cornell_red = {.h = 2, .s = 215, .v = 167};
-HSV c_hsv_vermilion = {.h = 3, .s = 182, .v = 231};
-HSV c_hsv_ghost_white = {.h = 202, .s = 4, .v = 244};
+HSV c_hsv_gold             = {.h = 34, .s = 221, .v = 254};
+HSV c_hsv_cornell_red      = {.h = 2, .s = 215, .v = 167};
+HSV c_hsv_vermilion        = {.h = 3, .s = 182, .v = 231};
+HSV c_hsv_ghost_white      = {.h = 202, .s = 4, .v = 244};
 HSV c_hsv_atomic_tangerine = {.h = 15, .s = 144, .v = 247};
 
-//GI layer colors
-HSV c_hsv_pyro = {.h = 128, .s = 41, .v = 250};
-HSV c_hsv_hydro = {.h = 139, .s = 245, .v = 194};
-HSV c_hsv_anemo = {.h = 106, .s = 82, .v = 245};
+// GI layer colors
+HSV c_hsv_pyro    = {.h = 128, .s = 41, .v = 250};
+HSV c_hsv_hydro   = {.h = 139, .s = 245, .v = 194};
+HSV c_hsv_anemo   = {.h = 106, .s = 82, .v = 245};
 HSV c_hsv_electro = {.h = 196, .s = 163, .v = 209};
-HSV c_hsv_cryo = {.h = 139, .s = 245, .v = 194};
-HSV c_hsv_dendro = {.h = 55, .s = 212, .v = 232};
-HSV c_hsv_geo = {.h = 34, .s = 153, .v = 242};
+HSV c_hsv_cryo    = {.h = 139, .s = 245, .v = 194};
+HSV c_hsv_dendro  = {.h = 55, .s = 212, .v = 232};
+HSV c_hsv_geo     = {.h = 34, .s = 153, .v = 242};
 
 HSV ug_color = {.h = 34, .s = 221, .v = 254};
-
+bool right_half_ug_off = false;
+bool all_ug_off       = false;
 
 // void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
 // {
@@ -589,54 +528,43 @@ HSV ug_color = {.h = 34, .s = 221, .v = 254};
 //     array[1] = rgb.g;
 //     array[2] = rgb.b;
 // }
-RGB color_to_dimmer_rgb(HSV hsv, int brightness)
-{
+RGB color_to_dimmer_rgb(HSV hsv, int brightness) {
     hsv.v = brightness;
     return hsv_to_rgb(hsv);
 }
 
-void set_matrix_color_to_dimmed_hsv(uint8_t index, HSV hsv, int brightness)
-{
+void set_matrix_color_to_dimmed_hsv(uint8_t index, HSV hsv, int brightness) {
     RGB dimmer_rgb = color_to_dimmer_rgb(hsv, brightness);
     rgb_matrix_set_color(index, dimmer_rgb.r, dimmer_rgb.g, dimmer_rgb.b);
 }
 
-void copy_array(uint8_t dest[], uint8_t src[], size_t size)
-{
-    for (size_t i = 0; i < size; i++)
-    {
+void copy_array(uint8_t dest[], uint8_t src[], size_t size) {
+    for (size_t i = 0; i < size; i++) {
         dest[i] = src[i];
     }
 }
 
-void keyboard_post_init_user(void)
-{
+void keyboard_post_init_user(void) {
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CUSTOM_REACTIVE);
 }
 
-
-void set_underglow_color_hsv(HSV hsv)
-{
+void set_underglow_color_hsv(HSV hsv) {
     ug_color = hsv;
 }
 
-bool keycode_is_number(uint8_t keycode)
-{
+bool keycode_is_number(uint8_t keycode) {
     return keycode >= KC_1 && keycode <= KC_0;
 }
 
-bool keycode_is_function(uint8_t keycode)
-{
+bool keycode_is_function(uint8_t keycode) {
     return (keycode >= KC_F1 && keycode <= KC_F12) || (keycode >= KC_F13 && keycode <= KC_F24);
 }
 
-bool keycode_is_alpha(uint8_t keycode)
-{
+bool keycode_is_alpha(uint8_t keycode) {
     return keycode >= KC_A && keycode <= KC_Z;
 }
 
-bool keycode_is_modifier(uint8_t keycode)
-{
+bool keycode_is_modifier(uint8_t keycode) {
     return keycode >= KC_LCTL && keycode <= KC_RGUI;
 }
 
@@ -644,201 +572,163 @@ bool keycode_is_modifier(uint8_t keycode)
 //     return keycode >= DF() && keycode <= TT();
 // }
 
-bool keycode_is_action(uint8_t keycode)
-{
+bool keycode_is_action(uint8_t keycode) {
     return (keycode >= KC_ENTER && keycode <= KC_SPC) || keycode == KC_CAPS_LOCK || (keycode >= KC_PRINT_SCREEN && keycode <= KC_PAUSE) || keycode == QK_CAPS_WORD_TOGGLE || keycode == QK_LOCK;
 }
 
-bool keycode_is_mouse(uint8_t keycode)
-{
+bool keycode_is_mouse(uint8_t keycode) {
     return keycode >= QK_MOUSE_CURSOR_UP && keycode <= QK_MOUSE_ACCELERATION_2;
 }
 
-bool keycode_is_symbol(uint8_t keycode)
-{
+bool keycode_is_symbol(uint8_t keycode) {
     return (keycode >= KC_MINUS && keycode <= KC_SLASH) || (keycode == KC_NONUS_BACKSLASH);
 }
+bool keycode_is_shifted(uint8_t keycode) {
+    // also if any of the custom keys defined above between CKC_SCRV and CKC_MATH_OR but one by one
+    return (keycode >= KC_TILDE && keycode <= KC_QUESTION) || (keycode == CKC_SCRSV) || (keycode == CKC_ENT) || (keycode == CKC_EUR) || (keycode == CKC_DEG) || (keycode == CKC_DELT) || (keycode == CKC_INF) || (keycode == CKC_MDOT) || (keycode == CKC_UUML) || (keycode == CKC_NOT) || (keycode == CKC_NEQL) || (keycode == CKC_AUML) || (keycode == CKC_SUML) || (keycode == CKC_LTOET) || (keycode == CKC_GTOET) || (keycode == CKC_UPA) || (keycode == CKC_DOWNA) || (keycode == CKC_LEFTA) || (keycode == CKC_RIGHTA) || (keycode == CKC_LEFTDA) || (keycode == CKC_RIGHTDA) || (keycode == CKC_YES) || (keycode == CKC_NO) || (keycode == CKC_OUML) || (keycode == CKC_ALMEQ) || (keycode == CKC_PLSMNS) || (keycode == CKC_ERR) || (keycode == CKC_SECT) || (keycode == CKC_GRV) || (keycode == CKC_TILD) || (keycode == CKC_MU) || (keycode == CKC_BR_C_UP) || (keycode == CKC_BR_C_DOWN) || (keycode == CKC_BR_R_UP) || (keycode == CKC_BR_R_DOWN) || (keycode == CKC_EQUIV) || (keycode == CKC_MATH_AND) ||
+           (keycode == CKC_MATH_OR);
+}
 
-bool keycode_is_navigation(uint8_t keycode)
-{
+bool keycode_is_navigation(uint8_t keycode) {
     return keycode >= KC_INSERT && keycode <= KC_UP;
 }
 
-bool keycode_is_keypad(uint8_t keycode)
-{
+bool keycode_is_keypad(uint8_t keycode) {
     return (keycode >= KC_NUM_LOCK && keycode <= KC_KP_DOT) || keycode == KC_KP_EQUAL || keycode == KC_KP_COMMA || keycode == KC_KP_EQUAL_AS400;
 }
 
-bool keycode_is_media(uint8_t keycode)
-{
+bool keycode_is_media(uint8_t keycode) {
     return (keycode >= KC_APPLICATION && keycode <= KC_KB_POWER) || (keycode >= KC_EXECUTE && keycode <= KC_LOCKING_SCROLL_LOCK) || (keycode >= KC_SYSTEM_POWER && keycode <= KC_LAUNCHPAD);
 }
 
-bool keycode_is_hardware(uint8_t keycode)
-{
+bool keycode_is_hardware(uint8_t keycode) {
     return (keycode >= RGB_TOG && keycode <= RGB_SPD) || (keycode >= QK_BOOTLOADER && keycode <= QK_REBOOT);
 }
-bool keycode_is_arrow(uint8_t keycode)
-{
+bool keycode_is_arrow(uint8_t keycode) {
     return keycode >= KC_INSERT && keycode <= KC_UP;
 }
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max)
-{
-    for (uint8_t i = led_min; i < led_max; i++)
-    {
-        if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW)
-        {
-            set_matrix_color_to_dimmed_hsv(i, ug_color, default_ug_brightness);
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW) {
+            if (!all_ug_off && (!right_half_ug_off || i <= 6)) {
+                set_matrix_color_to_dimmed_hsv(i, ug_color, default_ug_brightness);
+            }
         }
     }
 
     uint8_t layer = get_highest_layer(layer_state);
-    for (uint8_t row = 0; row < MATRIX_ROWS; ++row)
-    {
-        for (uint8_t col = 0; col < MATRIX_COLS; ++col)
-        {
-            uint8_t index = g_led_config.matrix_co[row][col];
+    for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+        for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+            uint8_t index   = g_led_config.matrix_co[row][col];
             uint8_t keycode = keymap_key_to_keycode(layer, (keypos_t){col, row});
-            if (index >= led_min && index < led_max && index != NO_LED && keycode > KC_TRNS)
-            {
-                switch (get_highest_layer(layer_state | default_layer_state))
-                {
-                case ALPHAS:
-                    set_underglow_color_hsv(c_hsv_gold);
-                    break;
-                case SYM: //highlight all keys on SYM
-                    set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
-
-                    break;
-                case COSM: //highlight all keys on COSM
-                    set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
-                    break; 
-
-                case NAV: //highlight keys on NAV depending on grouping
-                    if (keycode_is_navigation(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
-                    }
-                    else if (keycode_is_media(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
-                    }
-                    else if(keycode_is_arrow(keycode)) {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
-                    }
-                    else
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
-                    }
-                    break;
-                
-
-                case GI: //highlight keys on GI depending on element + wasd + eq
-                    set_underglow_color_hsv(c_hsv_vermilion);
-
-                    if (keycode == KC_1)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
-                    }
-                    if (keycode == KC_2)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
-                    }
-                    if (keycode == KC_3)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, default_rgb_brightness);
-                    }
-                    if (keycode == KC_4)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, default_rgb_brightness);
-                    }
-                    if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
-                    }
-                    if (keycode == KC_Q || keycode == KC_E)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
-                    }
-                    if (keycode == KC_F)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
-                    }
-                    if (keycode == KC_T)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_BLUE}, default_rgb_brightness);
-                    }
-
-                    break;
-                case GI2: //highlight wasd on GI2
-                    if (keycode == KC_W)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
-                    }
-                    if (keycode == KC_Q || keycode == KC_E)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
-                    }
-                    // d white, printscr azure
-                    if (keycode == KC_D)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
-                    }
-                    if (keycode == KC_G)
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, default_rgb_brightness);
-                    }
-                    // set_underglow_color_hsv(c_hsv_ghost_white);
-
-                    break;
-
-                default:
-                    set_underglow_color_hsv(c_hsv_gold);
-
-                    if (keycode_is_number(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
-                    }
-                    else if (keycode_is_arrow(keycode)) {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
-                    }
-                    else if (keycode_is_function(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
-                    }
-                    else if (keycode_is_symbol(keycode))
-                    {
+            if (index >= led_min && index < led_max && index != NO_LED && keycode > KC_TRNS) {
+                right_half_ug_off = false;
+                switch (get_highest_layer(layer_state | default_layer_state)) {
+                    case ALPHAS:
+                        set_underglow_color_hsv(c_hsv_gold);
+                        break;
+                    case SYM: // highlight all keys on SYM
                         set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
-                    }
-                    else if (keycode_is_navigation(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
-                    }
-                    else if (keycode_is_media(keycode))
-                    {
+                        if (keycode_is_shifted(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
+                        }
+                        break;
+                    case COSM: // highlight all keys on COSM
                         set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
-                    }
-                    else if (keycode_is_keypad(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
-                    }
-                    else if (keycode_is_mouse(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
-                    }
-                    else if (keycode_is_hardware(keycode))
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
-                    }
-                    else
-                    {
-                        set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
-                    }
+                        break;
+
+                    case NAV: // highlight keys on NAV depending on grouping
+                        if (keycode_is_navigation(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                        } else if (keycode_is_media(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
+                        } else if (keycode_is_arrow(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                        } else {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
+                        }
+                        break;
+
+                    case GI: // highlight keys on GI depending on element + wasd + eq
+                        set_underglow_color_hsv(c_hsv_gold); //maybe greener?
+                        
+                        right_half_ug_off = true;
+
+                        if (keycode == KC_1) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
+                        }
+                        if (keycode == KC_2) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
+                        }
+                        if (keycode == KC_3) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, default_rgb_brightness);
+                        }
+                        if (keycode == KC_4) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, default_rgb_brightness);
+                        }
+                        if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
+                        }
+                        if (keycode == KC_Q || keycode == KC_E) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                        }
+                        if (keycode == KC_F) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                        }
+                        if (keycode == KC_T) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_BLUE}, default_rgb_brightness);
+                        }
+
+                        break;
+                    case GI2: // highlight wasd on GI2
+                        right_half_ug_off = true;
+
+
+                        if (keycode == KC_W) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
+                        }
+                        if (keycode == KC_Q || keycode == KC_E) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                        }
+                        // d white, printscr azure
+                        if (keycode == KC_D) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                        }
+                        if (keycode == KC_G) {
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, default_rgb_brightness);
+                        }
+                        // set_underglow_color_hsv(c_hsv_ghost_white);
+
+                        break;
+
+                    default:
+                        set_underglow_color_hsv(c_hsv_gold);
+
+                        if (keycode_is_number(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                        } else if (keycode_is_arrow(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                        } else if (keycode_is_function(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
+                        } else if (keycode_is_symbol(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
+                        } else if (keycode_is_navigation(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
+                        } else if (keycode_is_media(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
+                        } else if (keycode_is_keypad(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
+                        } else if (keycode_is_mouse(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_ghost_white, default_rgb_brightness);
+                        } else if (keycode_is_hardware(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_cornell_red, default_rgb_brightness);
+                        } else {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
+                        }
                 }
             }
-            if (keycode_is_modifier(keycode) && (get_highest_layer(layer_state | default_layer_state) != ALPHAS && get_highest_layer(layer_state | default_layer_state) != GI && get_highest_layer(layer_state | default_layer_state) != GI2))
-            {
+            if (keycode_is_modifier(keycode) && (get_highest_layer(layer_state | default_layer_state) != ALPHAS && get_highest_layer(layer_state | default_layer_state) != GI && get_highest_layer(layer_state | default_layer_state) != GI2)) {
                 set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
             }
         }
