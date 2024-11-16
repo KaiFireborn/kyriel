@@ -133,6 +133,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	),
 
+    
+	[COSM] = LAYOUT_split_3x6_5(
+		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_PLSMNS,       _______,        
+
+		_______,        CKC_AUML,       CKC_MATH_OR,   CKC_SUML,       CKC_MATH_AND,    CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_UPA,     CKC_LEFTDA,        CKC_OUML,       _______,        
+
+		_______,        CKC_NEQL,      CKC_ERR,     CKC_ALMEQ,       CKC_SECT,        CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_DOWNA,    CKC_RIGHTDA,      CKC_EQUIV,      _______,        
+
+		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
+
+	),
+
 	[NUM] = LAYOUT_split_3x6_5(
 		RGB_TOG,        KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_RPRN,                                                                                        XXXXXXX,        XXXXXXX,        KC_PAST,        XXXXXXX,        KC_LNUM,        _______,        
 
@@ -155,16 +167,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	),
 
-	[COSM] = LAYOUT_split_3x6_5(
-		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_NEQL,       _______,        
-
-		_______,        CKC_AUML,       CKC_MATH_AND,   CKC_SUML,       CKC_MATH_OR,    CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_LEFTDA,     CKC_UPA,        CKC_OUML,       _______,        
-
-		_______,        CKC_ALMEQ,      CKC_PLSMNS,     CKC_SECT,       CKC_ERR,        CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_RIGHTDA,    CKC_DOWNA,      CKC_EQUIV,      _______,        
-
-		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
-
-	),
 
 	[NAV] = LAYOUT_split_3x6_5(
 		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
