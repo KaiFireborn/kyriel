@@ -116,9 +116,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_TAB,         KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                                           KC_M,           KC_N,           KC_E,           KC_I,           KC_O,           CKC_A_DEL,      
 
-		CKC_C_ESC,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_ESC,         MO(COSM),                       MO(FN),         KC_DEL,         KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
+		CKC_C_ESC,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LGUI,        MO(COSM),                       MO(NUM),         MO(FN),        KC_K,           KC_H,           KC_COMM,        KC_DOT,         KC_SLSH,        KC_ENT,         
 
-		                                                TG(GI),         MO(LM),         CKC_SH_SP,      MO(NAV),        MO(SYM),                        MO(NUM),        KC_BSPC,        CKC_SH_SP,      MO(RM),         TO(ALPHAS)                                                      
+		                                                TG(GI),         MO(LM),         KC_SPC,         KC_LSFT,        MO(NAV),                        MO(SYM),        KC_BSPC,        KC_SPC,         MO(RM),         TO(ALPHAS)                                                      
 
 	),
 
@@ -244,14 +244,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \nC Z X C D V e M\n      T M C M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O C\nM D K H , . / r\nM b C M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \nC Z X C D V g M\n      T M   s M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O C\nM M K H , . / r\nM b   M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a +    \n_ = C C | - X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ ? _\n    < { ( [ \\ _\nX X > } ) ] / _\nX _ _ X T      ";
 char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
 char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
 char num_preview_l[] = "R ( 7 8 9 )    \n_ . 4 5 6 +    \n_ = 1 2 3 - X X\n      X 0 _ _ _";
-char num_preview_r[] = "    X X * X L _\n    < a s c g _\nX X > X X X X _\n_ _ _ X T      ";
+char num_preview_r[] = "    X X * X L _\n    < a s c g _\nX X > X P . / _\n_ _ _ X T      ";
 char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
 char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
 char nav_preview_l[] = "Q s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
