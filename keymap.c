@@ -15,10 +15,10 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "features/achordion.h"
-#if __has_include("keymap.h")
-#    include "keymap.h"
-#endif
+// #include "features/achordion.h"
+// #if __has_include("keymap.h")
+// #    include "keymap.h"
+// #endif
 
 // #define ENCODERS_PAD_A { leftEncoderA }
 // #define ENCODERS_PAD_B { lefEEncoderB }
@@ -337,36 +337,37 @@ void keyboard_pre_init_user(void) {
 
 //
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_achordion(keycode, record)) {
-        return false;
-    }
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//     if (!process_achordion(keycode, record)) {
+//         return false;
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
-    switch (tap_hold_keycode) {
-        case CKC_SH_SP:
-            return true;
-            break;
-    }
-    return true;
+// bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+//     switch (tap_hold_keycode) {
+//         case CKC_C_ESC:
+//             return true;
+//             break;
+//         case CKC_A_DEL:
+//             return true;
+//             break;
+//         case CKC_SH_SP:
+//             return !achordion_opposite_hands(tap_hold_record, other_record);;
+//             break;
+//     }
+//     return true;
 
-    // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 3)
-    // {
-    //     return true;
-    // }
-    // return achordion_opposite_hands(tap_hold_record, other_record);
-}
+// }
 
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-    return 1000;
-}
+// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+//     return 1000;
+// }
 
-void matrix_scan_user(void) {
-    achordion_task();
-}
+// void matrix_scan_user(void) {
+//     achordion_task();
+// }
 
 // static const char PROGMEM kyria_logo[] = {
 //     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,192,224,240,112,120, 56, 60, 28, 30, 14, 14, 14,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 14, 14, 14, 30, 28, 60, 56,120,112,240,224,192,128,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
