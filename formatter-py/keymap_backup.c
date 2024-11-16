@@ -112,7 +112,7 @@ enum layers {
 //  MO(MOUSE) removed for now, so is KC_LGUI
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[ALPHAS] = LAYOUT_split_3x6_5(QK_LOCK, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_MUTE,
 
-                                                                                            KC_TAB, KC_A, KC_R, KC_S, KC_T, KC_G, KC_M, KC_N, KC_E, KC_I, KC_O, LALT_T,
+                                                                                            KC_TAB, KC_A, KC_R, KC_S, KC_T, KC_G, KC_M, KC_N, KC_E, KC_I, KC_O, CKC_A_DEL,
 
                                                                                             CKC_C_ESC, KC_Z, KC_X, KC_C, KC_D, KC_V, KC_ESC, MO(COSM), MO(FN), KC_DEL, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
 
@@ -120,31 +120,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[ALPHAS] = LAYOUT_
 
                                                                                                 ),
 
-                                                              [SYM] = LAYOUT_split_3x6_5(RGB_VAI, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_EQL, _______,
+                                                              [SYM] = LAYOUT_split_3x6_5(RGB_VAI, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_QUES, _______,
 
-                                                                                         _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, KC_PIPE, KC_GT, KC_LCBR, KC_LPRN, KC_LBRC, KC_PLUS, _______,
+                                                                                         _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, KC_PLUS, KC_LT, KC_LCBR, KC_LPRN, KC_LBRC, KC_BSLS, _______,
 
-                                                                                         _______, CKC_TILD, CKC_GRV, KC_BSLS, KC_SLSH, KC_QUES, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LT, KC_RCBR, KC_RPRN, KC_RBRC, KC_MINS, _______,
+                                                                                         _______, KC_EQL, CKC_GRV, CKC_TILD, KC_PIPE, KC_MINS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_GT, KC_RCBR, KC_RPRN, KC_RBRC, KC_SLSH, _______,
 
                                                                                          XXXXXXX, XXXXXXX, _______, XXXXXXX, _______, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
 
                                                                                              ),
 
-                                                              [NUM] = LAYOUT_split_3x6_5(RGB_TOG, KC_LPRN, KC_7, KC_8, KC_9, KC_RPRN, KC_CIRC, KC_DLR, KC_PAST, KC_HASH, KC_LNUM, _______,
+                                                              [NUM] = LAYOUT_split_3x6_5(RGB_TOG, KC_LPRN, KC_7, KC_8, KC_9, KC_RPRN, XXXXXXX, XXXXXXX, KC_PAST, XXXXXXX, XXXXXXX, _______,
 
-                                                                                         _______, KC_PERC, KC_4, KC_5, KC_6, KC_PPLS, KC_PPLS, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+                                                                                         _______, KC_PDOT, KC_4, KC_5, KC_6, KC_PPLS, XXXXXXX, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
 
-                                                                                         _______, KC_0, KC_1, KC_2, KC_3, KC_PMNS, KC_PAST, KC_PSLS, XXXXXXX, XXXXXXX, KC_PMNS, KC_PAST, KC_PSLS, KC_LT, KC_GT, _______,
+                                                                                         _______, KC_EQL, KC_1, KC_2, KC_3, KC_PMNS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
-                                                                                         XXXXXXX, _______, KC_PDOT, KC_PEQL, XXXXXXX, _______, _______, _______, XXXXXXX, TO(ALPHAS)
+                                                                                         XXXXXXX, KC_0, XXXXXXX, KC_PEQL, XXXXXXX, _______, _______, _______, XXXXXXX, TO(ALPHAS)
 
                                                                                              ),
 
-                                                              [FN] = LAYOUT_split_3x6_5(RGB_MOD, KC_F12, KC_F7, KC_F8, KC_F9, KC_F15, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                                                              [FN] = LAYOUT_split_3x6_5(RGB_MOD, KC_F12, KC_F7, KC_F8, KC_F9, KC_F13, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
                                                                                         _______, KC_F11, KC_F4, KC_F5, KC_F6, KC_F14, XXXXXXX, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
 
-                                                                                        _______, KC_F10, KC_F1, KC_F2, KC_F3, KC_F13, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                                                                                        _______, KC_F10, KC_F1, KC_F2, KC_F3, KC_F15, XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
 
                                                                                         XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
 
@@ -230,8 +230,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {[ALPHAS] = LAYOUT_
 
                                                                                             )};
 
-char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \ne Z X C D V s M\n      T M C M M";
-char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O D\nM D K H , . / r\nM b C M T      ";
+char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \nC Z X C D V e M\n      T M C M M";
+char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O C\nM D K H , . / r\nM b C M T      ";
 char sym_preview_l[]    = "R E @ # $ %    \n_ g c s a |    \n_ C C \\ / ? X X\n      X X _ X _";
 char sym_preview_r[]    = "    ^ & * _ = _\n    > { ( [ + _\nX X < } ) ] - _\nX _ _ X T      ";
 char num_preview_l[]    = "R ( 7 8 9 )    \n_ % 4 5 6 +    \n_ 0 1 2 3 - * /\n      X _ . P X";
@@ -241,7 +241,7 @@ char fn_preview_r[]     = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX 
 char cosm_preview_l[]   = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
 char cosm_preview_r[]   = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
 char nav_preview_l[]    = "Q s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
-char nav_preview_r[]    = "    X h e D i _\n    w l d u R _\nX X X p p t p _\nX _ _ X T      ";
+char nav_preview_r[]    = "    X h e D i _\n    w l u d R _\nX X X p p t p _\nX _ _ X T      ";
 char mouse_preview_l[]  = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
 char mouse_preview_r[]  = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
 char lm_preview_l[]     = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
@@ -321,13 +321,6 @@ void keyboard_pre_init_user(void) {
 
 //
 
-void print_oled_right(char s[]) {
-    if (!is_keyboard_master()) {
-        oled_write_P("kfls21\n\n", false);
-        oled_write_P(PSTR(s), false);
-    }
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_achordion(keycode, record)) {
         return false;
@@ -373,7 +366,22 @@ void matrix_scan_user(void) {
 // oled_write_P(kyria_logo, false);
 // }
 
+void print_oled_right(char s[]) {
+    if (!is_keyboard_master()) {
+        oled_write_P("kfls21\n\n", false);
+        oled_write_P(PSTR(s), false);
+    }
+}
+
+void turn_off_oled_right(void) {
+    oled_on();
+    if (!is_keyboard_master()) {
+        oled_off();
+    }
+}
+
 void print_oled_left(char s[]) {
+    oled_on();
     if (is_keyboard_master()) {
         oled_write_P("Hello, World! ~Kyriel\n\n", false);
         oled_write_P(PSTR(s), false);
@@ -461,11 +469,13 @@ bool oled_task_user(void) {
         //     break;
         case GI:
             print_oled_left(gi_preview_l);
-            print_oled_right(gi_preview_r);
+            // print_oled_right(gi_preview_r);
+            turn_off_oled_right();
             break;
         case GI2:
             print_oled_left(gi2_preview_l);
-            print_oled_right(gi2_preview_r);
+            // print_oled_right(gi2_preview_r);
+            turn_off_oled_right();
             break;
         case KB:
             print_oled_left(kb_preview_l);
@@ -480,8 +490,8 @@ bool oled_task_user(void) {
 }
 
 // LED MATRIX
-int default_rgb_brightness = 160;
-int default_ug_brightness  = 210;
+int default_rgb_brightness = 145;
+int default_ug_brightness  = 220;
 // source: https://coolors.co/fed222-a7221a-e14232-f3f0f4-f79e6c
 #define C_RGB_GOLD 254, 210, 32              // ##FED222
 #define C_RGB_CORNELL_RED 167, 34, 26        // ##A7221A
@@ -504,7 +514,9 @@ HSV c_hsv_cryo    = {.h = 139, .s = 245, .v = 194};
 HSV c_hsv_dendro  = {.h = 55, .s = 212, .v = 232};
 HSV c_hsv_geo     = {.h = 34, .s = 153, .v = 242};
 
-HSV ug_color = {.h = 34, .s = 221, .v = 254};
+HSV  ug_color          = {.h = 34, .s = 221, .v = 254};
+bool right_half_ug_off = false;
+bool all_ug_off        = false;
 
 // void unpack_rgb_to_rgb_array(RGB rgb, uint8_t array[3])
 // {
@@ -595,7 +607,9 @@ bool keycode_is_arrow(uint8_t keycode) {
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i < led_max; i++) {
         if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW) {
-            set_matrix_color_to_dimmed_hsv(i, ug_color, default_ug_brightness);
+            if (!all_ug_off && (!right_half_ug_off || i <= 6)) {
+                set_matrix_color_to_dimmed_hsv(i, ug_color, default_ug_brightness);
+            }
         }
     }
 
@@ -605,13 +619,19 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             uint8_t index   = g_led_config.matrix_co[row][col];
             uint8_t keycode = keymap_key_to_keycode(layer, (keypos_t){col, row});
             if (index >= led_min && index < led_max && index != NO_LED && keycode > KC_TRNS) {
-                switch (get_highest_layer(layer_state | default_layer_state)) {
+                uint8_t highest_layer = get_highest_layer(layer_state | default_layer_state);
+                if (highest_layer != FN) { // don't turn underglow back on if function (trnasition from GI)
+                    right_half_ug_off = false;
+                }
+                switch (highest_layer) {
                     case ALPHAS:
                         set_underglow_color_hsv(c_hsv_gold);
                         break;
                     case SYM: // highlight all keys on SYM
                         set_matrix_color_to_dimmed_hsv(index, c_hsv_vermilion, default_rgb_brightness);
-
+                        if (keycode_is_shifted(keycode)) {
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
+                        }
                         break;
                     case COSM: // highlight all keys on COSM
                         set_matrix_color_to_dimmed_hsv(index, c_hsv_atomic_tangerine, default_rgb_brightness);
@@ -629,8 +649,10 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         }
                         break;
 
-                    case GI: // highlight keys on GI depending on element + wasd + eq
-                        set_underglow_color_hsv(c_hsv_vermilion);
+                    case GI:                                 // highlight keys on GI depending on element + wasd + eq
+                        set_underglow_color_hsv(c_hsv_gold); // maybe greener?
+
+                        right_half_ug_off = true;
 
                         if (keycode == KC_1) {
                             set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
@@ -659,6 +681,8 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
                         break;
                     case GI2: // highlight wasd on GI2
+                        right_half_ug_off = true;
+
                         if (keycode == KC_W) {
                             set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
                         }
