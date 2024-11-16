@@ -133,13 +133,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	),
 
-    
 	[COSM] = LAYOUT_split_3x6_5(
-		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_PLSMNS,       _______,        
+		RGB_VAD,        CKC_ENT,        CKC_EUR,        CKC_DEG,        CKC_DELT,       CKC_INF,                                                                                        CKC_MDOT,       CKC_MU,         CKC_UUML,       CKC_NOT,        CKC_PLSMNS,     _______,        
 
-		_______,        CKC_AUML,       CKC_MATH_OR,   CKC_SUML,       CKC_MATH_AND,    CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_UPA,     CKC_LEFTDA,        CKC_OUML,       _______,        
+		_______,        CKC_AUML,       CKC_MATH_OR,    CKC_SUML,       CKC_MATH_AND,   CKC_YES,                                                                                        CKC_GTOET,      CKC_LEFTA,      CKC_UPA,        CKC_LEFTDA,     CKC_OUML,       _______,        
 
-		_______,        CKC_NEQL,      CKC_ERR,     CKC_ALMEQ,       CKC_SECT,        CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_DOWNA,    CKC_RIGHTDA,      CKC_EQUIV,      _______,        
+		_______,        CKC_NEQL,       CKC_ERR,        CKC_ALMEQ,      CKC_SECT,       CKC_NO,         XXXXXXX,        _______,                        XXXXXXX,        XXXXXXX,        CKC_LTOET,      CKC_RIGHTA,     CKC_DOWNA,      CKC_RIGHTDA,    CKC_EQUIV,      _______,        
 
 		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
@@ -148,9 +147,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[NUM] = LAYOUT_split_3x6_5(
 		RGB_TOG,        KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_RPRN,                                                                                        XXXXXXX,        XXXXXXX,        KC_PAST,        XXXXXXX,        KC_LNUM,        _______,        
 
-		_______,        KC_PDOT,        KC_4,           KC_5,           KC_6,           KC_PPLS,                                                                                        KC_LT,        KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
+		_______,        KC_PDOT,        KC_4,           KC_5,           KC_6,           KC_PPLS,                                                                                        KC_LT,          KC_RALT,        KC_RSFT,        KC_RCTL,        KC_RGUI,        _______,        
 
-		_______,        KC_EQL,         KC_1,           KC_2,           KC_3,           KC_PMNS,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_GT,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        
+		_______,        KC_EQL,         KC_1,           KC_2,           KC_3,           KC_PMNS,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        KC_GT,          XXXXXXX,        KC_PCMM,        KC_PDOT,        KC_SLSH,        _______,        
 
 		                                                XXXXXXX,        KC_0,           _______,        _______,        _______,                        _______,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
@@ -166,7 +165,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		                                                XXXXXXX,        XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        _______,        _______,        XXXXXXX,        TO(ALPHAS)                                                      
 
 	),
-
 
 	[NAV] = LAYOUT_split_3x6_5(
 		QK_CLEAR_EEPROM,KC_SLEP,        KC_EJCT,        KC_FIND,        CKC_SCRSV,      S(KC_PSCR),                                                                                     XXXXXXX,        KC_HOME,        KC_END,         KC_DEL,         KC_INS,         _______,        
@@ -250,12 +248,12 @@ char alphas_preview_l[] = "l Q W F P B    \nt A R S T G    \nC Z X C D V e M\n  
 char alphas_preview_r[] = "    J L U Y ' m\n    M N E I O C\nM D K H , . / r\nM b C M T      ";
 char sym_preview_l[] = "R E @ # $ %    \n_ g c s a +    \n_ = C C | - X X\n      X X _ X _";
 char sym_preview_r[] = "    ^ & * _ ? _\n    < { ( [ \\ _\nX X > } ) ] / _\nX _ _ X T      ";
-char num_preview_l[] = "R ( 7 8 9 )    \n_ . 4 5 6 +    \n_ = 1 2 3 - X X\n      X 0 X P X";
-char num_preview_r[] = "    X X * X X _\n    X a s c g _\nX X X X X X X _\n_ _ _ X T      ";
-char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
-char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
 char cosm_preview_l[] = "R C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
 char cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
+char num_preview_l[] = "R ( 7 8 9 )    \n_ . 4 5 6 +    \n_ = 1 2 3 - X X\n      X 0 _ _ _";
+char num_preview_r[] = "    X X * X L _\n    < a s c g _\nX X > X X X X _\n_ _ _ X T      ";
+char fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
+char fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
 char nav_preview_l[] = "Q s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
 char nav_preview_r[] = "    X h e D i _\n    w l u d R _\nX X X p p t p _\nX _ _ X T      ";
 char mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
