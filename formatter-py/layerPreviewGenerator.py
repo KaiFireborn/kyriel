@@ -214,7 +214,7 @@ def convert_to_code(preview, layer_name):
     r = ""
     half_names = ["l", "r"]
     for i, preview_half in enumerate(preview):
-        r += f"char {layer_name.casefold()}_preview_{half_names[i]}[] = \"{preview_half}\";\n"
+        r += f"char PROGMEM {layer_name.casefold()}_preview_{half_names[i]}[] = \"{preview_half}\";\n"
     return r
 
 def output_preview(preview):
