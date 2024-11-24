@@ -2,4 +2,5 @@
 .vscode
 formatter-py/layers_data.json
 formatter-py/keymap_backup.c
+formatter-py/formatter-py/
 __pycache__
