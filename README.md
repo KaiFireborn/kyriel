@@ -3,7 +3,7 @@ Use-case: programming, writing, light gaming.
 
 ### ALPHAS
 I chose Colemak-DH for the base layer (was a *great* idea to learn both a new layout and a radically different keyboard at once), but any other layout would do too.
-Because I use them much more often than `<>`, I made `shift+,` and `shift+.` output `;` and `;` instead.
+Because I use them much more often than `<>`, I made `shift+,` and `shift+.` output `;` and `:` instead (inspired by the German layout).
 
 ### MODIFIERS
 Since I found homerow mods uncomfortable at high typing speeds, homerowmodless layouts like Callum inspired the following contract:

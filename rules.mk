@@ -9,4 +9,3 @@ RGB_MATRIX_ENABLE = yes
 WS2812_DRIVER = vendor
 RGB_MATRIX_DRIVER = ws2812
 RGB_MATRIX_CUSTOM_USER = yes
-# SRC += features/achordion.c
