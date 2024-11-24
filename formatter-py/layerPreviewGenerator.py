@@ -3,12 +3,14 @@ import pyperclip
 from keyboardFormatter import get_file_from_parent_dir
 
 
-
 def read_data():
     with open("formatter-py/layers_data.json", "r") as infile:
         return json.loads(infile.read())
 
+
 SYMBOL_LOOKUP = {
+    "XXXXXXX": " ",
+    "_______": " ",
     "QK_LOCK": "l",
     "LCTL": "c",
     "LSFT": "s",
@@ -19,13 +21,13 @@ SYMBOL_LOOKUP = {
     "RALT": "a",
     "RGUI": "g",
     "NO": " ",
-    "TRNS": "_",
+    "TRNS": " ",
     "ENT": "r",
     "BSPC": "b",
-    "SPC": " ",
+    "SPC": "_",
     "ESC": "e",
     "TAB": "t",
-    "CAPS": "p",
+    "CAPS": "P",
     "COMM": ",",
     "DOT": ".",
     "SLSH": "/",
@@ -110,10 +112,10 @@ SYMBOL_LOOKUP = {
     "NOT": "n",
     "GTOET": "g",
     "LTOET": "l",
-    "LEFTA": "l",
-    "RIGHTA": "r",
-    "UPA": "u",
-    "DOWNA": "d",
+    "LEFTA": "L",
+    "RIGHTA": "R",
+    "UPA": "U",
+    "DOWNA": "D",
     "OUML": "o",
     "EQUIV": "v",
     "HOME": "h",
@@ -125,7 +127,7 @@ SYMBOL_LOOKUP = {
     "DOWN": "d",
     "LEFT": "l",
     "RIGHT": "r",
-    "CW_TOGG": "w",
+    "CW_TOGG": "W",
     "SLEP": "s",
     "EJCT": "j",
     "FIND": "f",
@@ -134,21 +136,34 @@ SYMBOL_LOOKUP = {
     "KC_PSCR": "w",
     "LSA(KC_PSCR)": "a",
     "LGUI(D)": "d",
+    "A_TAB": "t",
+    "C_ESC": "e",
+    "TO(ALPHAS)": "r",
+    "MO(COSM)": "c",
+    "MO(FN)": "f",
+    "MO(NUM)": "n",
+    "TG(GI)": "g",
+    "MO(LM)": "m",
+    "MO(NAV)": "v",
+    "MO(SYM)": "s",
+    "MO(RM)": "m",
 }
+
 
 def translate_symbol(symbol):
     symbol = symbol.replace("KC_", "").replace("CKC_", "")
     symbol = SYMBOL_LOOKUP.get(symbol, symbol[0])
-    
+
     return symbol
+
 
 def translate_all_symbols_in_layer(layer):
     for i, row in enumerate(layer):
         for j, column in enumerate(row):
             layer[i][j] = translate_symbol(layer[i][j])
     return layer
-            
-            
+
+
 def get_row_halves(row):
     half_index = len(row) // 2
     left_half = row[:half_index]
@@ -157,33 +172,34 @@ def get_row_halves(row):
 
 
 def get_preview_halves(layer):
-    layer_preview = {
-        "l": [],
-        "r": []
-    }
+    layer_preview = {"l": [], "r": []}
     for row in layer:
         left_half, right_half = get_row_halves(row)
         layer_preview["l"].append(left_half)
         layer_preview["r"].append(right_half)
     return layer_preview
 
+
 def render_top_rows(row, side=""):
     r = " ".join(row)
     if side == "l":
-        return r + " "*4
+        return r + " " * 4
     else:
-        return " "*4 + r
+        return " " * 4 + r
+
 
 def render_middle_row(row, side=""):
     r = " ".join(row)
     return r
 
+
 def render_bottom_row(row, side=""):
     r = " ".join(row)
     if side == "l":
-        return " "*6 + r
+        return " " * 6 + r
     elif side == "r":
-        return r + " "*6
+        return r + " " * 6
+
 
 def render_half(half, side):
     rendered_half_rows = []
@@ -197,38 +213,40 @@ def render_half(half, side):
         else:
             raise Exception("Too many rows", half)
     return "\\n".join(rendered_half_rows)
-            
-    
+
 
 def generate_preview_per_half(layer):
     layer = translate_all_symbols_in_layer(layer)
     layer_preview_halves = get_preview_halves(layer)
-    
+
     rendered_left_half = render_half(layer_preview_halves["l"], "l")
     rendered_right_half = render_half(layer_preview_halves["r"], "r")
-    
-    
+
     return (rendered_left_half, rendered_right_half)
+
 
 def convert_to_code(preview, layer_name):
     r = ""
     half_names = ["l", "r"]
     for i, preview_half in enumerate(preview):
-        r += f"char PROGMEM {layer_name.casefold()}_preview_{half_names[i]}[] = \"{preview_half}\";\n"
+        r += f'char PROGMEM {layer_name.casefold()}_preview_{half_names[i]}[] = "{preview_half}";\n'
     return r
+
 
 def output_preview(preview):
     pyperclip.copy(preview)
     print("Completed and copied to clipboard.")
-        
+
+
 def generate_previews(data):
     preview_code_total = ""
     for layer_name in data:
         preview = generate_preview_per_half(data[layer_name])
         print("Rendering", layer_name)
         preview_code_total += convert_to_code(preview, layer_name)
-    
+
     return preview_code_total
+
 
 if __name__ == "__main__":
     data = read_data()
