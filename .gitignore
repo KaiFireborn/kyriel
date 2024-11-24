@@ -5,5 +5,5 @@ formatter-py/keymap_backup.c
 formatter-py/formatter-py/
 formatter-py/layers_data.json
 __pycache__
-
+kp.json
 
