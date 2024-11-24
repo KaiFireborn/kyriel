@@ -335,7 +335,7 @@ void print_oled_right(char s[]) {
     }
 }
 
-void turn_off_oled_right(void) {
+void turn_off_only_right_oled(void) {
     oled_on();
     if (!is_keyboard_master()) {
         oled_off();
@@ -343,7 +343,6 @@ void turn_off_oled_right(void) {
 }
 
 void print_oled_left(char s[]) {
-    oled_on();
     if (is_keyboard_master()) {
         oled_write_P("Hello, World! ~Kyriel\n\n", false);
         oled_write_P(PSTR(s), false);
@@ -359,12 +358,12 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
-    if (last_input_activity_elapsed() > (20000)) {
-        oled_off();
-        return false;
-    } else {
-        oled_on();
-    }
+    // if (last_input_activity_elapsed() > (20000)) {
+    //     oled_off();
+    //     return false;
+    // } else {
+    //     oled_on();
+    // }
 
     switch (get_highest_layer(layer_state)) {
         case ALPHAS:
@@ -407,11 +406,11 @@ bool oled_task_user(void) {
             break;
 
             print_oled_left(gi_preview_l);
-            turn_off_oled_right();
+            turn_off_only_right_oled();
             break;
         case GI2:
             print_oled_left(gi2_preview_l);
-            turn_off_oled_right();
+            turn_off_only_right_oled();
             break;
         case KB:
             print_oled_left(kb_preview_l);
