@@ -335,8 +335,7 @@ void print_oled_right(char s[]) {
     }
 }
 
-void turn_off_only_right_oled(void) {
-    oled_on();
+void turn_off_right_oled(void) {
     if (!is_keyboard_master()) {
         oled_off();
     }
@@ -358,8 +357,11 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
-
-    switch (get_highest_layer(layer_state)) {
+    uint8_t layer = get_highest_layer(layer_state);
+    // if (layer == GI || layer == GI2) {
+    //    turn_off_right_oled();
+    // }
+    switch (layer) {
         case ALPHAS:
 
             print_oled_left(alphas_preview_l);
@@ -398,13 +400,14 @@ bool oled_task_user(void) {
             print_oled_left(mouse_preview_l);
             print_oled_right(mouse_preview_r);
             break;
-
+        case GI:
             print_oled_left(gi_preview_l);
-            turn_off_only_right_oled();
+            if (!is_keyboard_master()) {
+                oled_clear();
+            }
             break;
         case GI2:
             print_oled_left(gi2_preview_l);
-            turn_off_only_right_oled();
             break;
         case KB:
             print_oled_left(kb_preview_l);
