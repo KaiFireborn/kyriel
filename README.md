@@ -38,11 +38,13 @@ Mostly keys combined with AltGr to send unicode symbols like äöüß or ↯↵�
 
 ### NAV
 Perhaps the most interesting layer.
-Partly inspired by modal editors like vim or emacs. However, I shifted the arrows by one to the right to get rid of that extra hand movement, as well as switched up Up and Down to, once again, relieve pressure off my mouse fingers. 
+Partly inspired by modal editors like vim or emacs. However, I shifted the arrows by one to the right to get rid of that extra hand movement, as well as reshuffled the directions accordingly. This, once again, helps relieve pressure off my mouse fingers.
+
 Also includes Home/End/PgUp/PgDn etc.
 
 ### GAME (GI/ GI2)
-The central idea is to implement `wasd` with `eq`, `space` and `1234`. However, one a row-staggered keyboard, you can easily press `2` and `3` with your ring and index fingers while holding down `w` - which is not possible on an ortholinear keyboard. That's why there's an empty (secondary function) key right above `w` and thus between `2` and `3`.
+The central idea is to implement `wasd` with `eq`, `space` and `1234`. However, one a row-staggered keyboard, you can easily press `2` and `3` with your ring and index fingers while holding down `w` - which is not possible on an ortholinear keyboard. That's why there's an empty (or secondary function) key right above `w` and thus between `2` and `3`. Additionally, I 'angled' `1` to the left for quicker reach.
+
 All other keys and the secondary layer can be adapted to whatever games one plays especially often without rebinding the keys internally.
 
 ### MOUSE
