@@ -87,6 +87,8 @@ const key_override_t p8_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_8, KC_P8
 const key_override_t p9_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_9, KC_P9);
 const key_override_t p0_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_0, KC_P0);
 
+// const key_override_t spacedel_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SPC, KC_DEL);
+
 const key_override_t *key_overrides[] = {
     &dot_key_override, &comm_key_override,
 
@@ -105,7 +107,6 @@ enum layers {
     GI,
     GI2,
     FN,
-
     KB
 };
 
@@ -115,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[ALPHAS] = LAYOUT_split_3x6_5(
 		QK_LOCK,     KC_Q,        KC_W,        KC_F,        KC_P,        KC_B,                                                                         KC_J,        KC_L,        KC_U,        KC_Y,        KC_QUOT,     KC_MUTE,     
 
-		CKC_A_TAB,   KC_A,        KC_R,        KC_S,        KC_T,        KC_G,                                                                         KC_M,        KC_N,        KC_E,        KC_I,        KC_O,        CKC_A_DEL,   
+		CKC_A_TAB,   KC_A,        KC_R,        KC_S,        KC_T,        KC_G,                                                                         KC_M,        KC_N,        KC_E,        KC_I,        KC_O,        KC_MINS,     
 
 		CKC_C_ESC,   KC_Z,        KC_X,        KC_C,        KC_D,        KC_V,        MO(COSM),    KC_LGUI,                  MO(FN),      MO(NUM),     KC_K,        KC_H,        KC_COMM,     KC_DOT,      KC_SLSH,     KC_ENT,      
 
@@ -124,11 +125,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[SYM] = LAYOUT_split_3x6_5(
-		_______,     KC_EXLM,     KC_AT,       KC_HASH,     KC_DLR,      KC_PERC,                                                                      KC_CIRC,     KC_AMPR,     KC_ASTR,     KC_UNDS,     CKC_GRV,     _______,     
+		_______,     KC_UNDS,     KC_AT,       KC_HASH,     KC_DLR,      KC_PERC,                                                                      KC_CIRC,     KC_AMPR,     KC_ASTR,     _______,     KC_QUES,     _______,     
 
-		_______,     KC_QUES,     KC_LBRC,     KC_LPRN,     KC_LCBR,     KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
+		_______,     KC_EXLM,     KC_LBRC,     KC_LPRN,     KC_LCBR,     KC_EQL,                                                                       KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_MINS,     
 
-		_______,     KC_EQL,      KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_MINS,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_GT,       KC_PIPE,     CKC_TILD,    KC_BSLS,     KC_SLSH,     _______,     
+		_______,     CKC_GRV,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_PLUS,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     KC_SLSH,     _______,     
 
 		                                       XXXXXXX,     XXXXXXX,     _______,     XXXXXXX,     _______,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
@@ -137,22 +138,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[COSM] = LAYOUT_split_3x6_5(
 		_______,     CKC_ENT,     CKC_EUR,     CKC_DEG,     CKC_DELT,    CKC_INF,                                                                      CKC_MDOT,    CKC_MU,      CKC_UUML,    CKC_NOT,     CKC_PLSMNS,  _______,     
 
-		_______,     CKC_AUML,    CKC_MATH_OR, CKC_SUML,    CKC_MATH_AND,CKC_YES,                                                                      CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_LEFTDA,  CKC_OUML,    _______,     
+		_______,     CKC_AUML,    CKC_MATH_OR, CKC_SUML,    CKC_MATH_AND,CKC_NEQL,                                                                     CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_LEFTDA,  CKC_OUML,    CKC_NO,      
 
-		_______,     CKC_NEQL,    CKC_ERR,     CKC_ALMEQ,   CKC_SECT,    CKC_NO,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_RIGHTA,  CKC_DOWNA,   CKC_RIGHTDA, CKC_EQUIV,   _______,     
+		_______,     _______,     CKC_ERR,     CKC_ALMEQ,   CKC_SECT,    CKC_YES,     XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_RIGHTA,  CKC_DOWNA,   CKC_RIGHTDA, CKC_EQUIV,   _______,     
 
 		                                       XXXXXXX,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
 	[NUM] = LAYOUT_split_3x6_5(
-		RGB_TOG,     KC_LPRN,     KC_7,        KC_8,        KC_9,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     KC_LNUM,     _______,     
+		RGB_TOG,     KC_LPRN,     KC_7,        KC_8,        KC_9,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
 
-		_______,     KC_0,        KC_4,        KC_5,        KC_6,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
+		_______,     KC_0,        KC_4,        KC_5,        KC_6,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_PMNS,     
 
-		_______,     KC_EQL,      KC_1,        KC_2,        KC_3,        KC_PMNS,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
+		_______,     _______,     KC_1,        KC_2,        KC_3,        KC_EQL,      XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
 
-		                                       XXXXXXX,     KC_0,        _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       XXXXXXX,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -172,9 +173,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      CW_TOGG,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       _______,     
 
-		_______,     KC_MNXT,     KC_MPLY,     KC_MPRV,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     KC_PGDN,     KC_PGUP,     KC_TAB,      KC_CAPS,     _______,     
+		_______,     KC_MNXT,     KC_MPLY,     KC_MPRV,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGDN,     KC_PGUP,     KC_TAB,      XXXXXXX,     _______,     
 
-		                                       XXXXXXX,     XXXXXXX,     _______,     _______,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       XXXXXXX,     XXXXXXX,     _______,     _______,     XXXXXXX,                  XXXXXXX,     KC_DEL,      KC_DEL,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -245,30 +246,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-char PROGMEM alphas_preview_l[] = "l Q W F P B    \nC A R S T G    \nC Z X C D V M g\n      T M   s M";
-char PROGMEM alphas_preview_r[] = "    J L U Y ' m\n    M N E I O C\nM M K H , . / r\nM b   M T      ";
-char PROGMEM sym_preview_l[] = "_ E @ # $ %    \n_ ? [ ( { +    \n_ = ] ) } - X X\n      X X _ X _";
-char PROGMEM sym_preview_r[] = "    ^ & * _ C _\n    < a s c g _\nX X > | C \\ / _\nX _ _ X T      ";
-char PROGMEM cosm_preview_l[] = "_ C C C C C    \n_ C C C C C    \n_ C C C C C X _\n      X X _ X X";
-char PROGMEM cosm_preview_r[] = "    C C C C C _\n    C C C C C _\nX X C C C C C _\nX _ _ X T      ";
-char PROGMEM num_preview_l[] = "R ( 7 8 9 )    \n_ 0 4 5 6 +    \n_ = 1 2 3 - X X\n      X 0 _ _ _";
-char PROGMEM num_preview_r[] = "    X X * X L _\n    < a s c g _\nX X > X P . / _\n_ _ _ X T      ";
-char PROGMEM fn_preview_l[] = "R f f f f f    \n_ f f f f f    \n_ f f f f f X X\n      X X _ X X";
-char PROGMEM fn_preview_r[] = "    X X X X X _\n    X a s c g _\n_ X X X X X X _\nX _ _ X T      ";
-char PROGMEM nav_preview_l[] = "_ s j f C S    \n_ g c s a P    \n_ M M M d A X X\n      X X _ _ X";
-char PROGMEM nav_preview_r[] = "    X h e D i _\n    w l d R u _\nX X X p p t p _\nX _ _ X T      ";
-char PROGMEM mouse_preview_l[] = "_ B B B B B    \n_ M M M M L    \n_ W W W W L X X\n      X X X X X";
-char PROGMEM mouse_preview_r[] = "    A X X X X _\n    A a s c g _\nX X A X X X X _\nX _ _ _ T      ";
-char PROGMEM lm_preview_l[] = "_ _ _ _ _ _    \n_ g c s a _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
-char PROGMEM lm_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
-char PROGMEM rm_preview_l[] = "_ _ _ _ _ _    \n_ _ _ _ _ _    \n_ _ _ _ _ _ _ _\n      _ _ _ s _";
-char PROGMEM rm_preview_r[] = "    _ _ _ _ _ _\n    _ a s c g _\n_ _ _ _ _ _ _ _\n_ _ _ _ T      ";
-char PROGMEM gi_preview_l[] = "_ V 2 5 3 4    \n1 s Q W E F    \ne t A S D T a r\n      T Z M   M";
-char PROGMEM gi_preview_r[] = "    B W W W W _\n    X B B B X _\nX X X M M M M _\nX X X X T      ";
-char PROGMEM gi2_preview_l[] = "g J M U B C    \nO c Q W E C    \nY P R X L G \\ B\n      d _ _ _ _";
-char PROGMEM gi2_preview_r[] = "    _ _ _ _ _ _\n    _ _ _ _ _ _\nX X R R R R R _\nX X X X T      ";
-char PROGMEM kb_preview_l[] = "_ X X X X X    \n_ X R Q X T    \n_ X X X X X X X\n      _ X X X X";
-char PROGMEM kb_preview_r[] = "    X X X X X _\n    X X X X X _\nX X X X X X X _\nX X X X T      ";
+char PROGMEM alphas_preview_l[] = "l Q W F P B    \nC A R S T G    \nC Z X C D V c g\n      g m _ s v";
+char PROGMEM alphas_preview_r[] = "    J L U Y ' m\n    M N E I O -\nf n K H , . / r\ns b _ m r      ";
+char PROGMEM sym_preview_l[] = "  _ @ # $ %    \n  E [ ( { =    \n  C ] ) } +    \n               ";
+char PROGMEM sym_preview_r[] = "    ^ & *   ?  \n    < a s c g -\n    > C | \\ /  \n        r      ";
+char PROGMEM cosm_preview_l[] = "  C C C C C    \n  C C C C C    \n    C C C C    \n               ";
+char PROGMEM cosm_preview_r[] = "    C C C C C  \n    C C C C C C\n    C C C C C  \n        r      ";
+char PROGMEM num_preview_l[] = "R ( 7 8 9 )    \n  0 4 5 6 +    \n    1 2 3 =    \n               ";
+char PROGMEM num_preview_r[] = "        *      \n    < a s c g -\n    >   P . /  \n        r      ";
+char PROGMEM fn_preview_l[] = "R f f f f f    \n  f f f f f    \n  f f f f f    \n               ";
+char PROGMEM fn_preview_r[] = "               \n      a s c g  \n               \n        r      ";
+char PROGMEM nav_preview_l[] = "  s j f C S    \n  g c s a P    \n  M M M d A    \n               ";
+char PROGMEM nav_preview_r[] = "      h e D i  \n    W l d R u  \n    P p p t    \n  D     r      ";
+char PROGMEM mouse_preview_l[] = "  B B B B B    \n  M M M M L    \n  W W W W L    \n               ";
+char PROGMEM mouse_preview_r[] = "    A          \n    A a s c g  \n    A          \n        r      ";
+char PROGMEM lm_preview_l[] = "               \n  g c s a      \n               \n            s  ";
+char PROGMEM lm_preview_r[] = "               \n               \n               \n        r      ";
+char PROGMEM rm_preview_l[] = "               \n               \n               \n            s  ";
+char PROGMEM rm_preview_r[] = "               \n      a s c g  \n               \n        r      ";
+char PROGMEM gi_preview_l[] = "  V 2 5 3 4    \n1 s Q W E F    \ne t A S D T a r\n      r Z f _ M";
+char PROGMEM gi_preview_r[] = "    B W W W W  \n      B B B    \n      M M M M  \n        r      ";
+char PROGMEM gi2_preview_l[] = "g J M U B C    \nO c Q W E C    \nY P R X L G \\ B\n      d        ";
+char PROGMEM gi2_preview_r[] = "               \n               \n    R R R R R  \n        r      ";
+char PROGMEM kb_preview_l[] = "               \n    R Q   T    \n               \n               ";
+char PROGMEM kb_preview_r[] = "               \n               \n               \n        r      ";
 // END FORMAT
 
 // ENCODERS
@@ -422,8 +423,9 @@ bool oled_task_user(void) {
 }
 
 // LED MATRIX
-int default_rgb_brightness = 145;
+int default_rgb_brightness = 110;
 int default_ug_brightness  = 220;
+int increased_rgb_brightness  = 145;
 // source: https://coolors.co/fed222-a7221a-e14232-f3f0f4-f79e6c
 #define C_RGB_GOLD 254, 210, 32              // ##FED222
 #define C_RGB_CORNELL_RED 167, 34, 26        // ##A7221A
@@ -587,28 +589,36 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         right_half_ug_off = true;
 
                         if (keycode == KC_1) {
-                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_2) {
-                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_electro, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_3) {
-                            set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_hydro, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_4) {
-                            set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, c_hsv_dendro, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_W || keycode == KC_A || keycode == KC_S || keycode == KC_D) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_Q || keycode == KC_E) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_F) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_T) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_BLUE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_BLUE}, increased_rgb_brightness
+                            );
                         }
 
                         break;
@@ -616,17 +626,21 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                         right_half_ug_off = true;
 
                         if (keycode == KC_W) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_YELLOW}, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_Q || keycode == KC_E) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, increased_rgb_brightness
+                            );
                         }
                         // d white, printscr azure
                         if (keycode == KC_D) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_WHITE}, increased_rgb_brightness
+                            );
                         }
                         if (keycode == KC_G) {
-                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, default_rgb_brightness);
+                            set_matrix_color_to_dimmed_hsv(index, (HSV){HSV_AZURE}, increased_rgb_brightness
+                            );
                         }
                         // set_underglow_color_hsv(c_hsv_ghost_white);
 
@@ -659,7 +673,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 }
             }
             if (keycode_is_modifier(keycode) && (get_highest_layer(layer_state | default_layer_state) != ALPHAS && get_highest_layer(layer_state | default_layer_state) != GI && get_highest_layer(layer_state | default_layer_state) != GI2)) {
-                set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, default_rgb_brightness);
+                set_matrix_color_to_dimmed_hsv(index, c_hsv_gold, increased_rgb_brightness);
             }
         }
     }
