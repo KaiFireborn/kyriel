@@ -71,6 +71,7 @@
 #define CKC_C_ESC LCTL_T(KC_ESC)   // mod-tap
 #define CKC_A_DEL LALT_T(KC_DEL)   // mod-tap
 #define CKC_A_TAB LALT_T(KC_TAB)   // mod-tap
+#define CKC_NAV_ENT LT(NAV, KC_ENT)   // mod-tap
 
 const key_override_t dot_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
 const key_override_t comm_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
@@ -118,9 +119,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		CKC_A_TAB,   KC_A,        KC_R,        KC_S,        KC_T,        KC_G,                                                                         KC_M,        KC_N,        KC_E,        KC_I,        KC_O,        KC_MINS,     
 
-		CKC_C_ESC,   KC_Z,        KC_X,        KC_C,        KC_D,        KC_V,        MO(COSM),    KC_LGUI,                  MO(FN),      MO(NUM),     KC_K,        KC_H,        KC_COMM,     KC_DOT,      KC_SLSH,     KC_ENT,      
+		CKC_C_ESC,   KC_Z,        KC_X,        KC_C,        KC_D,        KC_V,        MO(COSM),    KC_LGUI,                  MO(FN),      MO(NUM),     KC_K,        KC_H,        KC_COMM,     KC_DOT,      KC_SLSH,     CKC_NAV_ENT,      
 
-		                                       TG(GI),      MO(LM),      KC_SPC,      KC_LSFT,     MO(NAV),                  MO(SYM),     KC_BSPC,     KC_SPC,      MO(RM),      TO(ALPHAS)                                          
+		                                       TG(GI),      MO(LM),      KC_LSFT,      KC_SPC,     MO(NAV),                  MO(SYM),     KC_SPC,     KC_BSPC,      MO(RM),      TO(ALPHAS)                                          
 
 	),
 
