@@ -7,3 +7,4 @@ formatter-py/layers_data.json
 __pycache__
 kp.json
 
+.vscode/settings.json
