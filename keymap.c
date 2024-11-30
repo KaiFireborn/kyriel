@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      CW_TOGG,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       _______,     
 
-		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGDN,     KC_PGUP,     KC_TAB,      XXXXXXX,     _______,     
+		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGUP,     KC_PGDN,     KC_TAB,      XXXXXXX,     _______,     
 
 		                                       XXXXXXX,     XXXXXXX,     _______,     _______,     XXXXXXX,                  XXXXXXX,     KC_TAB,      KC_DEL,      XXXXXXX,     TO(ALPHAS)                                          
 
