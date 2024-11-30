@@ -36,10 +36,10 @@ For more detailed information on each layer, see below!
 - Momentary layer keys should be on the *opposite* hand from where the bulk of the layer's keys are
     - Because `NUM` and `FN` key positions are closely related, they have to be on the same hand
     - `NAV` and `SYM` are most heavily used, so they have to be on opposite hands and on the most accessible row
-    - `MOUSE` goes on the opposite side of the mouse hand. NUM and FN could be mirrored if you need to change the 'dominant hand' side.
+    - `MOUSE` goes on the opposite side of the mouse hand. `NUM` and `FN` could be mirrored if you need to change the 'dominant hand' side. (funnily enough, `NAV` and `SYM` ended up exactly where they are on the default Kyria layout independently of it)
 - The encoders are used for brightness, backlight and volume controls
 - `Escape`, `Enter`, `Tab` are also included
-- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` and `NAV` were added with hold-tap keys.
+- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for shipping in videos) were added with hold-tap keys.
 
 ## LAYERS
 
@@ -50,8 +50,8 @@ For more detailed information on each layer, see below!
 
 ![alt text](writeup-files/kyriel_previews/num.png)
 ### FN
-- The function keys are on the same positions as their NUM counterparts (plus additional keys)
-- Some media keys (rewind, play, skip, elect, backlight toggle, mute) reference positions of similar keys from NAV (e.g. the arrow keys)
+- The function keys are on the same positions as their `NUM` counterparts (plus additional keys)
+- Some media keys (rewind, play, skip, eject, backlight toggle, mute) reference positions of similar keys from NAV (e.g. the arrow keys)
 
 ![alt text](writeup-files/kyriel_previews/fn.png)
 
@@ -102,5 +102,6 @@ Self-explanatory, to be completely implemented (featuring orbital mouse)
 - Seniply - https://stevep99.github.io/seniply/
 - Callum - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 - SplitKB Kyria and its Discord community - https://github.com/qmk/qmk_firmware/blob/master/keyboards/splitkb/kyria/keymaps/default/readme.md
+- COLEMAK-DH, QWERTY and its German version - some key placements on the latter proved to be interesting after all
 - QMK and its Discord community
-- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyria
+- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyri`a`
