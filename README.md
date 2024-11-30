@@ -1,4 +1,4 @@
-# Kyriel (wip, v0.3)
+# Kyriel (draft version)
 
 *Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and callum's, but no classic homerow mods.\
 While *Kyriel* is mainly meant for my [36+14-key Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard.\
@@ -8,6 +8,8 @@ The main use-cases are: programming, writing, light gaming.
 
 ![alt text](writeup-files/kyriel_previews/full.png)
 For more detailed information on each layer, see below!
+
+## BASE
 
 ### ALPHAS
 
@@ -26,6 +28,7 @@ For more detailed information on each layer, see below!
 - To enable using mod+alpha combinations, a thumb key on each hand was dedicated to the otherwise transparent layers only containing the respective modifier keys.  
 - `GUI` is on the weakest finger, while `Shift` is between `Ctrl` and `Alt` to make combinations like `Ctrl+Shift`, `Alt+Shift` and `Alt+Shift+Ctrl`. `Ctrl` is on the ring finger position to take tension off the mouse fingers. Changing any of this is trivial.
 
+![alt text](writeup-files/kyriel_previews/mod.png)
 
 ### THUMB-/SIDEKEYS
 - According to my own usage statistics, 12% of all keypresses are `Space`, so there's one for each side
@@ -36,7 +39,9 @@ For more detailed information on each layer, see below!
     - `MOUSE` goes on the opposite side of the mouse hand. NUM and FN could be mirrored if you need to change the 'dominant hand' side.
 - The encoders are used for brightness, backlight and volume controls
 - `Escape`, `Enter`, `Tab` are also included
-- Finally, some optional, quicker ways to access `Ctrl`, `Alt` and `NAV` were added with hold-tap keys.
+- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` and `NAV` were added with hold-tap keys.
+
+## LAYERS
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
@@ -77,19 +82,22 @@ Mostly keys combined with AltGr to send unicode symbols. This could be implement
 
 ### NAV
 
-Partly inspired by modal editors like vim or emacs. However, the arrows are shifted by one (with the directions reshuffled accordingly) to, once again, relieve tension off the mouse fingers
-Also includes Home/End/PgUp/PgDn etc.
+- Partly inspired by modal editors like vim or emacs. However, the arrows are shifted by one (with the directions reshuffled accordingly) to, once again, relieve tension off the mouse fingers
+- Also includes `Home/End/PgUp/PgDn/Ins/Del`.
+- `CAPS LOCK` and `CAPS WORD` features
+- Also includes screenshot shortcuts (ss screen, ss window, ss area) as well as "screensaver on" and "show desktop"
 ![alt text](writeup-files/kyriel_previews/nav.png)
 
 ### GAME (GI/ GI2)
 The central idea is to implement a layer with `wasd` with `eq`, `space` and `1234`. However, one a row-staggered keyboard, you can easily press `2` and `3` with your ring and index fingers while holding down `w` - which is not possible on an ortholinear keyboard. That's why there's an empty/secondary key right above `w` (and thus between `2` and `3`) instead. Additionally, the `1` is 'angled' to the left for quicker reach.
 
 All other keys and the secondary layer can be adapted to whatever games one plays especially often without rebinding the keys internally, if needed.
+![alt text](writeup-files/kyriel_previews/game.png)
 
 ### MOUSE
 Self-explanatory, to be completely implemented (featuring orbital mouse)
 
-# Acknowledgements
+## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 - Seniply - https://stevep99.github.io/seniply/
 - Callum - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
