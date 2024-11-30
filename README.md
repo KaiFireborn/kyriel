@@ -1,9 +1,15 @@
-Use-case: programming, writing, light gaming.
+# Kyriel (wip, v0.3)
+
+*Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and callum's, but no classic homerow mods.\
+While *Kyriel* is mainly meant for my [36+14-key SplitKB Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard. With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! 
+
+The main use-cases are: programming, writing, light gaming.
 
 
 ### ALPHAS
-I chose Colemak-DH for the base layer (was a *great* idea to learn both a new layout and a radically different keyboard at once), but any other layout would do too.
-Because I use them much more often than `<>`, I made `shift+,` and `shift+.` output `;` and `:` instead (inspired by the German layout).
+- The base layer is Colemak-DH, but it's trivial to switch it to any other layout, like QWERTY or DVORAK.
+- `shift+,` and `shift+.` result in `;` and `:` respectively (like one the German layout) because they're used more often than `<>`.
+
 
 ### MODIFIERS
 Since I found homerow mods uncomfortable at high typing speeds, homerowmodless layouts like Callum inspired the following contract:
