@@ -2,7 +2,7 @@
 
 *Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and callum's, but no classic homerow mods.\
 While *Kyriel* is mainly meant for my [36+14-key Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard.\
-With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! 
+With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! ...Or to straight up use this one)
 
 The main use-cases are: programming, writing, light gaming.
 
@@ -39,7 +39,7 @@ For more detailed information on each layer, see below!
     - `MOUSE` goes on the opposite side of the mouse hand. `NUM` and `FN` could be mirrored if you need to change the 'dominant hand' side. (funnily enough, `NAV` and `SYM` ended up exactly where they are on the default Kyria layout independently of it)
 - The encoders are used for brightness, backlight and volume controls
 - `Escape`, `Enter`, `Tab` are also included
-- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for shipping in videos) were added with hold-tap keys.
+- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for skipping in videos) were added with hold-tap keys.
 
 ## LAYERS
 
