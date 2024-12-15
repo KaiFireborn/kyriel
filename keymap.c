@@ -137,11 +137,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[NUM] = LAYOUT_split_3x6_5(
-		RGB_TOG,     KC_LPRN,     KC_7,        KC_8,        KC_9,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
+		RGB_TOG,     KC_LPRN,     KC_8,        KC_7,        KC_6,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
 
-		_______,     KC_0,        KC_1,        KC_2,        KC_3,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_PMNS,     
+		_______,     KC_9,        KC_2,        KC_1,        KC_0,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_PMNS,     
 
-		_______,     KC_CALC,     KC_4,        KC_5,        KC_6,        KC_EQL,      XXXXXXX,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
+		_______,     KC_CALC,     KC_5,        KC_4,        KC_3,        KC_EQL,      XXXXXXX,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
 
 		                                       XXXXXXX,     QK_LLCK,     _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
