@@ -45,7 +45,7 @@ For more detailed information on each layer, see below!
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
-- Numpad-like layout for `0123456789`
+- Numpad-like layout for `0/123/456/789` (currently experimenting with `210/543/876/9` for a more optimal frequency distribution and referencing Benford's law)
 - `+`, `-`, `*`, `/`, `\`, `.`, `<`, `>`, `-` are reflected from their SYM and/or base positions.
 
 ![alt text](writeup-files/kyriel_previews/num.png)
