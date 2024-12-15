@@ -97,6 +97,13 @@ All other keys and the secondary layer can be adapted to whatever games one play
 ### MOUSE
 Self-explanatory, to be completely implemented (featuring orbital mouse)
 
+## Changelog
+(these changes aren't reflected on the images yet)
+- Bottommost right button is now just enter, arrows for one-handed video control now on the left side bottom row too
+- Alt and Nav tap-hold keys removed
+- Esc on thumb instead of LGUI
+- Whenever a layer is activated, the opposite MOD button server as LayerLock
+
 ## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 - Seniply - https://stevep99.github.io/seniply/
