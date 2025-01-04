@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_QUES,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     KC_SLSH,     _______,     
 
-		                                       XXXXXXX,     QK_LLCK,     XXXXXXX,     KC_UNDS,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     XXXXXXX,     KC_UNDS,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -132,29 +132,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     CKC_EQUIV,   CKC_RIGHTDA, CKC_LEFTDA,  CKC_ERR,     CKC_NEQL,    _______,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_ALMEQ,   CKC_DOWNA,   CKC_MATH_OR, CKC_MATH_AND,_______,     
 
-		                                       XXXXXXX,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     KC_RSFT,     QK_LLCK,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     KC_RSFT,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
 	[NUM] = LAYOUT_split_3x6_5(
-		RGB_TOG,     KC_LPRN,     KC_8,        KC_7,        KC_6,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
+		RGB_TOG,     KC_LPRN,     KC_8,        KC_2,        KC_3,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
 
-		_______,     KC_9,        KC_2,        KC_0,        KC_1,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_PMNS,     
+		_______,     KC_9,        KC_7,        KC_0,        KC_1,        KC_PPLS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_PMNS,     
 
-		_______,     KC_CALC,     KC_3,        KC_5,        KC_4,        KC_EQL,      XXXXXXX,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
+		_______,     XXXXXXX,     KC_6,        KC_5,        KC_4,        KC_EQL,      KC_CALC,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_PCMM,     KC_PDOT,     KC_SLSH,     _______,     
 
-		                                       XXXXXXX,     QK_LLCK,     _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
 	[FN] = LAYOUT_split_3x6_5(
-		RGB_MOD,     KC_F12,      KC_F8,       KC_F7,       KC_F6,       KC_F13,                                                                       KC_FIND,     XXXXXXX,     KC_EJCT,     RGB_TOG,     KC_MUTE,     _______,     
+		RGB_MOD,     KC_F12,      KC_F8,       KC_F2,       KC_F3,       KC_F15,                                                                       KC_FIND,     XXXXXXX,     KC_EJCT,     RGB_TOG,     KC_MUTE,     _______,     
 
-		_______,     KC_F9,       KC_F2,       KC_F10,      KC_F1,       KC_F14,                                                                       XXXXXXX,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
+		_______,     KC_F9,       KC_F7,       KC_F10,      KC_F1,       KC_F14,                                                                       XXXXXXX,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
 
-		_______,     KC_F11,      KC_F3,       KC_F5,       KC_F4,       KC_F15,      XXXXXXX,     XXXXXXX,                  _______,     _______,     XXXXXXX,     KC_MPRV,     KC_MPLY,     KC_MNXT,     XXXXXXX,     _______,     
+		_______,     KC_F11,      KC_F6,       KC_F5,       KC_F4,       KC_F13,      XXXXXXX,     XXXXXXX,                  _______,     _______,     XXXXXXX,     KC_MPRV,     KC_MPLY,     KC_MNXT,     XXXXXXX,     _______,     
 
-		                                       XXXXXXX,     QK_LLCK,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -165,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     XXXXXXX,     KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGUP,     KC_PGDN,     KC_TAB,      XXXXXXX,     _______,     
 
-		                                       XXXXXXX,     XXXXXXX,     _______,     _______,     XXXXXXX,                  _______,     KC_DEL,      KC_BSPC,     QK_LLCK,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  _______,     KC_DEL,      KC_BSPC,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_1,        KC_LSFT,     KC_Q,        KC_W,        KC_E,        KC_F,                                                                         XXXXXXX,     KC_BTN1,     KC_BTN1,     KC_BTN2,     XXXXXXX,     _______,     
 
-		KC_ESC,      KC_LCTL,     KC_A,        KC_S,        KC_D,        KC_T,        KC_LALT,     KC_ENT,                   XXXXXXX,     XXXXXXX,     XXXXXXX,     KC_MS_L,     KC_MS_D,     KC_MS_U,     KC_MS_R,     _______,     
+		KC_ESC,      KC_X,     KC_A,        KC_S,        KC_D,        KC_T,        KC_LALT,     KC_ENT,                   XXXXXXX,     XXXXXXX,     XXXXXXX,     KC_MS_L,     KC_MS_D,     KC_MS_U,     KC_MS_R,     _______,     
 
 		                                       TO(ALPHAS),  KC_Z,        MO(FN),      KC_SPC,      MO(GI2),                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
@@ -216,11 +216,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[GI2] = LAYOUT_split_3x6_5(
 		KC_LGUI,     KC_J,        KC_M,        KC_U,        KC_B,        KC_C,                                                                         _______,     _______,     _______,     _______,     _______,     _______,     
 
-		KC_O,        KC_V,        KC_Q,        KC_W,        KC_E,        C(KC_G),                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
+		KC_TAB,        KC_V,        KC_Q,        KC_W,        KC_E,        C(KC_G),                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
 
-		KC_Y,        KC_P,        KC_R,        KC_X,        KC_L,        KC_G,        KC_BSLS,     KC_BTN3,                  XXXXXXX,     XXXXXXX,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     _______,     
+		KC_P,        KC_O,        KC_R,        KC_LCTL,        KC_L,        KC_G,        KC_BSLS,     KC_BTN3,                  XXXXXXX,     XXXXXXX,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     _______,     
 
-		                                       LGUI(KC_D),  _______,     _______,     _______,     _______,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       LGUI(KC_D),  KC_Y,     _______,     _______,     _______,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
