@@ -107,7 +107,7 @@ Self-explanatory, to be completely implemented (featuring orbital mouse)
 ## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 - Seniply - https://stevep99.github.io/seniply/
-- Callum - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
+- Callum - https://github.com/qmk/qmk_firmware/blob/user-keymaps-still-present/users/callum/readme.md
 - SplitKB Kyria and its Discord community - https://github.com/qmk/qmk_firmware/blob/master/keyboards/splitkb/kyria/keymaps/default/readme.md
 - COLEMAK-DH, QWERTY and its German version - some key placements on the latter proved to be interesting after all
 - QMK and its Discord community
