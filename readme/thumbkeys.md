@@ -19,7 +19,7 @@ Now, the secondary layers `FN` and `COSM` have been moved to the *ajust* layers 
 This would be the optimal configuration for me, if not for the default 14-key one.
 
 If further compression is needed, the second `SPC` and the dedicated `SHIFT` can be (re)moved; This results in thumb 3 keys per half:
-![6](../writeup-files/thumbkeys-previews/kyriel_6_key.png)
+![6](../writeup-files/thumbkeys-previews/kyriel_6_key.png)\
 (note: `SHIFT` was originally supposed to be a tap-hold variation of `SPC`; This is possible, but didn't work for me personally)
 
 Even further compression (for 4-thumbkey keyboards like the ZSA Voyager) is possible by using combos, moving `MOD` keys to the outer pinkie columns if you have them, or even utilising tap hold combinations, to further overload the layer keys with single-press meanings and so on. This is a trade-off with *Kyriel*s main idea, which is to avoic tap-row functionality by utilising additional thumb/layer keys, but it is definitely doable.
