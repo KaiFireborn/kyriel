@@ -114,4 +114,4 @@ Self-explanatory, to be completely implemented (featuring orbital mouse)
 - SplitKB Kyria and its Discord community - https://github.com/qmk/qmk_firmware/blob/master/keyboards/splitkb/kyria/keymaps/default/readme.md
 - COLEMAK-DH, QWERTY and its German version - some key placements on the latter proved to be interesting after all
 - QMK and its Discord community
-- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyri`a`
+- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyria
