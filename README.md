@@ -48,7 +48,7 @@ For more detailed information on each layer, see below!
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
-- Numpad-like layout for `0/123/456/789` (currently experimenting with `210/543/876/9` for a more optimal frequency distribution and referencing Benford's law)
+- This layout tries to optimize the frequency distribution of numbers, but arranging the numbers in the same way as on a traditional numpad is possible too. The justification of this layout and further alternatives are described [here](https://github.com/KaiFireborn/kyriel/blob/keymap/readme/numpads.md#asterisk)
 - `+`, `-`, `*`, `/`, `\`, `.`, `<`, `>`, `-` are reflected from their SYM and/or base positions.
 
 ![alt text](writeup-files/kyriel_previews/num.png)

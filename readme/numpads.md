@@ -22,5 +22,5 @@ The default currently *Kyriel* uses this asterisk-shaped layout; It's the most c
 
 ### Spiral (deprecated)
 
-Mostly a prototype for the *-shaped layout above, and resembles a spiral going left from the central position and finally ending up at the sole little finger position (`4` and `3` might better be swapped).
+Mostly a prototype for the `*`-shaped layout above, and resembles a spiral going left from the central position and finally ending up at the sole little finger position (`4` and `3` might better be swapped).
 ![alt text](../writeup-files/numpad-previews/spiral_numpad.png)
