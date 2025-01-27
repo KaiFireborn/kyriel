@@ -61,7 +61,7 @@ For more detailed information on each layer, see below!
 
 ### SYM
 - Positions of `@#$%^*` resemble the traditional shifted-number character positions, with `!` shifted down for easier access.
-- `[({<` and `>})]` are below them for quick typing with one hand, especially when closing brackets get automatically filled in (insspired by *Seniply*)
+- `[({<` and `>})]` are below them for quick typing with one hand, especially when closing brackets get automatically filled in (inspired by *Seniply*)
 - Symbols like `'/-` ~~(but not `,.;:`)~~ are reflected from the base layer. Their shifted states `"?` are mirrored to the opposite hand, while `_` replaces space.\
 (with this, `?` is also directly under the similar `!`) 
 - The similar `|\/` are right next to each other

@@ -5,12 +5,15 @@ The following is a small set of suggested number layouts and the reasoning behin
 ### Traditional
 
 The obvious first choice, emulating the way digits are laid out on a real numpad. One could also flip it vertically to emulate a typical phone numpad instead.
+
 ![traditional-numpad](../writeup-files/numpad-previews/traditional_numpad.png)
 
 ### Asterisk
 
 The default currently *Kyriel* uses this asterisk-shaped layout; It's the most comfortable and efficient one I found to date:
+
 ![asterisk-numpad](../writeup-files/numpad-previews/asterisk_numpad.png)
+
 - `0` and `1` are by far used most-often, especially in programming (consider the numbers used most often during array indexing...)
 - According to [Benford's law](https://en.wikipedia.org/wiki/Benford%27s_law) (which seems to hold in my personal experience, too), the more frequent numbers like `2`, `3` and `4` are assigned to the stronger fingers
 - `5` retains its central position from the traditional layout at least partly.
@@ -23,4 +26,5 @@ The default currently *Kyriel* uses this asterisk-shaped layout; It's the most c
 ### Spiral (deprecated)
 
 Mostly a prototype for the `*`-shaped layout above, and resembles a spiral going left from the central position and finally ending up at the sole little finger position (`4` and `3` might better be swapped).
+
 ![alt text](../writeup-files/numpad-previews/spiral_numpad.png)
