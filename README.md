@@ -48,7 +48,7 @@ For more detailed information on each layer, see below!
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
-- This layout tries to optimize the frequency distribution of numbers, but arranging the numbers in the same way as on a traditional numpad is possible too. The justification of this layout and further alternatives are described [here](https://github.com/KaiFireborn/kyriel/blob/keymap/readme/numpads.md#asterisk)
+- This layout tries to optimize the frequency distribution of numbers, but arranging the numbers in the same way as on a traditional numpad is possible too. The justification of this layout and further alternatives are described [here](https://github.com/KaiFireborn/kyriel/blob/keymap/readme/numpads.md#asterisk).
 - `+`, `-`, `*`, `/`, `\`, `.`, `<`, `>`, `-` are reflected from their SYM and/or base positions.
 
 ![alt text](writeup-files/kyriel_previews/num.png)
@@ -89,6 +89,7 @@ Mostly keys combined with AltGr to send unicode symbols. This could be implement
 - Also includes `Home/End/PgUp/PgDn/Ins/Del`.
 - `CAPS LOCK` and `CAPS WORD` features
 - Also includes screenshot shortcuts (ss screen, ss window, ss area) as well as "screensaver on" and "show desktop"
+- Left and right arrows are also on the left side for one-handed video control
 ![alt text](writeup-files/kyriel_previews/nav.png)
 
 ### GAME (GI/ GI2)
@@ -102,10 +103,7 @@ Self-explanatory, to be completely implemented (featuring orbital mouse)
 
 ## Changelog
 (these changes aren't reflected on the images yet)
-- Bottommost right button is now just enter, arrows for one-handed video control now on the left side bottom row too
-- Alt and Nav tap-hold keys removed
-- Esc on thumb instead of LGUI
-- Whenever a layer is activated, the GAME button server as LayerLock
+- Whenever a layer is activated, the `GAME` button serves as layerlock.
 
 ## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
