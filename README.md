@@ -1,7 +1,7 @@
 # Kyriel (draft version)
 
-*Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and callum's, but no classic homerow mods.\
-While *Kyriel* is mainly meant for my [36+14-key Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard.\
+*Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and Callum's, but no classic homerow mods.\
+While *Kyriel* is mainly meant for my [36+14-key Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard. If yours has fewer thumb keys, some options are described [here](readme/thumbkeys.md).\
 With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! ...Or to straight up use this one)
 
 The main use-cases are: programming, writing, light gaming.
@@ -39,13 +39,16 @@ For more detailed information on each layer, see below!
     - `MOUSE` goes on the opposite side of the mouse hand. `NUM` and `FN` could be mirrored if you need to change the 'dominant hand' side. (funnily enough, `NAV` and `SYM` ended up exactly where they are on the default Kyria layout independently of it)
 - The encoders are used for brightness, backlight and volume controls
 - `Escape`, `Enter`, `Tab` are also included
+- `RST` simply resets to the base layer, and `GAME` either toggles the game layer from base or locks the current layer. These keys are optional.
 - Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for skipping in videos) were added with hold-tap keys.
+
+*Note: the number of thumb-keys can be reduced to anything from 7 to 3 or less per side; [Here](readme/thumbkeys.md), some suggestions are described.*
 
 ## LAYERS
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
-- Numpad-like layout for `0/123/456/789` (currently experimenting with `210/543/876/9` for a more optimal frequency distribution and referencing Benford's law)
+- This layout tries to optimize the frequency distribution of numbers, but arranging the numbers in the same way as on a traditional numpad is possible too. The justification of this layout and further alternatives are described [here](https://github.com/KaiFireborn/kyriel/blob/keymap/readme/numpads.md#asterisk)
 - `+`, `-`, `*`, `/`, `\`, `.`, `<`, `>`, `-` are reflected from their SYM and/or base positions.
 
 ![alt text](writeup-files/kyriel_previews/num.png)
@@ -58,7 +61,7 @@ For more detailed information on each layer, see below!
 
 ### SYM
 - Positions of `@#$%^*` resemble the traditional shifted-number character positions, with `!` shifted down for easier access.
-- `[({<` and `>})]` are below them for quick typing with one hand, especially when closing brackets get automatically filled in (insspired by *Seniply*)
+- `[({<` and `>})]` are below them for quick typing with one hand, especially when closing brackets get automatically filled in (inspired by *Seniply*)
 - Symbols like `'/-` ~~(but not `,.;:`)~~ are reflected from the base layer. Their shifted states `"?` are mirrored to the opposite hand, while `_` replaces space.\
 (with this, `?` is also directly under the similar `!`) 
 - The similar `|\/` are right next to each other
@@ -102,13 +105,13 @@ Self-explanatory, to be completely implemented (featuring orbital mouse)
 - Bottommost right button is now just enter, arrows for one-handed video control now on the left side bottom row too
 - Alt and Nav tap-hold keys removed
 - Esc on thumb instead of LGUI
-- Whenever a layer is activated, the opposite MOD button server as LayerLock
+- Whenever a layer is activated, the GAME button server as LayerLock
 
 ## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 - Seniply - https://stevep99.github.io/seniply/
-- Callum - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
+- Callum - https://github.com/qmk/qmk_firmware/blob/user-keymaps-still-present/users/callum/readme.md
 - SplitKB Kyria and its Discord community - https://github.com/qmk/qmk_firmware/blob/master/keyboards/splitkb/kyria/keymaps/default/readme.md
 - COLEMAK-DH, QWERTY and its German version - some key placements on the latter proved to be interesting after all
 - QMK and its Discord community
-- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyri`a`
+- Some other layouts from KeymapDB - https://keymapdb.com/?isSplit=true&keyboard=Kyria
