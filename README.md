@@ -2,7 +2,7 @@
 
 *Kyriel* is an ergonomic split keyboard layout that utilises layers and inspiration from layouts like Seniply, Miryoku and callum's, but no classic homerow mods.\
 While *Kyriel* is mainly meant for my [36+14-key Kyria](https://github.com/splitkb/kyria), it's not difficult to adjust to any other similar keyboard.\
-With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! 
+With how much thought I put into the layout, *you* are more than welcome to adopt some design ideas in your own personal keymap! ...Or to straight up use this one)
 
 The main use-cases are: programming, writing, light gaming.
 
@@ -39,13 +39,13 @@ For more detailed information on each layer, see below!
     - `MOUSE` goes on the opposite side of the mouse hand. `NUM` and `FN` could be mirrored if you need to change the 'dominant hand' side. (funnily enough, `NAV` and `SYM` ended up exactly where they are on the default Kyria layout independently of it)
 - The encoders are used for brightness, backlight and volume controls
 - `Escape`, `Enter`, `Tab` are also included
-- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for shipping in videos) were added with hold-tap keys.
+- Finally, some optional, quicker/one-handed ways to access `Ctrl`, `Alt` (opposite of the mouse hand, for multi-cursor) and `NAV` (for skipping in videos) were added with hold-tap keys.
 
 ## LAYERS
 
 ![alt text](writeup-files/kyriel_previews/thumb.png)
 ### NUM
-- Numpad-like layout for `0123456789`
+- Numpad-like layout for `0/123/456/789` (currently experimenting with `210/543/876/9` for a more optimal frequency distribution and referencing Benford's law)
 - `+`, `-`, `*`, `/`, `\`, `.`, `<`, `>`, `-` are reflected from their SYM and/or base positions.
 
 ![alt text](writeup-files/kyriel_previews/num.png)
@@ -96,6 +96,13 @@ All other keys and the secondary layer can be adapted to whatever games one play
 
 ### MOUSE
 Self-explanatory, to be completely implemented (featuring orbital mouse)
+
+## Changelog
+(these changes aren't reflected on the images yet)
+- Bottommost right button is now just enter, arrows for one-handed video control now on the left side bottom row too
+- Alt and Nav tap-hold keys removed
+- Esc on thumb instead of LGUI
+- Whenever a layer is activated, the opposite MOD button server as LayerLock
 
 ## Acknowledgements
 - Miryoku - https://github.com/manna-harbour/miryoku/tree/master/docs/reference
