@@ -148,22 +148,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[FN] = LAYOUT_split_3x6_5(
-		RGB_MOD,     KC_F12,      KC_F6,       KC_F3,       KC_F2,       KC_F15,                                                                       KC_FIND,     XXXXXXX,     KC_EJCT,     RGB_TOG,     KC_MUTE,     _______,     
+		RGB_MOD,     KC_F12,      KC_F8,       KC_F3,       KC_F2,       KC_F15,                                                                       KC_FIND,     XXXXXXX,     KC_EJCT,     RGB_TOG,     KC_MUTE,     _______,     
 
 		_______,     KC_F9,       KC_F7,       KC_F10,      KC_F1,       KC_F13,                                                                       XXXXXXX,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
 
-		_______,     KC_F11,      KC_F8,       KC_F5,       KC_F4,       KC_F14,      XXXXXXX,     XXXXXXX,                  _______,     _______,     XXXXXXX,     KC_MPRV,     KC_MPLY,     KC_MNXT,     XXXXXXX,     _______,     
+		_______,     KC_F11,      KC_F6,       KC_F5,       KC_F4,       KC_F14,      XXXXXXX,     XXXXXXX,                  _______,     _______,     XXXXXXX,     KC_MPRV,     KC_MPLY,     KC_MNXT,     XXXXXXX,     _______,     
 
 		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
 	[NAV] = LAYOUT_split_3x6_5(
-		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   XXXXXXX,     KC_HOME,     KC_END,      KC_INS,      XXXXXXX,     _______,     
+		_______,     KC_CAPS,     CW_TOGG,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   KC_PGUP,     KC_HOME,     KC_END,      KC_INS,      XXXXXXX,     _______,     
 
-		A(KC_TAB),   KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      CW_TOGG,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       _______,     
+		A(KC_TAB),   KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      KC_PGDN,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       KC_BTN3,     
 
-		_______,     XXXXXXX,     KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGUP,     KC_PGDN,     KC_TAB,      XXXXXXX,     _______,     
+		_______,     XXXXXXX,     KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     CW_TOGG,     XXXXXXX,     KC_TAB,      KC_BTN1,     KC_BTN2,     
 
 		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  MO(NUM),     KC_DEL,      KC_BSPC,     MO(COSM),    TO(ALPHAS)                                          
 
