@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_QUES,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     KC_SLSH,     _______,     
 
-		                                       QK_LLCK,     XXXXXXX,     XXXXXXX,     KC_UNDS,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     MO(FN),     XXXXXXX,     KC_UNDS,     MO(NUM),                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -165,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     XXXXXXX,     KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGUP,     KC_PGDN,     KC_TAB,      XXXXXXX,     _______,     
 
-		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  _______,     KC_DEL,      KC_BSPC,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  MO(NUM),     KC_DEL,      KC_BSPC,     MO(COSM),     TO(ALPHAS)                                          
 
 	),
 
@@ -187,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
+		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  MO(FN),     _______,     _______,     _______,     TO(ALPHAS)                                          
 
 	),
 
@@ -198,7 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
+		                                       _______,     _______,     _______,     KC_LSFT,     MO(COSM),                  _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
 
 	),
 
