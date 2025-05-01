@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_QUES,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     KC_SLSH,     _______,     
 
-		                                       QK_LLCK,     MO(FN),     XXXXXXX,     KC_UNDS,     MO(NUM),                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
+		                                       QK_LLCK,     MO(FN),      XXXXXXX,     KC_UNDS,     MO(NUM),                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     KC_9,        KC_7,        KC_0,        KC_1,        KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_MINS,     
 
-		_______,     XXXXXXX,     KC_6,        KC_5,        KC_4,        KC_EQL,      KC_CALC,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_COMM,     KC_DOT,     KC_SLSH,     _______,     
+		_______,     XXXXXXX,     KC_6,        KC_5,        KC_4,        KC_EQL,      KC_CALC,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_COMM,     KC_DOT,      KC_SLSH,     _______,     
 
 		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
@@ -159,13 +159,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[NAV] = LAYOUT_split_3x6_5(
-		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,      CKC_SCRSV,   S(KC_PSCR),                                                                   XXXXXXX,     KC_HOME,     KC_END,      KC_INS,      XXXXXXX,     _______,     
+		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   XXXXXXX,     KC_HOME,     KC_END,      KC_INS,      XXXXXXX,     _______,     
 
 		A(KC_TAB),   KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      CW_TOGG,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       _______,     
 
 		_______,     XXXXXXX,     KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     KC_PGUP,     KC_PGDN,     KC_TAB,      XXXXXXX,     _______,     
 
-		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  MO(NUM),     KC_DEL,      KC_BSPC,     MO(COSM),     TO(ALPHAS)                                          
+		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  MO(NUM),     KC_DEL,      KC_BSPC,     MO(COSM),    TO(ALPHAS)                                          
 
 	),
 
@@ -187,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  MO(FN),     _______,     _______,     _______,     TO(ALPHAS)                                          
+		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  MO(FN),      _______,     _______,     _______,     TO(ALPHAS)                                          
 
 	),
 
@@ -198,7 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-		                                       _______,     _______,     _______,     KC_LSFT,     MO(COSM),                  _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
+		                                       _______,     _______,     _______,     KC_LSFT,     MO(COSM),                 _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
 
 	),
 
@@ -238,21 +238,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 char PROGMEM alphas_preview_l[] = "  Q W F P B    \nt A R S T G    \nc Z X C D V c e\n      g m s _ v";
 char PROGMEM alphas_preview_r[] = "    J L U Y ' m\n    M N E I O -\nf n K H , . / r\ns _ b m r      ";
-char PROGMEM sym_preview_l[] = "  C @ # $ %    \n  E [ ( { +    \n  ? ] ) } =    \n      Q     _  ";
+char PROGMEM sym_preview_l[] = "  C @ # $ %    \n  E [ ( { +    \n  ? ] ) } =    \n      Q f   _ n";
 char PROGMEM sym_preview_r[] = "    ^ & * C '  \n    < a s c g -\n    > C | \\ /  \n        r      ";
 char PROGMEM cosm_preview_l[] = "  C C C C C    \n  C C C C C    \n  C C C C C    \n      Q        ";
 char PROGMEM cosm_preview_r[] = "    C C C C C  \n    C C C C C C\n    C C C C C  \n    s   r      ";
-char PROGMEM num_preview_l[] = "R ( 6 3 2 )    \n  9 7 0 1 +    \n    8 5 4 = C  \n      Q        ";
-char PROGMEM num_preview_r[] = "        *      \n    < a s c g -\n    >   P . /  \n        r      ";
+char PROGMEM num_preview_l[] = "R ( 8 3 2 )    \n  9 7 0 1 +    \n    6 5 4 = C  \n      Q        ";
+char PROGMEM num_preview_r[] = "        *      \n    < a s c g -\n    >   , . /  \n        r      ";
 char PROGMEM fn_preview_l[] = "R f f f f f    \n  f f f f f    \n  f f f f f    \n      Q        ";
 char PROGMEM fn_preview_r[] = "    f   j R m  \n      a s c g  \n      M M M    \n        r      ";
-char PROGMEM nav_preview_l[] = "    h e C S    \nA g c s a P    \n    l R d A    \n      Q        ";
-char PROGMEM nav_preview_r[] = "      h e i    \n    W l d R u  \n    P p p t    \n  D b   r      ";
+char PROGMEM nav_preview_l[] = "        C S    \nA g c s a P    \n    l R d A    \n      Q        ";
+char PROGMEM nav_preview_r[] = "      h e i    \n    W l d R u  \n    P p p t    \nn D b c r      ";
 char PROGMEM mouse_preview_l[] = "  B B B B B    \n  M M M M L    \n  W W W W L    \n               ";
 char PROGMEM mouse_preview_r[] = "    A          \n    A a s c g  \n    A          \n        r      ";
 char PROGMEM lm_preview_l[] = "               \n  g c s a      \n               \n            s  ";
-char PROGMEM lm_preview_r[] = "               \n               \n               \n        r      ";
-char PROGMEM rm_preview_l[] = "               \n               \n               \n            s  ";
+char PROGMEM lm_preview_r[] = "               \n               \n               \nf       r      ";
+char PROGMEM rm_preview_l[] = "               \n               \n               \n            s c";
 char PROGMEM rm_preview_r[] = "               \n      a s c g  \n               \n        r      ";
 char PROGMEM gi_preview_l[] = "  c 2 5 3 4    \n1 s Q W E F    \ne X A S D T a r\n      r Z f _ M";
 char PROGMEM gi_preview_r[] = "    B W W W W  \n      B B B    \n      M M M M  \n        r      ";
