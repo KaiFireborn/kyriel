@@ -60,7 +60,7 @@ For more detailed information on each layer, see below!
 
 
 ### SYM
-- Positions of `@#$%^*` resemble the traditional shifted-number character positions, with `!` shifted down for easier access.
+- Positions of `§!@#$%^*` resemble the traditional shifted-number character positions, with `!` moved down for easier access.
 - `[({<` and `>})]` are below them for quick typing with one hand, especially when closing brackets get automatically filled in (inspired by *Seniply*)
 - Symbols like `'/-` ~~(but not `,.;:`)~~ are reflected from the base layer. Their shifted states `"?` are mirrored to the opposite hand, while `_` replaces space.\
 (with this, `?` is also directly under the similar `!`) 
@@ -75,9 +75,9 @@ For more detailed information on each layer, see below!
 Mostly keys combined with AltGr to send unicode symbols. This could be implemented with a custom language layout (e.g with Microsoft Layout Creator) or with an AHK script, easily modifiable on the fly.
 - `äüöß` under their base counterparts
 - By associations:
-`Δ` on position 4, `∞` looks like percent, `⌀` is similar to `0`, `€` is `altgr+pos2` on EU keyboards, `§` is sometimes on the same key as `` ` ``, `·` on the position of `^` because it's also a multiplication operation (under `*` already taken)
+`Δ` on position 4, `∞` looks like percent, `⌀` is similar to `o` (QWERTY position), `€` is `altgr+pos2` on EU keyboards, `↵` is on the same edge as `Enter`, `·` on the position of `^` because it's also a multiplication operation (under `*` already taken)
 - `⇔⇐⇒` together
--  `≠¬±≤≥` on the similar `=-+<>` positions
+- `≠¬±≤≥` on the similar `=-+<>` positions
 - `∧∨` on symbols that are similar to their left half, so `/` and `\` respectively
 - `←↑→` reflect their NAV counterparts, `↓` below `↑` and reflects the visualy familiar `|` from SYM
 - `✓✕` under `t` (for true) and `r` (for fa*r*se....) (because they wouldn't fit about the umlauts otherwise...)

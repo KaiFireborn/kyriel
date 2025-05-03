@@ -38,7 +38,8 @@
 #define CKC_INF ALGR(KC_5)        // ∞
 #define CKC_MDOT ALGR(KC_6)       // ·
 #define CKC_UUML ALGR(KC_U)       // ü
-#define CKC_NOT ALGR(KC_MINS)     // ¬
+#define CKC_NEG ALGR(KC_MINS)     // ¬
+#define CKC_EMD ALGR(KC_N)        // ¬
 #define CKC_NEQL ALGR(KC_EQL)     // ≠
 #define CKC_AUML ALGR(KC_A)       // ä
 #define CKC_SUML ALGR(KC_S)       // ß
@@ -53,6 +54,7 @@
 #define CKC_YES ALGR(KC_7)        // ✓
 #define CKC_NO ALGR(KC_8)         // ✕
 #define CKC_OUML ALGR(KC_O)       // ö
+#define CKC_AMAC ALGR(KC_C)       // �
 #define CKC_ALMEQ ALGR(KC_NUBS)   // ≈
 #define CKC_PLSMNS S(KC_GRV)      // ±
 #define CKC_ERR ALGR(KC_GRV)      // ↯
@@ -97,8 +99,10 @@ const key_override_t *key_overrides[] = {
 
     &p1_key_override,  &p2_key_override,   &p3_key_override, &p4_key_override, &p5_key_override, &p6_key_override, &p7_key_override, &p8_key_override, &p9_key_override, &p0_key_override,
 };
-// TODO: redo mouse layer
+// TODO: redo mouse layer (probably not)
 enum layers { ALPHAS, NUM, SYM, NAV, COSM, MOUSE, LM, RM, GI, GI2, FN, KB };
+
+//TODO: make \ easier to press
 
 // START FORMAT
 //  MO(MOUSE) removed for now, so is
@@ -115,20 +119,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[SYM] = LAYOUT_split_3x6_5(
-		_______,     CKC_DQUOT,   KC_AT,       KC_HASH,     KC_DLR,      KC_PERC,                                                                      KC_CIRC,     KC_AMPR,     KC_ASTR,     CKC_GRV,     KC_QUOT,     _______,     
+		_______,     CKC_SECT,    KC_AT,       KC_HASH,     KC_DLR,      KC_PERC,                                                                      KC_CIRC,     KC_AMPR,     KC_ASTR,     CKC_GRV,     _______,     _______,     
 
-		_______,     KC_EXLM,     KC_LBRC,     KC_LPRN,     KC_LCBR,     KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_MINS,     
+		_______,     KC_EXLM,     KC_LBRC,     KC_LPRN,     KC_LCBR,     KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     CKC_EMD,     
 
-		_______,     KC_QUES,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     KC_SLSH,     _______,     
+		_______,     _______,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      XXXXXXX,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     _______,     _______,     
 
 		                                       QK_LLCK,     MO(FN),      XXXXXXX,     KC_UNDS,     MO(NUM),                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
 	),
 
 	[COSM] = LAYOUT_split_3x6_5(
-		_______,     CKC_ENT,     CKC_EUR,     CKC_DEG,     CKC_DELT,    CKC_INF,                                                                      CKC_MDOT,    CKC_MU,      CKC_UUML,    CKC_SECT,    CKC_EMPTY,   _______,     
+		_______,     CKC_AMAC,    CKC_EUR,     CKC_DEG,     CKC_DELT,    CKC_INF,                                                                      CKC_MDOT,    CKC_MU,      CKC_UUML,    CKC_EMPTY,   CKC_ENT,     _______,     
 
-		_______,     CKC_AUML,    CKC_NO,      CKC_SUML,    CKC_YES,     CKC_PLSMNS,                                                                   CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_RIGHTA,  CKC_OUML,    CKC_NOT,     
+		_______,     CKC_AUML,    CKC_NO,      CKC_SUML,    CKC_YES,     CKC_PLSMNS,                                                                   CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_RIGHTA,  CKC_OUML,    CKC_NEG,     
 
 		_______,     CKC_EQUIV,   CKC_RIGHTDA, CKC_LEFTDA,  CKC_ERR,     CKC_NEQL,    _______,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_ALMEQ,   CKC_DOWNA,   CKC_MATH_OR, CKC_MATH_AND,_______,     
 
@@ -159,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[NAV] = LAYOUT_split_3x6_5(
-		_______,     KC_CAPS,     CW_TOGG,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   KC_PGUP,     KC_HOME,     KC_END,      KC_INS,      XXXXXXX,     _______,     
+		_______,     KC_CAPS,     CW_TOGG,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   KC_PGUP,     KC_HOME,     KC_END,      A(KC_SLSH),      KC_INS,     _______,     
 
 		A(KC_TAB),   KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      KC_PGDN,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       KC_BTN3,     
 
@@ -238,16 +242,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 char PROGMEM alphas_preview_l[] = "  Q W F P B    \nt A R S T G    \nc Z X C D V c e\n      g m s _ v";
 char PROGMEM alphas_preview_r[] = "    J L U Y ' m\n    M N E I O -\nf n K H , . / r\ns _ b m r      ";
-char PROGMEM sym_preview_l[] = "  C @ # $ %    \n  E [ ( { +    \n  ? ] ) } =    \n      Q f   _ n";
-char PROGMEM sym_preview_r[] = "    ^ & * C '  \n    < a s c g -\n    > C | \\ /  \n        r      ";
+char PROGMEM sym_preview_l[] = "  C @ # $ %    \n  E [ ( { +    \n    ] ) } =    \n      Q f   _ n";
+char PROGMEM sym_preview_r[] = "    ^ & * C    \n    < a s c g C\n    > C | \\    \n        r      ";
 char PROGMEM cosm_preview_l[] = "  C C C C C    \n  C C C C C    \n  C C C C C    \n      Q        ";
 char PROGMEM cosm_preview_r[] = "    C C C C C  \n    C C C C C C\n    C C C C C  \n    s   r      ";
 char PROGMEM num_preview_l[] = "R ( 8 3 2 )    \n  9 7 0 1 +    \n    6 5 4 = C  \n      Q        ";
 char PROGMEM num_preview_r[] = "        *      \n    < a s c g -\n    >   , . /  \n        r      ";
 char PROGMEM fn_preview_l[] = "R f f f f f    \n  f f f f f    \n  f f f f f    \n      Q        ";
 char PROGMEM fn_preview_r[] = "    f   j R m  \n      a s c g  \n      M M M    \n        r      ";
-char PROGMEM nav_preview_l[] = "        C S    \nA g c s a P    \n    l R d A    \n      Q        ";
-char PROGMEM nav_preview_r[] = "      h e i    \n    W l d R u  \n    P p p t    \nn D b c r      ";
+char PROGMEM nav_preview_l[] = "  P W   C S    \nA g c s a P    \n    l R d A    \n      Q        ";
+char PROGMEM nav_preview_r[] = "    p h e i    \n    p l d R u B\n    P W   t B B\nn D b c r      ";
 char PROGMEM mouse_preview_l[] = "  B B B B B    \n  M M M M L    \n  W W W W L    \n               ";
 char PROGMEM mouse_preview_r[] = "    A          \n    A a s c g  \n    A          \n        r      ";
 char PROGMEM lm_preview_l[] = "               \n  g c s a      \n               \n            s  ";
@@ -506,7 +510,7 @@ bool keycode_is_symbol(uint8_t keycode) {
 }
 bool keycode_is_shifted(uint8_t keycode) {
     // also if any of the custom keys defined above between CKC_SCRV and CKC_MATH_OR but one by one
-    return (keycode >= KC_TILDE && keycode <= KC_QUESTION) || (keycode == CKC_SCRSV) || (keycode == CKC_ENT) || (keycode == CKC_EUR) || (keycode == CKC_DEG) || (keycode == CKC_DELT) || (keycode == CKC_INF) || (keycode == CKC_MDOT) || (keycode == CKC_UUML) || (keycode == CKC_NOT) || (keycode == CKC_NEQL) || (keycode == CKC_AUML) || (keycode == CKC_SUML) || (keycode == CKC_LTOET) || (keycode == CKC_GTOET) || (keycode == CKC_UPA) || (keycode == CKC_DOWNA) || (keycode == CKC_LEFTA) || (keycode == CKC_RIGHTA) || (keycode == CKC_LEFTDA) || (keycode == CKC_RIGHTDA) || (keycode == CKC_YES) || (keycode == CKC_NO) || (keycode == CKC_OUML) || (keycode == CKC_ALMEQ) || (keycode == CKC_PLSMNS) || (keycode == CKC_ERR) || (keycode == CKC_SECT) || (keycode == CKC_GRV) || (keycode == CKC_TILD) || (keycode == CKC_MU) || (keycode == CKC_BR_C_UP) || (keycode == CKC_BR_C_DOWN) || (keycode == CKC_BR_R_UP) || (keycode == CKC_BR_R_DOWN) || (keycode == CKC_EQUIV) || (keycode == CKC_MATH_AND) ||
+    return (keycode >= KC_TILDE && keycode <= KC_QUESTION) || (keycode == CKC_SCRSV) || (keycode == CKC_ENT) || (keycode == CKC_EUR) || (keycode == CKC_DEG) || (keycode == CKC_DELT) || (keycode == CKC_INF) || (keycode == CKC_MDOT) || (keycode == CKC_UUML) || (keycode == CKC_NEG) || (keycode == CKC_NEQL) || (keycode == CKC_AUML) || (keycode == CKC_SUML) || (keycode == CKC_LTOET) || (keycode == CKC_GTOET) || (keycode == CKC_UPA) || (keycode == CKC_DOWNA) || (keycode == CKC_LEFTA) || (keycode == CKC_RIGHTA) || (keycode == CKC_LEFTDA) || (keycode == CKC_RIGHTDA) || (keycode == CKC_YES) || (keycode == CKC_NO) || (keycode == CKC_OUML) || (keycode == CKC_ALMEQ) || (keycode == CKC_PLSMNS) || (keycode == CKC_ERR) || (keycode == CKC_SECT) || (keycode == CKC_GRV) || (keycode == CKC_TILD) || (keycode == CKC_MU) || (keycode == CKC_BR_C_UP) || (keycode == CKC_BR_C_DOWN) || (keycode == CKC_BR_R_UP) || (keycode == CKC_BR_R_DOWN) || (keycode == CKC_EQUIV) || (keycode == CKC_MATH_AND) ||
            (keycode == CKC_MATH_OR);
 }
 
