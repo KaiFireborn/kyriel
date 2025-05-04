@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		_______,     CKC_AUML,    CKC_NO,      CKC_SUML,    CKC_YES,     CKC_PLSMNS,                                                                   CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_RIGHTA,  CKC_OUML,    CKC_NEG,     
 
-		_______,     CKC_EQUIV,   CKC_RIGHTDA, CKC_LEFTDA,  CKC_ERR,     CKC_NEQL,    _______,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_ALMEQ,   CKC_DOWNA,   CKC_MATH_OR, CKC_MATH_AND,_______,     
+		_______,     CKC_EQUIV,   CKC_LEFTDA, CKC_RIGHTDA,  CKC_ERR,     CKC_NEQL,    _______,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_ALMEQ,   CKC_DOWNA,   CKC_MATH_OR, CKC_MATH_AND,_______,     
 
 		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     KC_RSFT,     XXXXXXX,     TO(ALPHAS)                                          
 
@@ -211,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_1,        KC_LSFT,     KC_Q,        KC_W,        KC_E,        KC_F,                                                                         XXXXXXX,     KC_BTN1,     KC_BTN1,     KC_BTN2,     XXXXXXX,     _______,     
 
-		KC_ESC,      KC_X,        KC_A,        KC_S,        KC_D,        KC_T,        KC_LALT,     KC_ENT,                   XXXXXXX,     XXXXXXX,     XXXXXXX,     KC_MS_L,     KC_MS_D,     KC_MS_U,     KC_MS_R,     _______,     
+		KC_ESC,      KC_X,        KC_A,        KC_S,        KC_D,        KC_T,        KC_LALT,     KC_ENT,                   XXXXXXX,     XXXXXXX,     KC_SCLN,     KC_MS_L,     KC_MS_D,     KC_MS_U,     KC_MS_R,     _______,     
 
 		                                       TO(ALPHAS),  KC_Z,        MO(FN),      KC_SPC,      MO(GI2),                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
