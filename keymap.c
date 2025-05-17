@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 		KC_LCTL,     KC_Z,        KC_X,        KC_C,        KC_D,        KC_V,        MO(COSM),    KC_ESC,                   MO(FN),      MO(NUM),     KC_K,        KC_H,        KC_COMM,     KC_DOT,      KC_SLSH,     KC_ENT,      
 
-		                                       TG(GI),      MO(LM),      KC_LSFT,     KC_SPC,      MO(NAV),                  MO(SYM),     KC_SPC,      KC_BSPC,     MO(RM),      TO(ALPHAS)                                          
+		                                       TG(GI),      MO(LM),      KC_LSFT,     KC_SPC,      MO(NAV),                  MO(SYM),     KC_BSPC,     KC_SPC,     MO(RM),      TO(ALPHAS)                                          
 
 	),
 
