@@ -74,10 +74,16 @@
 
 
 // Moved?
-#define CKC_PLSMNS S(KC_GRV)       // ±
-#define CKC_SECT KC_GRV            // §
-#define CKC_GRV KC_NUBS            // `
-#define CKC_TILD S(KC_NUBS)        // ~
+// #define CKC_SECT KC_GRV            // §
+// #define CKC_PLSMNS S(KC_GRV)       // ±
+// #define CKC_GRV KC_NUBS            // `
+// #define CKC_TILD S(KC_NUBS)        // ~
+
+// how it would be much clearer:
+#define CKC_SECT KC_NUBS            // §
+#define CKC_PLSMNS S(KC_NUBS)       // ±
+#define CKC_GRV KC_GRV            // `
+#define CKC_TILD S(KC_GRV)        // ~
 
 
 #define CKC_BR_C_UP KC_BRIGHTNESS_UP      // center monitor brightness up
