@@ -8,3 +8,5 @@ __pycache__
 kp.json
 
 .vscode/settings.json
+
+mailmap
