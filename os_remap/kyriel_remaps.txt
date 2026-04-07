@@ -1,0 +1,71 @@
+Kyriel Keyboard OS Remapping Guide
+===================================
+
+This file documents all key remappings needed for the Kyriel keyboard across different operating systems.
+Use this as the source of truth; OS-specific config files (AHK, keyd, etc.) are derived from this.
+
+ARROWS
+======
+AltGr + L -> ↑
+AltGr + K -> ↓
+AltGr + J -> ←
+AltGr + ; -> →
+AltGr + [ -> ⇐
+AltGr + ] -> ⇒
+
+UMLAUTS
+=======
+AltGr + U -> ü
+AltGr + A -> ä
+AltGr + O -> ö
+AltGr + S -> ß
+AltGr + C -> ā
+
+NUMBER ROW + ALTGR
+==================
+AltGr + 1 -> ↵
+AltGr + 2 -> €
+AltGr + 3 -> °
+AltGr + 4 -> Δ
+AltGr + 5 -> ∞
+AltGr + 6 -> ·
+AltGr + 7 -> ✓
+AltGr + 8 -> ✕
+AltGr + 9 -> μ
+AltGr + 0 -> ⌀
+
+MATH SYMBOLS
+===================
+AltGr + N -> ¬
+AltGr + / -> ⇔
+AltGr + ' -> ∧
+Shift + N -> ∨
+AltGr + ` -> ↯
+
+
+
+IMPORTANT PUNCTUATION
+===================
+AltGr + - -> −
+AltGr + = -> ≠
+AltGr + , -> ≤
+AltGr + . -> ≥
+AltGr + \ -> ≈
+Shift + \ -> ±
+\ -> §
+
+
+
+BRIGHTNESS CONTROL
+===================
+# TODO: find out proper names for these on windows
+# Volume Up -> Shift+Alt+Up (center monitor brightness up)
+# Volume Down -> Shift+Alt+Down (center monitor brightness down)
+
+NOTES
+=====
+- ALGR() in QMK = AltGr (Right Alt) on Windows/Linux
+- These remaps are OS-agnostic at the character level
+- Windows: Use AHK script (kyriel_keys.ahk)
+- Linux: Use keyd config (kyriel_keys.conf)
+- macOS: May require Karabiner-Elements or similar
