@@ -16,6 +16,9 @@ RAlt & a:: Send "ä"
 RAlt & o:: Send "ö"
 RAlt & s:: Send "ß"
 RAlt & c:: Send "ā"
+>!+a::Ä
+>!+u::Ü
+>!+c::Ā
 
 ; NUMBER ROW + ALTGR
 RAlt & 1:: Send "↵"
@@ -45,8 +48,6 @@ RAlt & ':: Send "∧"
 RAlt & `:: Send "↯"
 
 ; BRIGHTNESS CONTROL
-; TODO: find out proper names for these on windows
-; Volume Up -> Shift+Alt+Up (center monitor brightness up)
-; Volume Down -> Shift+Alt+Down (center monitor brightness down)
-; Volume_Up:: Send "+!Up"
-; Volume_Down:: Send "+!Down"
+F18:: Send "+!{Up}"
+F19:: Send "+!{Down}"
+

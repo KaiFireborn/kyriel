@@ -86,10 +86,10 @@
 #define CKC_TILD S(KC_GRV)        // ~
 
 
-#define CKC_BR_C_UP KC_BRIGHTNESS_UP      // center monitor brightness up
-#define CKC_BR_C_DOWN KC_BRIGHTNESS_UP    // center monitor brightness down
-#define CKC_BR_R_UP C(KC_BRIGHTNESS_UP)   // right monitor brightness up
-#define CKC_BR_R_DOWN C(KC_BRIGHTNESS_UP) // right monitor brightness down
+#define CKC_BR_C_UP KC_F18      // center monitor brightness up
+#define CKC_BR_C_DOWN KC_F19    // center monitor brightness down
+#define CKC_BR_R_UP C(KC_F18)   // right monitor brightness up
+#define CKC_BR_R_DOWN C(KC_F19) // right monitor brightness down
 
 // #define CKC_SH_SP LSFT_T(KC_SPC)    // mod-tap
 // #define CKC_C_ESC LCTL_T(KC_ESC)    // mod-tap
