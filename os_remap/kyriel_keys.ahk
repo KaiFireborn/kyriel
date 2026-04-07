@@ -1,53 +1,55 @@
 #Requires AutoHotkey v2.0
+#SingleInstance
+
 ; Kyriel Keyboard AHK Remap
-; Source: kyriel_remaps.txt
 
 ; ARROWS
-RAlt & l:: Send "↑"
-RAlt & k:: Send "↓"
-RAlt & j:: Send "←"
-RAlt & `;:: Send "→"
-RAlt & [:: Send "⇐"
-RAlt & ]:: Send "⇒"
+>!l::↑
+>!k::↓
+>!j::←
+>!;::→
+>![::⇐
+>!]::⇒
 
 ; UMLAUTS
-RAlt & u:: Send "ü"
-RAlt & a:: Send "ä"
-RAlt & o:: Send "ö"
-RAlt & s:: Send "ß"
-RAlt & c:: Send "ā"
+>!u::ü
+>!a::ä
+>!o::ö
+>!s::ß
+>!c::ā
 >!+a::Ä
 >!+u::Ü
+>!+o::Ö
 >!+c::Ā
 
 ; NUMBER ROW + ALTGR
-RAlt & 1:: Send "↵"
-RAlt & 2:: Send "€"
-RAlt & 3:: Send "°"
-RAlt & 4:: Send "Δ"
-RAlt & 5:: Send "∞"
-RAlt & 6:: Send "·"
-RAlt & 7:: Send "✓"
-RAlt & 8:: Send "✕"
-RAlt & 9:: Send "μ"
-RAlt & 0:: Send "⌀"
+>!1::↵
+>!2::€
+>!3::°
+>!4::Δ
+>!5::∞
+>!6::·
+>!7::✓
+>!8::✕
+>!9::μ
+>!0::⌀
 
 ; IMPORTANT PUNCTUATION
-RAlt & -:: Send "−"
-RAlt & =:: Send "≠"
-RAlt & ,:: Send "≤"
-RAlt & .:: Send "≥"
-RAlt & \:: Send "≈"
-+\:: Send "±"
+>!-::−
+>!=::≠
+>!,::≤
+>!.::≥
+>!x::≈
+SC056::§
++SC056::±
 
-; MATH SYMBOLS
-RAlt & n:: Send "¬"
-RAlt & /:: Send "⇔"
-RAlt & ':: Send "∧"
-+n:: Send "∨" ; TODO for this find out proper keycode too
-RAlt & `:: Send "↯"
+; LOGIC SYMBOLS
+>!n::¬
+>!/::⇔
+>!'::∧
+>!\::∨
+>!`::↯
 
 ; BRIGHTNESS CONTROL
 F18:: Send "+!{Up}"
 F19:: Send "+!{Down}"
-

@@ -20,6 +20,10 @@ AltGr + A -> ä
 AltGr + O -> ö
 AltGr + S -> ß
 AltGr + C -> ā
+AltGr + Shift + A -> Ä
+AltGr + Shift + U -> Ü
+AltGr + Shift + O -> Ö
+AltGr + Shift + C -> Ā
 
 NUMBER ROW + ALTGR
 ==================
@@ -34,33 +38,31 @@ AltGr + 8 -> ✕
 AltGr + 9 -> μ
 AltGr + 0 -> ⌀
 
-MATH SYMBOLS
-===================
-AltGr + N -> ¬
-AltGr + / -> ⇔
-AltGr + ' -> ∧
-Shift + N -> ∨
-AltGr + ` -> ↯
-
-
-
 IMPORTANT PUNCTUATION
 ===================
 AltGr + - -> −
 AltGr + = -> ≠
 AltGr + , -> ≤
 AltGr + . -> ≥
-AltGr + \ -> ≈
+AltGr + X -> ≈
+SC056 -> §
 Shift + \ -> ±
-\ -> §
+
+LOGIC SYMBOLS
+=============
+AltGr + N -> ¬
+AltGr + / -> ⇔
+AltGr + ' -> ∧
+AltGr + \ -> ∨
+AltGr + ` -> ↯
+Shift + N -> ∨
 
 
 
 BRIGHTNESS CONTROL
 ===================
-# TODO: find out proper names for these on windows
-# Volume Up -> Shift+Alt+Up (center monitor brightness up)
-# Volume Down -> Shift+Alt+Down (center monitor brightness down)
+F18 -> Shift+Alt+Up (center monitor brightness up)
+F19 -> Shift+Alt+Down (center monitor brightness down)
 
 NOTES
 =====

@@ -33,9 +33,9 @@
 // Arrows
 #define CKC_UPA ALGR(KC_L)        // ↑
 #define CKC_DOWNA ALGR(KC_K)      // ↓
-#define CKC_LEFTA ALGR(KC_J)      // ←
+#define CKC_LEFTA ALGR(KC_J)      // �
 #define CKC_RIGHTA ALGR(KC_SCLN)  // →
-#define CKC_LEFTDA ALGR(KC_LBRC)  // ⇐
+#define CKC_LEFTDA ALGR(KC_LBRC)  // �
 #define CKC_RIGHTDA ALGR(KC_RBRC) // ⇒
 
 // Umlauts
@@ -43,7 +43,7 @@
 #define CKC_AUML ALGR(KC_A) // ä
 #define CKC_OUML ALGR(KC_O) // ö
 #define CKC_SUML ALGR(KC_S) // ß
-#define CKC_AMAC ALGR(KC_C) // ā
+#define CKC_AMAC ALGR(KC_C) // �
 
 // Number row + AltGr
 #define CKC_ENT ALGR(KC_1)   // ↵
@@ -62,28 +62,19 @@
 #define CKC_NEQL ALGR(KC_EQL)      // ≠
 #define CKC_LTOET ALGR(KC_COMM)    // ≤
 #define CKC_GTOET ALGR(KC_DOT)     // ≥
-#define CKC_ALMEQ ALGR(KC_NUBS)    // ≈
-#define CKC_ERR ALGR(KC_GRV)       // ↯
+#define CKC_ALMEQ ALGR(KC_X)    // ≈
+#define CKC_SECT KC_NUBS            // §
+#define CKC_PLSMNS S(KC_NUBS)       // ±
+#define CKC_GRV KC_GRV            // `
+#define CKC_TILD S(KC_GRV)        // ~
 
-// Misc / Math symbols
+// Logic symbols
 #define CKC_SCRSV MEH(KC_PSCR)     // screensaver
 #define CKC_NEG ALGR(KC_N)         // ¬
 #define CKC_EQUIV ALGR(KC_SLSH)    // ⇔
 #define CKC_MATH_AND ALGR(KC_QUOT) // ∧
 #define CKC_MATH_OR ALGR(KC_NUHS)  // ∨
-
-
-// Moved?
-// #define CKC_SECT KC_GRV            // §
-// #define CKC_PLSMNS S(KC_GRV)       // ±
-// #define CKC_GRV KC_NUBS            // `
-// #define CKC_TILD S(KC_NUBS)        // ~
-
-// how it would be much clearer:
-#define CKC_SECT KC_NUBS            // §
-#define CKC_PLSMNS S(KC_NUBS)       // ±
-#define CKC_GRV KC_GRV            // `
-#define CKC_TILD S(KC_GRV)        // ~
+#define CKC_ERR ALGR(KC_GRV)       // ↯
 
 
 #define CKC_BR_C_UP KC_F18      // center monitor brightness up
@@ -151,137 +142,138 @@ enum layers
 // START FORMAT
 //  MO(MOUSE) removed for now, so is
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [ALPHAS] = LAYOUT_split_3x6_5(
-        XXXXXXX, KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_MUTE,
+	[ALPHAS] = LAYOUT_split_3x6_5(
+		XXXXXXX,     KC_Q,        KC_W,        KC_F,        KC_P,        KC_B,                                                                         KC_J,        KC_L,        KC_U,        KC_Y,        KC_QUOT,     KC_MUTE,     
 
-        KC_TAB, KC_A, KC_R, KC_S, KC_T, KC_G, KC_M, KC_N, KC_E, KC_I, KC_O, KC_MINS,
+		KC_TAB,      KC_A,        KC_R,        KC_S,        KC_T,        KC_G,                                                                         KC_M,        KC_N,        KC_E,        KC_I,        KC_O,        KC_MINS,     
 
-        KC_LCTL, KC_Z, KC_X, KC_C, KC_D, KC_V, MO(COSM), KC_ESC, MO(FN), MO(NUM), KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_ENT,
+		KC_LCTL,     KC_Z,        KC_X,        KC_C,        KC_D,        KC_V,        MO(COSM),    KC_ESC,                   MO(FN),      MO(NUM),     KC_K,        KC_H,        KC_COMM,     KC_DOT,      KC_SLSH,     KC_ENT,      
 
-        TG(GI), MO(LM), KC_LSFT, KC_SPC, MO(NAV), MO(SYM), KC_BSPC, KC_SPC, MO(RM), TO(ALPHAS)
+		                                       TG(GI),      MO(LM),      KC_LSFT,     KC_SPC,      MO(NAV),                  MO(SYM),     KC_BSPC,     KC_SPC,      MO(RM),      TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [SYM] = LAYOUT_split_3x6_5(
-        _______, CKC_SECT, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, CKC_GRV, _______, _______,
+	[SYM] = LAYOUT_split_3x6_5(
+		_______,     CKC_SECT,    KC_AT,       KC_HASH,     KC_DLR,      KC_PERC,                                                                      KC_CIRC,     KC_AMPR,     KC_ASTR,     CKC_GRV,     _______,     _______,     
 
-        _______, KC_EXLM, KC_LBRC, KC_LPRN, KC_LCBR, KC_PLUS, KC_LT, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, CKC_EMD,
+		_______,     KC_EXLM,     KC_LBRC,     KC_LPRN,     KC_LCBR,     KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     CKC_EMD,     
 
-        _______, _______, KC_RBRC, KC_RPRN, KC_RCBR, KC_EQL, CKC_EMD, _______, XXXXXXX, XXXXXXX, KC_GT, CKC_TILD, KC_PIPE, KC_BSLS, _______, _______,
+		_______,     _______,     KC_RBRC,     KC_RPRN,     KC_RCBR,     KC_EQL,      CKC_EMD,     _______,                  XXXXXXX,     XXXXXXX,     KC_GT,       CKC_TILD,    KC_PIPE,     KC_BSLS,     _______,     _______,     
 
-        QK_LLCK, MO(FN), KC_MINS, KC_UNDS, MO(NUM), XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                       QK_LLCK,     MO(FN),      KC_MINS,     KC_UNDS,     MO(NUM),                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [COSM] = LAYOUT_split_3x6_5(
-        _______, CKC_AMAC, CKC_EUR, CKC_DEG, CKC_DELT, CKC_INF, CKC_MDOT, CKC_MU, CKC_UUML, CKC_EMPTY, CKC_ENT, _______,
+	[COSM] = LAYOUT_split_3x6_5(
+		_______,     CKC_AMAC,    CKC_EUR,     CKC_DEG,     CKC_DELT,    CKC_INF,                                                                      CKC_MDOT,    CKC_MU,      CKC_UUML,    CKC_EMPTY,   CKC_ENT,     _______,     
 
-        _______, CKC_AUML, CKC_NO, CKC_SUML, CKC_YES, CKC_PLSMNS, CKC_GTOET, CKC_LEFTA, CKC_UPA, CKC_RIGHTA, CKC_OUML, CKC_NEG,
+		_______,     CKC_AUML,    CKC_NO,      CKC_SUML,    CKC_YES,     CKC_PLSMNS,                                                                   CKC_GTOET,   CKC_LEFTA,   CKC_UPA,     CKC_RIGHTA,  CKC_OUML,    CKC_NEG,     
 
-        _______, CKC_EQUIV, CKC_LEFTDA, CKC_RIGHTDA, CKC_ERR, CKC_NEQL, CKC_NEG, _______, XXXXXXX, XXXXXXX, CKC_LTOET, CKC_ALMEQ, CKC_DOWNA, CKC_MATH_OR, CKC_MATH_AND, _______,
+		_______,     CKC_EQUIV,   CKC_LEFTDA,  CKC_RIGHTDA, CKC_ERR,     CKC_NEQL,    CKC_NEG,     _______,                  XXXXXXX,     XXXXXXX,     CKC_LTOET,   CKC_ALMEQ,   CKC_DOWNA,   CKC_MATH_OR, CKC_MATH_AND,_______,     
 
-        QK_LLCK, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, KC_RSFT, XXXXXXX, TO(ALPHAS)
+		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     KC_RSFT,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [NUM] = LAYOUT_split_3x6_5(
-        RGB_TOG, KC_LPRN, KC_8, KC_3, KC_2, KC_RPRN, XXXXXXX, XXXXXXX, KC_PAST, XXXXXXX, XXXXXXX, _______,
+	[NUM] = LAYOUT_split_3x6_5(
+		RGB_TOG,     KC_LPRN,     KC_8,        KC_3,        KC_2,        KC_RPRN,                                                                      XXXXXXX,     XXXXXXX,     KC_PAST,     XXXXXXX,     XXXXXXX,     _______,     
 
-        _______, KC_9, KC_7, KC_0, KC_1, KC_PLUS, KC_LT, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, KC_MINS,
+		_______,     KC_9,        KC_7,        KC_0,        KC_1,        KC_PLUS,                                                                      KC_LT,       KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     KC_MINS,     
 
-        _______, XXXXXXX, KC_6, KC_5, KC_4, KC_EQL, KC_CALC, XXXXXXX, _______, _______, KC_GT, XXXXXXX, KC_COMM, KC_DOT, KC_SLSH, _______,
+		_______,     XXXXXXX,     KC_6,        KC_5,        KC_4,        KC_EQL,      KC_CALC,     XXXXXXX,                  _______,     _______,     KC_GT,       XXXXXXX,     KC_COMM,     KC_DOT,      KC_SLSH,     _______,     
 
-        QK_LLCK, XXXXXXX, KC_MINS, KC_UNDS, _______, _______, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                       QK_LLCK,     XXXXXXX,     KC_MINS,     KC_UNDS,     _______,                  _______,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [FN] = LAYOUT_split_3x6_5(
-        RGB_MOD, KC_F12, KC_F8, KC_F3, KC_F2, KC_F15, KC_FIND, XXXXXXX, KC_EJCT, RGB_TOG, KC_MUTE, _______,
+	[FN] = LAYOUT_split_3x6_5(
+		RGB_MOD,     KC_F12,      KC_F8,       KC_F3,       KC_F2,       KC_F15,                                                                       KC_FIND,     XXXXXXX,     KC_EJCT,     RGB_TOG,     KC_MUTE,     _______,     
 
-        _______, KC_F9, KC_F7, KC_F10, KC_F1, KC_F13, XXXXXXX, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,     KC_F9,       KC_F7,       KC_F10,      KC_F1,       KC_F13,                                                                       XXXXXXX,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
 
-        _______, KC_F11, KC_F6, KC_F5, KC_F4, KC_F14, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, _______,
+		_______,     KC_F11,      KC_F6,       KC_F5,       KC_F4,       KC_F14,      XXXXXXX,     XXXXXXX,                  _______,     _______,     XXXXXXX,     KC_MPRV,     KC_MPLY,     KC_MNXT,     XXXXXXX,     _______,     
 
-        QK_LLCK, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, TO(ALPHAS)
+		                                       QK_LLCK,     XXXXXXX,     _______,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [NAV] = LAYOUT_split_3x6_5(
-        _______, KC_CAPS, CW_TOGG, XXXXXXX, CKC_SCRSV, S(KC_PSCR), KC_PGUP, KC_HOME, KC_END, A(KC_SLSH), KC_INS, _______,
+	[NAV] = LAYOUT_split_3x6_5(
+		_______,     KC_CAPS,     CW_TOGG,     XXXXXXX,     CKC_SCRSV,   S(KC_PSCR),                                                                   KC_PGUP,     KC_HOME,     KC_END,      A(KC_SLSH),  KC_INS,      _______,     
 
-        A(KC_TAB), KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, KC_PSCR, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_UP, _______,
+		A(KC_TAB),   KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     KC_PSCR,                                                                      KC_PGDN,     KC_LEFT,     KC_DOWN,     KC_RGHT,     KC_UP,       _______,     
 
-        _______, KC_TAB, KC_LEFT, KC_RGHT, LGUI(KC_D), A(KC_PSCR), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS, CW_TOGG, KC_BTN1, KC_BTN2, KC_ENT, _______,
+		_______,     KC_TAB,      KC_LEFT,     KC_RGHT,     LGUI(KC_D),  A(KC_PSCR),  XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_CAPS,     CW_TOGG,     KC_BTN1,     KC_BTN2,     KC_ENT,      _______,     
 
-        QK_LLCK, XXXXXXX, _______, _______, XXXXXXX, MO(NUM), KC_BSPC, KC_DEL, MO(COSM), TO(ALPHAS)
+		                                       QK_LLCK,     XXXXXXX,     _______,     _______,     XXXXXXX,                  MO(NUM),     KC_BSPC,     KC_DEL,      MO(COSM),    TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [MOUSE] = LAYOUT_split_3x6_5(
-        _______, KC_BTN4, KC_BTN5, KC_BTN2, KC_BTN1, KC_BTN3, KC_ACL0, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+	[MOUSE] = LAYOUT_split_3x6_5(
+		_______,     KC_BTN4,     KC_BTN5,     KC_BTN2,     KC_BTN1,     KC_BTN3,                                                                      KC_ACL0,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     _______,     
 
-        _______, KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, LSA(KC_PSCR), KC_ACL1, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,     KC_MS_L,     KC_MS_U,     KC_MS_D,     KC_MS_R,     LSA(KC_PSCR),                                                                 KC_ACL1,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
 
-        _______, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, KC_LSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ACL2, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,     KC_WH_L,     KC_WH_U,     KC_WH_D,     KC_WH_R,     KC_LSCR,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     KC_ACL2,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     _______,     
 
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, TO(ALPHAS)
+		                                       XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     _______,     _______,     _______,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [LM] = LAYOUT_split_3x6_5(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+	[LM] = LAYOUT_split_3x6_5(
+		_______,     _______,     _______,     _______,     _______,     _______,                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
 
-        _______, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT, _______, _______, _______, _______, _______, _______, _______,
+		_______,     KC_LGUI,     KC_LCTL,     KC_LSFT,     KC_LALT,     _______,                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
 
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-        _______, _______, _______, KC_LSFT, _______, MO(FN), _______, _______, _______, TO(ALPHAS)
+		                                       _______,     _______,     _______,     KC_LSFT,     _______,                  MO(FN),      _______,     _______,     _______,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [RM] = LAYOUT_split_3x6_5(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+	[RM] = LAYOUT_split_3x6_5(
+		_______,     _______,     _______,     _______,     _______,     _______,                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
 
-        _______, _______, _______, _______, _______, _______, _______, KC_RALT, KC_RSFT, KC_RCTL, KC_RGUI, _______,
+		_______,     _______,     _______,     _______,     _______,     _______,                                                                      _______,     KC_RALT,     KC_RSFT,     KC_RCTL,     KC_RGUI,     _______,     
 
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		_______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,                  _______,     _______,     _______,     _______,     _______,     _______,     _______,     _______,     
 
-        _______, _______, _______, KC_LSFT, MO(COSM), _______, _______, _______, _______, TO(ALPHAS)
+		                                       _______,     _______,     _______,     KC_LSFT,     MO(COSM),                 _______,     _______,     _______,     _______,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [GI] = LAYOUT_split_3x6_5(
-        _______, KC_LCTL, KC_2, KC_5, KC_3, KC_4, KC_BTN3, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______,
+	[GI] = LAYOUT_split_3x6_5(
+		_______,     KC_LCTL,     KC_2,        KC_5,        KC_3,        KC_4,                                                                         KC_BTN3,     KC_WH_L,     KC_WH_D,     KC_WH_U,     KC_WH_R,     _______,     
 
-        KC_1, KC_LSFT, KC_Q, KC_W, KC_E, KC_F, XXXXXXX, KC_BTN1, KC_BTN1, KC_BTN2, XXXXXXX, _______,
+		KC_1,        KC_LSFT,     KC_Q,        KC_W,        KC_E,        KC_F,                                                                         XXXXXXX,     KC_BTN1,     KC_BTN1,     KC_BTN2,     XXXXXXX,     _______,     
 
-        KC_ESC, KC_X, KC_A, KC_S, KC_D, KC_T, KC_LALT, KC_ENT, XXXXXXX, XXXXXXX, KC_SCLN, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
+		KC_ESC,      KC_X,        KC_A,        KC_S,        KC_D,        KC_T,        KC_LALT,     KC_ENT,                   XXXXXXX,     XXXXXXX,     KC_SCLN,     KC_MS_L,     KC_MS_D,     KC_MS_U,     KC_MS_R,     _______,     
 
-        TO(ALPHAS), KC_Z, MO(FN), KC_SPC, MO(GI2), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                       TO(ALPHAS),  KC_Z,        MO(FN),      KC_SPC,      MO(GI2),                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [GI2] = LAYOUT_split_3x6_5(
-        KC_LGUI, KC_J, KC_M, KC_U, KC_B, KC_C, _______, _______, _______, _______, _______, _______,
+	[GI2] = LAYOUT_split_3x6_5(
+		KC_LGUI,     KC_J,        KC_M,        KC_U,        KC_B,        KC_C,                                                                         _______,     _______,     _______,     _______,     _______,     _______,     
 
-        A(KC_TAB), KC_V, KC_Q, KC_W, KC_E, C(KC_G), _______, _______, _______, _______, _______, _______,
+		A(KC_TAB),   KC_V,        KC_Q,        KC_W,        KC_E,        C(KC_G),                                                                      _______,     _______,     _______,     _______,     _______,     _______,     
 
-        KC_P, KC_O, KC_R, KC_TAB, KC_L, KC_G, KC_BSLS, KC_BTN3, XXXXXXX, XXXXXXX, RGB_TOG, RGB_TOG, RGB_TOG, RGB_TOG, RGB_TOG, _______,
+		KC_P,        KC_O,        KC_R,        KC_TAB,      KC_L,        KC_G,        KC_BSLS,     KC_BTN3,                  XXXXXXX,     XXXXXXX,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     RGB_TOG,     _______,     
 
-        LGUI(KC_D), KC_Y, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                       LGUI(KC_D),  KC_Y,        _______,     _______,     _______,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
-            ),
+	),
 
-    [KB] = LAYOUT_split_3x6_5(
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+	[KB] = LAYOUT_split_3x6_5(
+		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,                                                                      XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     _______,     
 
-        _______, XXXXXXX, RGB_TOG, QK_BOOT, XXXXXXX, TO(KB), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,     XXXXXXX,     RGB_TOG,     QK_BOOT,     XXXXXXX,     TO(KB),                                                                       XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     _______,     
 
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+		_______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     _______,     
 
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TO(ALPHAS)
+		                                       _______,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,                  XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     TO(ALPHAS)                                          
 
-            )};
+	)
+};
 
 char PROGMEM alphas_preview_l[] = "  Q W F P B    \nt A R S T G    \nc Z X C D V c e\n      g m s _ v";
 char PROGMEM alphas_preview_r[] = "    J L U Y ' m\n    M N E I O -\nf n K H , . / r\ns b _ m r      ";

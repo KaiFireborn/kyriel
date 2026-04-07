@@ -37,5 +37,8 @@
 #define OLED_TIMEOUT 40000
 #define RGB_MATRIX_TIMEOUT 40000
 
+#define VBUS_DETECT
+#undef SPLIT_USB_DETECT
+
 // #define LED_CAPS_LOCK_PIN 24  
 // #define LED_PIN_ON_STATE 0
